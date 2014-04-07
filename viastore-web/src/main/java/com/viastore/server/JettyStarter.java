@@ -17,7 +17,7 @@ public class JettyStarter {
     public static void main(String[] args) throws Exception {
         Server server = new Server(3333);
         String rootPath = JettyStarter.class.getClassLoader().getResource(".").toString();
-        WebAppContext context = new WebAppContext(rootPath + "../../src/main/webapp", "");
+        WebAppContext context = new WebAppContext(rootPath, "");
         context.setDescriptor(rootPath + "../../src/main/resources/WEB-INF/web.xml");
         server.setHandler(context);
         server.start();
