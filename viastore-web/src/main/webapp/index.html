@@ -18,7 +18,23 @@
     <!--styles-->
     <link rel="stylesheet" href="resources/css/main.css"/>
     <link rel="less/stylesheet" href="resources/less/main.less">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <title>FirstLine software</title>
+
+    <script type="text/javascript">
+        function clickNext() {
+            jQuery('#container').removeClass('first-slide').addClass('second-slide');
+            jQuery('#block1').hide();
+            jQuery('#block2').show();
+        }
+
+        function clickPrev() {
+            jQuery('#container').removeClass('second-slide').addClass('first-slide');
+            jQuery('#block2').hide();
+            jQuery('#block1').show();
+        }
+    </script>
 </head>
 <body></body>
 </html>
