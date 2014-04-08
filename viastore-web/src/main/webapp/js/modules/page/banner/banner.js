@@ -18,6 +18,20 @@ APP.Banner = (function(module){
 
         _render = function(){
 
+                $('.banner-logo a').on('click', function(e){
+                    e.preventDefault();
+                    if($(window).outerWidth() <= 1200){
+                        var box = $('.banner-text-box');
+                        if(box.css('display') == 'none'){
+                            box.show(300);
+                        }else{
+                            box.hide(300);
+                        }
+
+                    }
+
+                });
+
         };
 
     view.init = function(){
