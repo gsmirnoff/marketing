@@ -1,4 +1,4 @@
-package com.viastore.response;
+package com.viastore.web.response;
 
 /**
  * Created by GSmirnoff on 07.04.14.
