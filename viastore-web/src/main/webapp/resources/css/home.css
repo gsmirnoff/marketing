@@ -24,7 +24,7 @@
     padding: 0;
 }
 
-.project-item .slide-cont {padding-top: 30px; }
+.project-item .slide-cont {padding-top: 30px; padding-bottom: 10px; }
 
 .project-it-img {
 	width: 390px;
@@ -46,7 +46,7 @@
 	padding-bottom: 15px;
 }
 .project-list {
-	padding: 15px 0;
+	padding: 15px 0 0;
 	list-style-position: outside;
 	list-style-type: none;
 }
@@ -132,6 +132,7 @@
 }
 .info-box {
     text-align: center;
+    line-height: 0;
 }
 .info-box img {
     max-width: 100%;
