@@ -22,10 +22,19 @@
 }
 .banner-text-box ul {
 	padding-left: 20px;
+    list-style-image: url(../images/list-point.gif);
 }
 .banner-text-box li {
 	padding-bottom: 15px;
 }
 .banner-text {
 	padding: 35px 40px 25px;
+}
+
+@media (min-width: 1200px) {
+    .banner-text-box {
+        float: right;
+        display: block;
+    }
+
 }
