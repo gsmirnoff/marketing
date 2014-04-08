@@ -143,13 +143,13 @@
 .slide-btn {
     display: block;
     height: 54px;
-    padding: 0 20px;
+    padding: 0 40px;
     font-size: 22px;
     line-height: 52px;
     color: #ffffff;
     background: url(../images/btn-slide-bg.png) no-repeat right center;
     position: absolute;
-    right: 80px;
+    right: 90px;
     bottom: 30px;
 }
 .info-box img {
