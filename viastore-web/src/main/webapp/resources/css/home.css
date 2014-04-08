@@ -20,6 +20,9 @@
     overflow: hidden;
     padding: 0px 70px;
 }
+.project-item.second-slide .slide-box {
+    padding: 0;
+}
 
 .project-item .slide-cont {padding-top: 30px; }
 
@@ -98,7 +101,7 @@
 	top: 0;
 	bottom: 0;
 	cursor: pointer;
-	width: 90px;
+	width: 110px;
 	display: none;
     right: 0;
 }
@@ -125,9 +128,13 @@
     display: block;
 }
 .project-item.second-slide .slide-cont {
-    background: #cccccc;
-    margin: 0 -70px;
-    padding: 0px 70px 30px;
+    padding: 0;
+}
+.info-box {
+    text-align: center;
+}
+.info-box img {
+    max-width: 100%;
 }
 .info-block-title {
     text-align: center;
