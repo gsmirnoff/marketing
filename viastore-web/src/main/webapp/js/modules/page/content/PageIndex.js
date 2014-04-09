@@ -17,8 +17,9 @@ APP.index = (function(module){
         },
 
         _render = function(){
-            var slider = $('.slide-box');
-            Tools.toggleSlide(slider);
+            var sections = $(_el).find('.project-item');
+            var slider = new ContentSwitcher();
+                slider.init(sections.children());
         };
 
     view.init = function(){

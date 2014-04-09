@@ -18,7 +18,12 @@
 }
 .slide-box {
     overflow: hidden;
-    padding: 0px 70px;
+    margin: 0px 70px;
+    height:415px;
+}
+
+.slides-all {
+    position: relative;
 }
 .project-item.second-slide .slide-box {
     padding: 0;
@@ -26,8 +31,9 @@
 
 .project-item .slide-cont {
     padding-top: 30px;
-    height: 355px;
+    height: 385px;
     overflow: hidden;
+    display: inline-block;
 }
 
 .project-it-img {
@@ -41,6 +47,25 @@
 .project-it-img img {
 	
 }
+
+.info-box  img.large {
+    display: none;
+}
+
+.info-box img.small {
+    display: block;
+}
+
+@media (min-width: 1200px){
+    .info-box img.large {
+      display: block;
+    }
+
+    .info-box img.small {
+      display: none;
+    }
+}
+
 .project-it-logo {
 	position: absolute;
 	top: 20px;
@@ -149,8 +174,8 @@
     color: #ffffff;
     background: url(../images/btn-slide-bg.png) no-repeat right center;
     position: absolute;
-    right: 90px;
-    bottom: 30px;
+    right: 7px;
+    bottom: 36px;
 }
 .info-box img {
     max-width: 100%;
