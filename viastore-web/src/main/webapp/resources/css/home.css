@@ -42,6 +42,7 @@
 	overflow: hidden;
 	float: left;
 	margin-right: 48px;
+    margin-top: 15px;
 	position: relative;
 }
 .project-it-img img {
@@ -115,6 +116,7 @@
 .project-it-text {
 	float: left;
 	width: 390px;
+    margin-top: 15px;
 }
 .project-item .container { 
 	position: relative; 
