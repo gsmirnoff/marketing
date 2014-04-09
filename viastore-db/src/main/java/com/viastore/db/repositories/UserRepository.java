@@ -11,9 +11,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    @Query("{'token':?0}")
+    @Query("{'token.token':?0}")
     public User findByToken(String token);
 
     @Query("{'name':?0}")
     public User findByName(String name);
+
+    @Query("{'name':?0, 'password':?1}")
+    public User findByNameAndPass(String name, String pass);
 }

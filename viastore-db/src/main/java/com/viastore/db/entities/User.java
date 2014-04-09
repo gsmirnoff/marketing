@@ -1,16 +1,22 @@
 package com.viastore.db.entities;
 
+import org.joda.time.DateTime;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.UUID;
 
 /**
  * Created by GSmirnoff on 08.04.14.
  */
 @Document
 public class User {
+    @Id
+    private String id;
     private String name;
     private String password;
     private String role = "admin";
-    private String token = "aaaaa";
+    private Token token;
 
     public User() {}
 
@@ -43,11 +49,30 @@ public class User {
         this.role = role;
     }
 
-    public String getToken() {
+    public Token getToken() {
         return token;
     }
 
-    public void setToken(String token) {
+    public void setToken(Token token) {
         this.token = token;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void renewToken() {
+        this.token.setExpires(DateTime.now().plusMinutes(30));
+    }
+
+    public void createToken() {
+        Token token = new Token();
+        token.setToken(UUID.randomUUID().toString());
+        token.setExpires(DateTime.now().plusMinutes(30));
+        this.setToken(token);
     }
 }

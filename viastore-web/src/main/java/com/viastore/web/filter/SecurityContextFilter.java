@@ -6,6 +6,7 @@ import com.sun.jersey.spi.container.ContainerResponseFilter;
 import com.sun.jersey.spi.container.ResourceFilter;
 import com.viastore.db.repositories.UserRepository;
 import com.viastore.db.entities.User;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +26,9 @@ public class SecurityContextFilter implements ResourceFilter, ContainerRequestFi
     @Override
     public ContainerRequest filter(ContainerRequest request) {
         User user = userRepository.findByToken(request.getHeaderValue("token"));
-        if (user != null) {
+        if (user != null && user.getToken().getExpires().isAfter(DateTime.now())) {
+            user.renewToken();
+            userRepository.save(user);
             request.setSecurityContext(new Authorizer(user));
         }
         return request;
