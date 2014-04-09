@@ -27,10 +27,10 @@ var Tools = {
 
                     if(slides.length > 1){
                         slides.first().css('display', 'block');
-                        slides.first().css({
-                            'padding-left':'70px'
-                        });
                         slides.last().css('display', 'none');
+                        slides.last().css({
+                            'margin-left':'-70px'
+                        });
                         slides.css({
                             'padding-top':'30px'
                         });
@@ -72,7 +72,8 @@ var Tools = {
                            current.next().fadeIn(200);
                            callback();
                            current.next().css({
-                               'padding-top':'30px'
+                               'padding-top':'30px',
+                               'margin-left':'-70px'
                            });
                        });
 
@@ -82,8 +83,7 @@ var Tools = {
                            current.prev().fadeIn(200);
                            callback();
                            current.prev().css({
-                               'padding-top':'30px',
-                               'padding-left':'70px'
+                               'padding-top':'30px'
                            });
                        });
 
