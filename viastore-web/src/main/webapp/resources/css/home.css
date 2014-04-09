@@ -24,7 +24,11 @@
     padding: 0;
 }
 
-.project-item .slide-cont {padding-top: 30px; padding-bottom: 10px; }
+.project-item .slide-cont {
+    padding-top: 30px;
+    height: 355px;
+    overflow: hidden;
+}
 
 .project-it-img {
 	width: 390px;
@@ -128,11 +132,25 @@
     display: block;
 }
 .project-item.second-slide .slide-cont {
-    padding: 0;
+    padding: 10px 0 0;
+    height: 375px;
+    position: relative;
 }
 .info-box {
     text-align: center;
     line-height: 0;
+}
+.slide-btn {
+    display: block;
+    height: 54px;
+    padding: 0 40px;
+    font-size: 22px;
+    line-height: 52px;
+    color: #ffffff;
+    background: url(../images/btn-slide-bg.png) no-repeat right center;
+    position: absolute;
+    right: 90px;
+    bottom: 30px;
 }
 .info-box img {
     max-width: 100%;

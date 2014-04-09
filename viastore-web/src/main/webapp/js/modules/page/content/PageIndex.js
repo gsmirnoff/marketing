@@ -17,7 +17,8 @@ APP.index = (function(module){
         },
 
         _render = function(){
-
+            var slider = $('.slide-box');
+            Tools.toggleSlide(slider);
         };
 
     view.init = function(){
