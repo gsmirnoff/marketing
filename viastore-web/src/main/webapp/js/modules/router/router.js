@@ -14,6 +14,7 @@ APP.Router = (function(){
             '':'index',
             '#':'index',
             '#index':'index',
+            '#solutions':'solutions',
             '#admin':'admin'
         },
 
@@ -43,11 +44,14 @@ APP.Router = (function(){
             }else{
                 _loadPage('NotFound');
             }
-
         },
 
         _hashChange = function(hash){
             location.hash = hash;
+        },
+
+        _titleChange = function(){
+
         },
 
         _handlers = function(){

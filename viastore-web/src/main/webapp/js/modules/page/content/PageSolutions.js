@@ -1,23 +1,19 @@
 /**
- * Created with JetBrains WebStorm.
- * User: SNSukhanov
- * Date: 04.04.14
- * Time: 16:10
- * To change this template use File | Settings | File Templates.
+ * Created by SNSukhanov on 10.04.14.
  */
 
-APP.index = (function(module){
+APP.solutions = (function(module){
     var view = {},
 
         _el = '.main-content',
-        _template = 'index/content',
-        _partials = ['index/head', 'index/contacts'],
+        _template = 'solutions/content',
+        _partials = [],
         _config = {
 
         },
 
         _render = function(){
-           APP.SwitcherItem.init();
+            APP.SwitcherItem.init();
         };
 
     view.init = function(){

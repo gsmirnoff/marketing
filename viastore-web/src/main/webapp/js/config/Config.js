@@ -9,11 +9,12 @@
 var config = {
     root:location.protocol + location.host + location.port,
 
-    imagesFolder:'resources/images',
+    imagesFolder:'resources/images/',
+    imagesUploadFolder:'resources/images/upload/',
     templateFolder:'resources/templates',
     cssFolder:'resources/css',
     lessFolder:'resources/less',
-    dataFolder:'resources/data',
+    dataFolder:'resources/data/',
 
     //type templates
     typeFileTemplates:'tmpl'
