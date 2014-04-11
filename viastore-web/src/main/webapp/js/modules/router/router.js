@@ -32,7 +32,7 @@ APP.Router = (function(){
         },
 
         _loadPage = function(page){
-            _hashChange(page);
+//            _hashChange(page);
             var is = _checkPartsPage(page);
             APP.Page.init(page, is);
         },
@@ -50,6 +50,7 @@ APP.Router = (function(){
                    }
                 }
             }else{
+
                 _loadPage('notfound');
             }
         },
@@ -85,12 +86,15 @@ APP.Router = (function(){
 
         _handlers = function(){
            $(window).on('hashchange load', function(event){
-               console.log(event);
                _token = APP.getToken();
                _render(event);
                _listenChangeLocation(event);
            });
         };
+
+     view.hashChange = function(hash){
+            location.hash = hash;
+     };
 
     view.start = function(){
        _handlers();

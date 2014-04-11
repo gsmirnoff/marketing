@@ -43,9 +43,10 @@ APP.SwitcherItem = (function(module){
                         },
                         {
                             type:'graph',
-                            smallImg:null,
+                            smallImg:'sber-small.png',
                             mediumImg:null,
-                            largeImg:null
+                            largeImg:'sber-large.png',
+                            linkDetails:''
                         }
                     ]
                 },
@@ -82,9 +83,9 @@ APP.SwitcherItem = (function(module){
                         },
                         {
                             type:'graph',
-                            smallImg:null,
+                            smallImg:'sber-small.png',
                             mediumImg:null,
-                            largeImg:null,
+                            largeImg:'sber-large.png',
                             linkDetails:''
                         }
                     ]
@@ -111,7 +112,6 @@ APP.SwitcherItem = (function(module){
                     sectionSwitcher.append(sectionWrap);
                 }
             }
-
             var sectionsEl = $(_el).find('.project-item');
             var slider = new ContentSwitcher();
             slider.init(sectionsEl.children());
@@ -160,7 +160,37 @@ APP.SwitcherItem = (function(module){
         },
 
         _createGraphTemplate = function(wrap, data){
+            var infoBox = $('<div/>').addClass('info-box');
+            if(data.smallImg){
+                var smallImage = $('<img/>').addClass('small').attr({
+                    src:config.imagesUploadFolder + data.smallImg
+                });
+                infoBox.append(smallImage);
+            }
+            if(data.mediumImg){
+                var mediumImage = $('<img/>').addClass('medium').attr({
+                    src:config.imagesUploadFolder + data.mediumImg
+                });
+                infoBox.append(mediumImage);
+            }
+            if(data.largeImg){
+                var largeImage = $('<img/>').addClass('large').attr({
+                    src:config.imagesUploadFolder + data.largeImg
+                });
+                infoBox.append(largeImage);
+            }
+            var link = $('<a/>').text('Подробнее').addClass('slide-btn').attr({
+                href:"#"
+            });
+            infoBox.append(link);
+            wrap.append(infoBox);
 
+            (function(){
+                link.on('click', function(event){
+                    event.preventDefault();
+                    console.log(event);
+                });
+            })();
         };
 
     view.init = function(){
