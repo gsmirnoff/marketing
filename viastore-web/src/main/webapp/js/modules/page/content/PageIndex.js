@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-APP.index = (function(module){
+APP.home = (function(module){
     var view = {},
 
         _el = '.main-content',
@@ -23,7 +23,8 @@ APP.index = (function(module){
     view.init = function(){
         TemplateManager.get({mainTemplate:_template, partials:_partials}, function (tmp) {
             var html = tmp(Tools.extend(_config));
-            $(_el).html(html);
+            $('.banner').css('display', 'block');
+            $(_el).addClass('home-content').html(html);
             _render();
         });
     };

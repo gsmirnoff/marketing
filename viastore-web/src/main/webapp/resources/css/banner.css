@@ -1,4 +1,5 @@
 .banner {
+    display: none;
 	height: 550px;
 	position: relative;
 	overflow: hidden;

@@ -17,7 +17,8 @@ APP.Header = (function(module){
         },
 
         _render = function(){
-
+            var nav = $('ul.nav-list');
+           Tools.location(nav);
         };
 
     view.init = function(){

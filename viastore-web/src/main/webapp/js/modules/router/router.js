@@ -9,12 +9,19 @@
 
 APP.Router = (function(){
     var view = {},
+        _isHeader = true,
+        _isFooter = true,
+        _isBanner = true,
 
         routes = {
-            '':'index',
-            '#':'index',
-            '#index':'index',
+            '':'home',
+            '#':'home',
+            '#home':'home',
             '#solutions':'solutions',
+            '#about':'about',
+            '#products':'products',
+            '#service':'service',
+            '#contacts':'contacts',
             '#admin':'admin'
         },
 
@@ -26,23 +33,24 @@ APP.Router = (function(){
 
         _loadPage = function(page){
             _hashChange(page);
-            APP.Page.init(page);
+            var is = _checkPartsPage(page);
+            APP.Page.init(page, is);
         },
 
         _listenChangeLocation = function(e){
             var hash = location.hash;
-            if(routes[hash] != undefined){
+            if(routes[hash] !== undefined){
                 if(_token.accessToken){
                     _loadPage(routes[hash]);
                 }else{
                    if(routes[hash] == 'admin'){
-                       _loadPage('index');
+                       _loadPage('home');
                    }else{
                        _loadPage(routes[hash]);
                    }
                 }
             }else{
-                _loadPage('NotFound');
+                _loadPage('notfound');
             }
         },
 
@@ -50,8 +58,29 @@ APP.Router = (function(){
             location.hash = hash;
         },
 
-        _titleChange = function(){
+        _checkPartsPage = function(page){
+            var is = {};
+           switch(page){
+               case 'home':is = {
+                   header:_isHeader = true,
+                   footer:_isFooter = true,
+                   banner:_isBanner = true
+               };
+               break;
+               case 'notfound':is = {
+                   header:_isHeader = true,
+                   footer:_isFooter = false,
+                   banner:_isBanner = false
+               };
+               break;
+               default : is = {
+                   header:_isHeader = true,
+                   footer:_isFooter = true,
+                   banner:_isBanner = false
+               };
+           }
 
+           return is;
         },
 
         _handlers = function(){

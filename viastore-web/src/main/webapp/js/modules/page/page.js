@@ -10,6 +10,7 @@ APP.Page = (function(module){
     var view = {},
 
         _page,
+        _is,
         _el = 'body',
         _token,
         _template = 'layout',
@@ -19,14 +20,21 @@ APP.Page = (function(module){
         },
 
         _render = function(){
-            APP.Header.init();
-            APP.Banner.init();
+            if(_is.header){
+                APP.Header.init();
+            }
+            if(_is.banner){
+                APP.Banner.init();
+            }
             APP[_page].init();
-            APP.Footer.init();
+            if(_is.footer){
+                APP.Footer.init();
+            }
         };
 
-    view.init = function(page){
+    view.init = function(page, is){
         _page = page;
+        _is = is;
         TemplateManager.get({mainTemplate:_template, partials:_partials}, function (tmp) {
             var html = tmp(Tools.extend(settings));
             $(_el).html(html);
