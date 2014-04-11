@@ -266,10 +266,11 @@
 	line-height: 30px;
 	font-size: 20px;
 }
-.contact-col h3, .feedback-form h3 {
+.simple-h3 {
 	font-size: 30px;
 	font-weight: 600;
 	padding-bottom: 20px;
+    color: #6e6e6e;
 }
 .contact-col p {
 	padding-bottom: 20px;

@@ -4,7 +4,11 @@
 	margin: 0 auto;
 	padding:0 20px;
 }
-.home-content {
+.main-content {
+    padding-top: 170px;
+}
+
+.main-content.home-content {
 	padding-top: 60px;
 }
 .boxed {
