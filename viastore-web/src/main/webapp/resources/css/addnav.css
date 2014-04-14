@@ -1,0 +1,77 @@
+.add-nav-panel {
+    position: absolute;
+    left: 0;
+    top: 200px;
+    width: 80px;
+    background: #FFFFFF;
+    border: 1px solid #cccccc;
+    border-left: 0 none;
+    box-shadow: 0 0 4px #a6a6a6;
+}
+.add-nav-arrow {
+    display: none;
+}
+.add-nav {
+    list-style-type: none;
+    list-style-position: outside;
+}
+.add-nav li {
+    display: block;
+}
+.add-nav-item {
+    display: block;
+    height: 64px;
+    background: url(../images/solutions-ic.png) no-repeat 0 0;
+}
+.add-nav-item:hover {
+    background-color: #e9e9e9;
+}
+.add-nav-item.item-auto {
+    background-position: 20px -26px;
+}
+.add-nav-item.item-building {
+    background-position: 20px -90px;
+}
+.add-nav-item.item-chemistry {
+    background-position: 20px -154px;
+}
+.add-nav-item.item-spares {
+    background-position: 20px -218px;
+}
+.add-nav-item.item-food {
+    background-position: 20px -282px;
+}
+.add-nav-item.item-ecommerce {
+    background-position: 20px -349px;
+}
+.add-nav-item.item-health {
+    background-position: 20px -413px;
+}
+.add-nav-item.item-industry {
+    background-position: 20px -477px;
+}
+.add-nav-item.item-goods {
+    background-position: 20px -542px;
+}
+.add-nav-item.item-logistics {
+    background-position: 20px -608px;
+}
+.add-nav-item.item-temperature {
+    background-position: 20px -673px;
+}
+.add-nav-item.item-other {
+    background-position: 20px -737px;
+}
+.add-nav-item span {
+    position: absolute;
+    left: 80px;
+    padding: 8px 15px 8px 10px;
+    background: #e9e9e9;
+    font-size: 18px;
+    line-height: 24px;
+    color: #6e6e6e;
+    min-height: 48px;
+    min-width: 100px;
+    display: none;
+}
+.add-nav-item:hover span {display: block;}
