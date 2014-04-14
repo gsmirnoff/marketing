@@ -228,7 +228,7 @@ APP.SwitcherItem = (function(module){
                 infoBox.append(largeImage);
             }
             var link = $('<a/>').text('Подробнее').addClass('slide-btn').attr({
-                href:config.imagesFolder + data.linkDetails,
+                href:config.docsFolder + data.linkDetails,
                 target:data.linkTarget
             });
             infoBox.append(link);

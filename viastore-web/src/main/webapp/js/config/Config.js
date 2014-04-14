@@ -15,6 +15,7 @@ var config = {
     cssFolder:'resources/css',
     lessFolder:'resources/less',
     dataFolder:'resources/data/',
+    docsFolder:'resources/docs/',
 
     //type templates
     typeFileTemplates:'tmpl'
