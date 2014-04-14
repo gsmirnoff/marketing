@@ -44,6 +44,7 @@ APP.Router = (function(){
                     _loadPage(routes[hash]);
                 }else{
                    if(routes[hash] == 'admin'){
+                       view.hashChange('home');
                        _loadPage('home');
                    }else{
                        _loadPage(routes[hash]);
