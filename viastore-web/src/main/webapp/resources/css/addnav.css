@@ -1,7 +1,8 @@
 .add-nav-panel {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 200px;
+    z-index: 100;
     width: 80px;
     background: #FFFFFF;
     border: 1px solid #cccccc;
@@ -10,7 +11,28 @@
 }
 .add-nav-arrow {
     display: none;
+    height: 35px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-indent: -999px;
+    overflow: hidden;
+    background: url(../images/solutions-ic.png) no-repeat 20px 8px;
 }
+.add-nav-arrow.move-top {
+    top: -35px;
+}
+.add-nav-arrow.move-bottom {
+    bottom: -35px;
+    background-position: 20px -801px;
+}
+.add-nav-arrow.move-top.add-nav-arrow:hover {
+    background-position: -100px 8px;
+}
+.add-nav-arrow.move-bottom.add-nav-arrow:hover {
+    background-position: -100px -801px;
+}
+
 .add-nav {
     list-style-type: none;
     list-style-position: outside;
@@ -62,6 +84,44 @@
 .add-nav-item.item-other {
     background-position: 20px -737px;
 }
+
+.add-nav-item.item-auto.active {
+    background-position: -100px -26px;
+}
+.add-nav-item.item-building.active {
+    background-position: -100px -90px;
+}
+.add-nav-item.item-chemistry.active {
+    background-position: -100px -154px;
+}
+.add-nav-item.item-spares.active {
+    background-position: -100px -218px;
+}
+.add-nav-item.item-food.active {
+    background-position: -100px -282px;
+}
+.add-nav-item.item-ecommerce.active {
+    background-position: -100px -349px;
+}
+.add-nav-item.item-health.active {
+    background-position: -100 -413px;
+}
+.add-nav-item.item-industry.active {
+    background-position: -100px -477px;
+}
+.add-nav-item.item-goods.active {
+    background-position: -100px -542px;
+}
+.add-nav-item.item-logistics.active {
+    background-position: -100px -608px;
+}
+.add-nav-item.item-temperature.active {
+    background-position: -100px -673px;
+}
+.add-nav-item.item-other.active {
+    background-position: -100px -737px;
+}
+
 .add-nav-item span {
     position: absolute;
     left: 80px;
