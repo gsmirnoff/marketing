@@ -1,5 +1,5 @@
 .add-nav-panel {
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 200px;
     z-index: 100;
