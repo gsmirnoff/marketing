@@ -51,16 +51,45 @@ APP.SwitcherItem = (function(module){
                     ]
                 },
                 {
-                    title:'Архив сбербанка',
+                    title:'Склад запасных частей Ростельмаш',
                     content:[
                         {
                             type:'text',
-                            label:'logo-sberbank.png',
-                            uploadImg:'pr-sberbank.jpg',
+                            label:'logo-rostselmash.png',
+                            uploadImg:'pr-rostselmash.jpg',
                             slideContent:[
                                 {
                                     type:'paragraph',
-                                    content:'Создании единого Архивно-логистического центра по хранению и обработке банковской документации.'
+                                    content:'Ростсельмаш предпринял комплексную реструктуризацию всей логистики запасных деталей.'
+                                },
+                                {
+                                    type:'list',
+                                    content:[
+                                        {
+                                            classIcon:'pr-ic-warehouse',
+                                            value:'крупнейший в России склад  зап.частей для сельскохозяйственных машин'
+                                        },
+                                        {
+                                            classIcon:'pr-ic-triangle',
+                                            value:'уникальная оптимизация хранения на консольных стеллажах: точность размещения до 1см'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title:'Crocus International',
+                    content:[
+                        {
+                            type:'text',
+                            label:'logo-rocus.png',
+                            uploadImg:'pr-crocus.jpg',
+                            slideContent:[
+                                {
+                                    type:'paragraph',
+                                    content:'Расширение склада и автоматизация складских процессов. Был сооружен 5-проходный автоматический высокостеллажный склад по принципу элеваторной конструкции.'
                                 },
                                 {
                                     type:'list',
@@ -70,23 +99,41 @@ APP.SwitcherItem = (function(module){
                                             value:'склад-автомат'
                                         },
                                         {
-                                            classIcon:'pr-ic-archive',
-                                            value:'более 2 млн.коробов с документами'
-                                        },
-                                        {
-                                            classIcon:'pr-ic-oxygen',
-                                            value:'зона хранения с пониженным содержанием кислорода'
+                                            classIcon:'pr-ic-rule',
+                                            value:'самый высокий склад автоматизированного хранения в вост.европе - 43м'
                                         }
                                     ]
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    title:'Мироновский хлебопродукт',
+                    content:[
                         {
-                            type:'graph',
-                            smallImg:'sber-small.png',
-                            mediumImg:null,
-                            largeImg:'sber-large.png',
-                            linkDetails:''
+                            type:'text',
+                            label:'logo-mironovskij.png',
+                            uploadImg:'pr-miro.jpg',
+                            slideContent:[
+                                {
+                                    type:'paragraph',
+                                    content:'В зоне хранения специалистами First Line Software создан самый большой в Европе и Азии склад холодного хранения.   Это первый склад в Украине, где работают только роботы.'
+                                },
+                                {
+                                    type:'list',
+                                    content:[
+                                        {
+                                            classIcon:'pr-ic-robot',
+                                            value:'склад-автомат'
+                                        },
+                                        {
+                                            classIcon:'pr-ic-warehouse',
+                                            value:'крупнейший в Вост.Европе склад-холодильник для хранения замороженных мясопродуктов'
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
