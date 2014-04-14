@@ -46,7 +46,8 @@ APP.SwitcherItem = (function(module){
                             smallImg:'sber-small.png',
                             mediumImg:null,
                             largeImg:'sber-large.png',
-                            linkDetails:''
+                            linkDetails:'case_study_viastore_Sber.pdf',
+                            linkTarget:'_blank'
                         }
                     ]
                 },
@@ -227,14 +228,15 @@ APP.SwitcherItem = (function(module){
                 infoBox.append(largeImage);
             }
             var link = $('<a/>').text('Подробнее').addClass('slide-btn').attr({
-                href:"#"
+                href:config.imagesFolder + data.linkDetails,
+                target:data.linkTarget
             });
             infoBox.append(link);
             wrap.append(infoBox);
 
             (function(){
                 link.on('click', function(event){
-                    event.preventDefault();
+//                    event.preventDefault();
                     console.log(event);
                 });
             })();
