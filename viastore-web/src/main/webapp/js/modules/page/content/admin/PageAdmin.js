@@ -6,7 +6,7 @@ APP.admin = (function(module){
     var view = {},
 
         _el = '.main-content',
-        _template = '',
+        _template = 'admin/content',
         _partials = [],
         _config = {
 
