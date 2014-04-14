@@ -7,13 +7,13 @@ APP.solutions = (function(module){
 
         _el = '.main-content',
         _template = 'solutions/content',
-        _partials = [],
+        _partials = ['solutions/head'],
         _config = {
 
         },
 
         _render = function(){
-            APP.SwitcherItem.init();
+
         };
 
     view.init = function(){
