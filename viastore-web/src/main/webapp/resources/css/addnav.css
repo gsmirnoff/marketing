@@ -1,4 +1,5 @@
 .add-nav-panel {
+    display:none;
     position: absolute;
     left: 0;
     top: 200px;

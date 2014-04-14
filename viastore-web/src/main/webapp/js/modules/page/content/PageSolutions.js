@@ -19,6 +19,7 @@ APP.solutions = (function(module){
     view.init = function(){
         TemplateManager.get({mainTemplate:_template, partials:_partials}, function (tmp) {
             var html = tmp(Tools.extend(_config));
+            $('.add-nav-panel').css('display', 'block');
             $(_el).html(html);
             _render();
         });
