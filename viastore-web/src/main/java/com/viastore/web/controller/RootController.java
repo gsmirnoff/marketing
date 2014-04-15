@@ -4,7 +4,6 @@ import com.viastore.web.response.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.security.PermitAll;
-import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

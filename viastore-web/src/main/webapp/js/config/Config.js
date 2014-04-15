@@ -7,7 +7,7 @@
  */
 
 var config = {
-    root:location.protocol + location.host + location.port,
+    root:location.protocol + location.host,
 
     imagesFolder:'resources/images/',
     imagesUploadFolder:'resources/images/upload/',
@@ -18,7 +18,12 @@ var config = {
     docsFolder:'resources/docs/',
 
     //type templates
-    typeFileTemplates:'tmpl'
+    typeFileTemplates:'tmpl',
+
+    //api
+    apiFolder:'/api/',
+    auth:'auth'
+
 
 
 };

@@ -1,19 +1,20 @@
 /**
- * Created by SNSukhanov on 11.04.14.
+ * Created by SNSukhanov on 15.04.14.
  */
 
-APP.admin = (function(module){
+
+APP.session = (function(module){
     var view = {},
 
         _el = '.main-content',
-        _template = 'admin/content',
+        _template = 'session/content',
         _partials = [],
         _config = {
-
+             brand:config.imagesFolder + 'logo.png'
         },
 
         _render = function(){
-
+             APP.FormSession.init();
         };
 
     view.init = function(){
