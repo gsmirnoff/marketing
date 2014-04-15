@@ -17,31 +17,32 @@ APP.FormSession = (function(module){
         },
 
         _session = function(auth){
-            APP.initRequest({
+            module.initRequest({
                 url:config.auth,
                 data:JSON.stringify({
                     name:auth.name,
                     password:auth.password
                 }),
                 success:_success,
-                error:_error
+                error:_error,
+                next:_done
             }, 'POST');
         },
 
         _success = function(data){
-
+            module.setToken(data.response, data.response.token);
         },
 
         _error = function(error){
            if(error.status == 503){
               var errorWrap = $('<div/>').addClass('server-error');
                $(_el).html(errorWrap);
-               APP.ServerError.init();
+               module.ServerError.init();
            }
         },
 
         _done = function(){
-
+           module.Router.hashChange('admin');
         },
 
         _handlers = function(){

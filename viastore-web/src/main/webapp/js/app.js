@@ -81,7 +81,9 @@ APP.initRequest = function(options, type){
     }
 };
 
-APP.setToken = function(token){
+APP.setToken = function(user, token){
+    sessionStorage.setItem('name', user.name);
+    sessionStorage.setItem('role', user.role);
     sessionStorage.setItem('token', token.token);
     sessionStorage.setItem('expires', token.expires);
 };

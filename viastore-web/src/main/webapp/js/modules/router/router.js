@@ -34,7 +34,6 @@ APP.Router = (function(){
         },
 
         _loadPage = function(page){
-//            _hashChange(page);
             var is = _checkPartsPage(page);
             APP.Page.init(page, is);
         },
@@ -92,7 +91,14 @@ APP.Router = (function(){
                    banner:_isBanner = false,
                    aside:_isAside = false
                };
-                   break;
+               break;
+               case 'admin':is = {
+                   header:_isHeader = false,
+                   footer:_isFooter = false,
+                   banner:_isBanner = false,
+                   aside:_isAside = false
+               };
+               break;
                default : is = {
                    header:_isHeader = true,
                    footer:_isFooter = true,
