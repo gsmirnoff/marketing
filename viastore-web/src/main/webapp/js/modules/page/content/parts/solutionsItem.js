@@ -5,7 +5,7 @@
 APP.solutionsItem = (function(module){
     var view = {},
 
-        _el = '',
+        _el = '.solutions-items',
         _template = 'solutions/items',
         _partials = [],
         _config = {

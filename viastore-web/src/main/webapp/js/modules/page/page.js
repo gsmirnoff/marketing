@@ -26,7 +26,11 @@ APP.Page = (function(module){
             if(_is.banner){
                 APP.Banner.init();
             }
+            if(_is.aside){
+                APP.Aside.init();
+            }
             APP[_page].init();
+
             if(_is.footer){
                 APP.Footer.init();
             }

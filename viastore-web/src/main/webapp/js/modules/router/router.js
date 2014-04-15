@@ -12,6 +12,7 @@ APP.Router = (function(){
         _isHeader = true,
         _isFooter = true,
         _isBanner = true,
+        _isAside = true,
 
         routes = {
             '':'home',
@@ -22,7 +23,8 @@ APP.Router = (function(){
             '#products':'products',
             '#service':'service',
             '#contacts':'contacts',
-            '#admin':'admin'
+            '#admin':'admin',
+            '#login':'session'
         },
 
         _token,
@@ -66,19 +68,36 @@ APP.Router = (function(){
                case 'home':is = {
                    header:_isHeader = true,
                    footer:_isFooter = true,
-                   banner:_isBanner = true
+                   banner:_isBanner = true,
+                   aside:_isAside = false
                };
                break;
                case 'notfound':is = {
                    header:_isHeader = true,
                    footer:_isFooter = false,
-                   banner:_isBanner = false
+                   banner:_isBanner = false,
+                   aside:_isAside = false
                };
                break;
+               case 'solutions':is = {
+                   header:_isHeader = true,
+                   footer:_isFooter = true,
+                   banner:_isBanner = false,
+                   aside:_isAside = true
+               };
+               break;
+               case 'session':is = {
+                   header:_isHeader = false,
+                   footer:_isFooter = false,
+                   banner:_isBanner = false,
+                   aside:_isAside = false
+               };
+                   break;
                default : is = {
                    header:_isHeader = true,
                    footer:_isFooter = true,
-                   banner:_isBanner = false
+                   banner:_isBanner = false,
+                   aside:_isAside = false
                };
            }
 
