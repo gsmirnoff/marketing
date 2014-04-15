@@ -3,6 +3,7 @@ package com.viastore.web.controller;
 import com.viastore.db.entities.Token;
 import com.viastore.db.entities.User;
 import com.viastore.db.repositories.UserRepository;
+import com.viastore.service.AuthService;
 import com.viastore.web.response.ResponseEntity;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +23,14 @@ import java.util.UUID;
 public class AuthController {
 
     @Autowired
-    private UserRepository userRepository;
+    private AuthService authService;
 
     @PermitAll
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     public ResponseEntity authorize(User req) {
-        User user = userRepository.findByNameAndPass(req.getName(), req.getPassword());
-        if (user == null) user = req;
-        user.createToken();
-        user = userRepository.save(req);
-        return new ResponseEntity(0, user);
+        return new ResponseEntity(0, authService.authorize(req));
     }
 
     @RolesAllowed("admin")
