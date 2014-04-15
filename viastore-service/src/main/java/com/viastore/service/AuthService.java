@@ -22,7 +22,7 @@ public class AuthService {
         User user = userRepository.findByNameAndPass(req.getName(), req.getPassword());
         if (user == null) user = req;
         user.createToken();
-        user = userRepository.save(req);
+        user = userRepository.save(user);
         return mapper.map(user, AuthUser.class);
     }
 }
