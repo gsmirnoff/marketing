@@ -7,14 +7,14 @@ APP.session = (function(module){
     var view = {},
 
         _el = '.main-content',
-        _template = '',
+        _template = 'session/content',
         _partials = [],
         _config = {
-
+             brand:config.imagesFolder + 'logo.png'
         },
 
         _render = function(){
-
+             APP.FormSession.init();
         };
 
     view.init = function(){

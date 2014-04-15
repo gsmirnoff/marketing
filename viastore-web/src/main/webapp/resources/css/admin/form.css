@@ -1,0 +1,32 @@
+.brand, .form-admin {
+    width: 353px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-admin input {
+    display: block;
+    margin-bottom: 30px;
+    height: 45px;
+    box-shadow: 0 1px 2px #A29E9E;
+    border: 1px solid #D3D3D3;
+}
+
+.form-admin input[type="text"],
+.form-admin input[type="password"]{
+    padding-left: 7px;
+    width: 343px;
+}
+
+.form-admin input[type="button"]{
+    color: #ffffff;
+    background-color: #0054a6;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 0 148px;
+    cursor: pointer;
+}
+
+.form-admin input[type="button"]:hover{
+    background-color:#ff8419;
+}
