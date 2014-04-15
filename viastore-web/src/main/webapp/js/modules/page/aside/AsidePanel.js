@@ -12,7 +12,7 @@ APP.Aside = (function(module){
             navigation:[
                 {
                     classIcon:'item-auto',
-                    value:'Автомобильная техника и коммерческий транспорт'
+                    value:'Автомобильная&nbsp;техника и&nbsp;коммерческий&nbsp;транспорт'
                 },
                 {
                     classIcon:'item-building',
@@ -24,15 +24,15 @@ APP.Aside = (function(module){
                 },
                 {
                     classIcon:'item-spares',
-                    value:'Сбыт запасных частей'
+                    value:'Сбыт&nbsp;запасных&nbsp;частей'
                 },
                 {
                     classIcon:'item-food',
-                    value:'Еда и напитки'
+                    value:'Еда&nbsp;и&nbsp;напитки'
                 },
                 {
                     classIcon:'item-ecommerce',
-                    value:'Торговля и электронная коммерция'
+                    value:'Торговля&nbsp;и&nbsp;электронная коммерция'
                 },
                 {
                     classIcon:'item-health',
@@ -48,15 +48,15 @@ APP.Aside = (function(module){
                 },
                 {
                     classIcon:'item-logistics',
-                    value:'Поставщик услуг в сфере логистики'
+                    value:'Поставщик&nbsp;услуг в&nbsp;сфере&nbsp;логистики'
                 },
                 {
                     classIcon:'item-temperature',
-                    value:'Склады с контролируемой температурой, склады глубокой заморозки'
+                    value:'Склады&nbsp;с&nbsp;контролируемой&nbsp;температурой, склады&nbsp;глубокой&nbsp;заморозки'
                 },
                 {
                     classIcon:'item-other',
-                    value:'Другие сферы'
+                    value:'Другие&nbsp;сферы'
                 }
             ]
         },
