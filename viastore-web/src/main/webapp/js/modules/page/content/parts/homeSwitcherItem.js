@@ -11,6 +11,7 @@ APP.SwitcherItem = (function(module){
         _config = {
             sections:[
                 {
+                    id:'home-63274',
                     title:'Архив сбербанка',
                     content:[
                         {
