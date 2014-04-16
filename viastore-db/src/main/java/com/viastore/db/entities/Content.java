@@ -11,6 +11,7 @@ public class Content {
     private String title;
     private String page;
     private String content;
+    private Long num;
 
     public String getTitle() {
         return title;
@@ -34,5 +35,13 @@ public class Content {
 
     public void setPage(String page) {
         this.page = page;
+    }
+
+    public Long getNum() {
+        return num;
+    }
+
+    public void setNum(Long num) {
+        this.num = num;
     }
 }

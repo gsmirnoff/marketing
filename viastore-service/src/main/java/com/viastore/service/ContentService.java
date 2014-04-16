@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -23,6 +25,12 @@ public class ContentService {
 
     public List<PageContent> getContent(String page) {
         List<Content> found = contentRepository.findByPage(page);
+        Collections.sort(found, new Comparator<Content>() {
+            @Override
+            public int compare(Content o1, Content o2) {
+                return o1.getNum().compareTo(o2.getNum());
+            }
+        });
         List<PageContent> mapped = new ArrayList<PageContent>();
         for (Content content : found) mapped.add(mapper.map(content, PageContent.class));
         return mapped;
@@ -31,6 +39,7 @@ public class ContentService {
     public PageContent create(String page, PageContent pageContent) {
         Content content = mapper.map(pageContent, Content.class);
         content.setPage(page);
+        content.setNum(contentRepository.count()+1);
         content = contentRepository.save(content);
         return mapper.map(content, PageContent.class);
     }
