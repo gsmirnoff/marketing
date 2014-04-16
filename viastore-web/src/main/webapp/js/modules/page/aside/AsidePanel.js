@@ -12,7 +12,7 @@ APP.Aside = (function(module){
             navigation:[
                 {
                     classIcon:'item-auto',
-                    value:'Автомобильная&nbsp;техника и&nbsp;коммерческий&nbsp;транспорт'
+                    value:'Автомобильная техника и коммерческий транспорт'
                 },
                 {
                     classIcon:'item-building',
@@ -24,15 +24,15 @@ APP.Aside = (function(module){
                 },
                 {
                     classIcon:'item-spares',
-                    value:'Сбыт&nbsp;запасных&nbsp;частей'
+                    value:'Сбыт запасных частей'
                 },
                 {
                     classIcon:'item-food',
-                    value:'Еда&nbsp;и&nbsp;напитки'
+                    value:'Еда и напитки'
                 },
                 {
                     classIcon:'item-ecommerce',
-                    value:'Торговля&nbsp;и&nbsp;электронная коммерция'
+                    value:'Торговля и электронная коммерция'
                 },
                 {
                     classIcon:'item-health',
@@ -44,19 +44,19 @@ APP.Aside = (function(module){
                 },
                 {
                     classIcon:'item-goods',
-                    value:'Промышленность'
+                    value:'Потребительские товары'
                 },
                 {
                     classIcon:'item-logistics',
-                    value:'Поставщик&nbsp;услуг в&nbsp;сфере&nbsp;логистики'
+                    value:'Поставщик услуг в сфере логистики'
                 },
                 {
                     classIcon:'item-temperature',
-                    value:'Склады&nbsp;с&nbsp;контролируемой&nbsp;температурой, склады&nbsp;глубокой&nbsp;заморозки'
+                    value:'Склады с контролируемой температурой, склады глубокой заморозки'
                 },
                 {
                     classIcon:'item-other',
-                    value:'Другие&nbsp;сферы'
+                    value:'Другие сферы'
                 }
             ]
         },
