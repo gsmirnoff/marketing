@@ -42,7 +42,13 @@ APP.Router = (function(){
             var hash = location.hash;
             if(routes[hash] !== undefined){
                 if(_token.accessToken){
-                    _loadPage(routes[hash]);
+                    if(routes[hash] == 'session'){
+                        view.hashChange('admin');
+                        _loadPage('admin');
+                    }else{
+                        _loadPage(routes[hash]);
+                    }
+
                 }else{
                    if(routes[hash] == 'admin'){
                        view.hashChange('home');

@@ -13,7 +13,7 @@ APP.solutions = (function(module){
         },
 
         _render = function(){
-
+           module.solutionsItem.init();
         };
 
     view.init = function(){
