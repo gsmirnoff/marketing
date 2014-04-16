@@ -24,6 +24,49 @@ var config = {
     apiFolder:'/api/',
     auth:'auth'
 
+    //templateData
+//{
+//    title:"",
+//        content:{
+//    main:[
+//        {
+//            type:'image',
+//            content:{
+//                url:'',
+//                alt:''
+//            }
+//        },
+//        {
+//            type:'paragraph',
+//            content:''
+//        },
+//        {
+//            type:'list',
+//            content:[
+//                {
+//                    value:'',
+//                    classIcon:''
+//                }
+//            ]
+//        }
+//    ],
+//        links:[
+//        {
+//            list:[
+//                {
+//                    type:'link',
+//                    content:{
+//                        value:'',
+//                        href:'',
+//                        target:''
+//                    }
+//                }
+//            ]
+//        }
+//    ]
+//}
+//}
+
 
 
 };
