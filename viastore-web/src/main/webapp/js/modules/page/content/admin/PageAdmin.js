@@ -12,8 +12,25 @@ APP.admin = (function(module){
 
         },
 
-        _render = function(){
+        _data ={},
 
+        _render = function(){
+            $(_el).find('div').on('click', function(event){
+               _saveData();
+            });
+        },
+
+        _saveData = function(){
+          module.initRequest({
+              url:'pages/home',
+              data:JSON.stringify(_data),
+              success:function(data){
+                console.log(data);
+              },
+              error:function(){
+
+              }
+          }, 'POST');
         };
 
     view.init = function(){

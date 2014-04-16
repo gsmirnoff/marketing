@@ -8,142 +8,14 @@ APP.SwitcherItem = (function(module){
         _el = '.switcher-items',
         _template = 'index/switcherItem',
         _partials = [],
-        _config = {
-            sections:[
-                {
-                    id:'home-63274',
-                    title:'Архив сбербанка',
-                    content:[
-                        {
-                            type:'text',
-                            label:'logo-sberbank.png',
-                            uploadImg:'pr-sberbank.jpg',
-                            slideContent:[
-                                {
-                                    type:'paragraph',
-                                    content:'Создании единого Архивно-логистического центра по хранению и обработке банковской документации.'
-                                },
-                                {
-                                    type:'list',
-                                    content:[
-                                        {
-                                            classIcon:'pr-ic-robot',
-                                            value:'склад-автомат'
-                                        },
-                                        {
-                                            classIcon:'pr-ic-archive',
-                                            value:'более 2 млн.коробов с документами'
-                                        },
-                                        {
-                                            classIcon:'pr-ic-oxygen',
-                                            value:'зона хранения с пониженным содержанием кислорода'
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            type:'graph',
-                            smallImg:'sber-small.png',
-                            mediumImg:null,
-                            largeImg:'sber-large.png',
-                            linkDetails:'case_study_viastore_Sber.pdf',
-                            linkTarget:'_blank'
-                        }
-                    ]
-                },
-                {
-                    title:'Склад запасных частей Ростельмаш',
-                    content:[
-                        {
-                            type:'text',
-                            label:'logo-rostselmash.png',
-                            uploadImg:'pr-rostselmash.jpg',
-                            slideContent:[
-                                {
-                                    type:'paragraph',
-                                    content:'Ростсельмаш предпринял комплексную реструктуризацию всей логистики запасных деталей.'
-                                },
-                                {
-                                    type:'list',
-                                    content:[
-                                        {
-                                            classIcon:'pr-ic-warehouse',
-                                            value:'крупнейший в России склад  зап.частей для сельскохозяйственных машин'
-                                        },
-                                        {
-                                            classIcon:'pr-ic-triangle',
-                                            value:'уникальная оптимизация хранения на консольных стеллажах: точность размещения до 1см'
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    title:'Crocus International',
-                    content:[
-                        {
-                            type:'text',
-                            label:'logo-rocus.png',
-                            uploadImg:'pr-crocus.jpg',
-                            slideContent:[
-                                {
-                                    type:'paragraph',
-                                    content:'Расширение склада и автоматизация складских процессов. Был сооружен 5-проходный автоматический высокостеллажный склад по принципу элеваторной конструкции.'
-                                },
-                                {
-                                    type:'list',
-                                    content:[
-                                        {
-                                            classIcon:'pr-ic-robot',
-                                            value:'склад-автомат'
-                                        },
-                                        {
-                                            classIcon:'pr-ic-rule',
-                                            value:'самый высокий склад автоматизированного хранения в вост.европе - 43м'
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    title:'Мироновский хлебопродукт',
-                    content:[
-                        {
-                            type:'text',
-                            label:'logo-mironovskij.png',
-                            uploadImg:'pr-miro.jpg',
-                            slideContent:[
-                                {
-                                    type:'paragraph',
-                                    content:'В зоне хранения специалистами First Line Software создан самый большой в Европе и Азии склад холодного хранения.   Это первый склад в Украине, где работают только роботы.'
-                                },
-                                {
-                                    type:'list',
-                                    content:[
-                                        {
-                                            classIcon:'pr-ic-robot',
-                                            value:'склад-автомат'
-                                        },
-                                        {
-                                            classIcon:'pr-ic-warehouse',
-                                            value:'крупнейший в Вост.Европе склад-холодильник для хранения замороженных мясопродуктов'
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
+        _config = {},
 
         _render = function(){
-            _postRender();
+            TemplateManager.get({mainTemplate:_template, partials:_partials}, function (tmp) {
+                var html = tmp(Tools.extend(_config));
+                $(_el).html(html);
+                _postRender();
+            });
         },
 
         _postRender = function(){
@@ -244,11 +116,15 @@ APP.SwitcherItem = (function(module){
         };
 
     view.init = function(){
-        TemplateManager.get({mainTemplate:_template, partials:_partials}, function (tmp) {
-            var html = tmp(Tools.extend(_config));
-            $(_el).html(html);
-            _render();
-        });
+        module.initRequest({
+            url:'pages/home',
+            success:function(data){
+                _config.sections = data;
+            },
+            next:function(){
+                _render();
+            }
+        }, 'GET');
     };
 
     return view;
