@@ -20,7 +20,6 @@ public class ContentSerializer extends JsonSerializer<PageContent> {
         jsonGenerator.writeStartObject();
 
         jsonGenerator.writeFieldName("title");
-        jsonGenerator.writeRaw(":");
         jsonGenerator.writeString(content.getTitle());
 
         jsonGenerator.writeFieldName("content");
