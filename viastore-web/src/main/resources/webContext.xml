@@ -12,5 +12,5 @@
 	http://www.springframework.org/schema/task
 	http://www.springframework.org/schema/task/spring-task-3.0.xsd">
     <import resource="classpath*:serviceContext.xml"/>
-    <context:component-scan base-package="com.viastore.web.controller"/>
+    <context:component-scan base-package="com.viastore.web.jackson, com.viastore.web.controller"/>
 </beans>
