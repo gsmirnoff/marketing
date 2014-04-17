@@ -47,7 +47,7 @@ APP.Aside = (function(module){
                 },
                 {
                     classIcon:'item-goods',
-                    value:'Промышленность'
+                    value:'Потребительские товары'
                 },
                 {
                     classIcon:'item-logistics',
