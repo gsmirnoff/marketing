@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class PageContent {
 
     private String title;
+    private Long num;
 
     @JsonRawValue
     private String content;
@@ -27,5 +28,13 @@ public class PageContent {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Long getNum() {
+        return num;
+    }
+
+    public void setNum(Long num) {
+        this.num = num;
     }
 }
