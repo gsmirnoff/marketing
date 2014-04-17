@@ -17,7 +17,7 @@ APP.FormSession = (function(module){
         },
 
         _session = function(auth){
-            module.initRequest({
+            REQUEST.initRequest({
                 url:config.auth,
                 data:JSON.stringify({
                     name:auth.name,
@@ -26,7 +26,7 @@ APP.FormSession = (function(module){
                 success:_success,
                 error:_error,
                 next:_done
-            }, 'POST');
+            }, 'POST', 'json');
         },
 
         _success = function(data){

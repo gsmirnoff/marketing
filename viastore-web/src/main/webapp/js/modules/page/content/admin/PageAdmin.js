@@ -16,12 +16,12 @@ APP.admin = (function(module){
 
         _render = function(){
             $(_el).find('div').on('click', function(event){
-               _saveData();
+
             });
         },
 
-        _saveData = function(){
-          module.initRequest({
+        _saveDataHome = function(){
+          REQUEST.initRequest({
               url:'pages/home',
               data:JSON.stringify(_data),
               success:function(data){
@@ -30,7 +30,19 @@ APP.admin = (function(module){
               error:function(){
 
               }
-          }, 'POST');
+          }, 'POST', 'json');
+        },
+        _saveDataSolutions = function(){
+          REQUEST.initRequest({
+              url:'pages/solutions',
+              data:JSON.stringify(_data),
+              success:function(data){
+                  console.log(data);
+              },
+              error:function(){
+
+              }
+          }, 'POST', 'json');
         };
 
     view.init = function(){
