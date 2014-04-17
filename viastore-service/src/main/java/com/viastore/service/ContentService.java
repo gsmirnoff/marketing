@@ -39,8 +39,26 @@ public class ContentService {
     public PageContent create(String page, PageContent pageContent) {
         Content content = mapper.map(pageContent, Content.class);
         content.setPage(page);
-        content.setNum(contentRepository.count()+1);
+        content.setNum(contentRepository.getCurrentCount(page)+1);
         content = contentRepository.save(content);
         return mapper.map(content, PageContent.class);
+    }
+
+    public PageContent update(String page, Long num, PageContent pageContent) {
+        Content content = contentRepository.findByPageAndNum(page, num);
+        if (content==null) return null;
+        mapper.map(pageContent, content);
+        content.setNum(num);
+        contentRepository.save(content);
+        return mapper.map(content, PageContent.class);
+    }
+
+    public boolean delete(String page, Long num) {
+        Content content = contentRepository.findByPageAndNum(page, num);
+        if (content != null) {
+            contentRepository.delete(content);
+            return true;
+        }
+        return false;
     }
 }
