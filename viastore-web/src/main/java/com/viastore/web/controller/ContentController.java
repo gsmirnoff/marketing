@@ -31,6 +31,15 @@ public class ContentController {
     }
 
     @PermitAll
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Path("/{page}/{id}")
+    public PageContent getOne(@PathParam("page") String page, @PathParam("id") Long id) {
+        return null;
+    }
+
+    @PermitAll
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
