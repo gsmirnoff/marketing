@@ -2,6 +2,7 @@ package com.viastore.web.controller;
 
 import com.viastore.service.ContentService;
 import com.viastore.service.dto.PageContent;
+import com.viastore.service.dto.PageContentReduced;
 import com.viastore.web.response.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,9 +35,18 @@ public class ContentController {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
+    @Path("{page}/reduced")
+    public List<PageContentReduced> getreducedList(@PathParam("page") String page) {
+        return contentService.getReducedList(page);
+    }
+
+    @PermitAll
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}/{id}")
     public PageContent getOne(@PathParam("page") String page, @PathParam("id") Long id) {
-        return null;
+        return contentService.getOne(page, id);
     }
 
     @PermitAll

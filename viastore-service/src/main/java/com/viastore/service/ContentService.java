@@ -3,6 +3,7 @@ package com.viastore.service;
 import com.viastore.db.entities.Content;
 import com.viastore.db.repositories.ContentRepository;
 import com.viastore.service.dto.PageContent;
+import com.viastore.service.dto.PageContentReduced;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,15 +25,22 @@ public class ContentService {
     private DozerBeanMapper mapper;
 
     public List<PageContent> getContent(String page) {
-        List<Content> found = contentRepository.findByPage(page);
-        Collections.sort(found, new Comparator<Content>() {
-            @Override
-            public int compare(Content o1, Content o2) {
-                return o1.getNum().compareTo(o2.getNum());
-            }
-        });
+        List<Content> found = getListForPage(page);
         List<PageContent> mapped = new ArrayList<PageContent>();
         for (Content content : found) mapped.add(mapper.map(content, PageContent.class));
+        return mapped;
+    }
+
+
+    public PageContent getOne(String page, Long num) {
+        Content content = contentRepository.findByPageAndNum(page, num);
+        return mapper.map(content, PageContent.class);
+    }
+
+    public List<PageContentReduced> getReducedList(String page) {
+        List<Content> found = getListForPage(page);
+        List<PageContentReduced> mapped = new ArrayList<PageContentReduced>();
+        for (Content content : found) mapped.add(mapper.map(content, PageContentReduced.class));
         return mapped;
     }
 
@@ -60,5 +68,16 @@ public class ContentService {
             return true;
         }
         return false;
+    }
+
+    private List<Content> getListForPage(String page) {
+        List<Content> found = contentRepository.findByPage(page);
+        Collections.sort(found, new Comparator<Content>() {
+            @Override
+            public int compare(Content o1, Content o2) {
+                return o1.getNum().compareTo(o2.getNum());
+            }
+        });
+        return found;
     }
 }
