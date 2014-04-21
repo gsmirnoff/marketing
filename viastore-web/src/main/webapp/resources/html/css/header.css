@@ -7,12 +7,12 @@
 	background: rgba(255, 255, 255, 0.95);
 }
 .logo {
-	padding: 13px 0;
+	padding: 8px 0 3px;
 	float: left;
 }
 .main-nav {
 	float: right;
-	padding: 25px 0 10px;
+	padding: 18px 0 10px;
 	display: block;
 }
 .nav-list {
@@ -39,7 +39,7 @@
 }
 .title-f.header-title {
     float: left;
-    padding: 24px 0 0 30px;
+    padding: 17px 0 0 30px;
     font-size: 30px;
     display: none;
 }
