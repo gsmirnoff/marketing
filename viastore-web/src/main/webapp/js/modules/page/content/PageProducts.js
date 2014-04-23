@@ -7,13 +7,13 @@ APP.products = (function(module){
 
         _el = '.main-content',
         _template = 'products/content',
-        _partials = [],
+        _partials = ['products/head'],
         _config = {
 
         },
 
         _render = function(){
-
+           module.productsItem.init();
         };
 
     view.init = function(){
