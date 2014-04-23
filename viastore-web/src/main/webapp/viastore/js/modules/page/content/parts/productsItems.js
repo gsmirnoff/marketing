@@ -35,12 +35,12 @@ APP.productsItem = (function(module){
         },
 
         _postRender = function(){
-            APP.initRequest({
-               url:config.apiFolder + 'pages/products/reduced',
-                success:function(data){
-                    console.log(data);
-                }
-            },'GET');
+//            REQUEST.initRequest({
+//               url:config.apiFolder + 'pages/products/reduced',
+//                success:function(data){
+//                    console.log(data);
+//                }
+//            },'GET');
         };
 
 

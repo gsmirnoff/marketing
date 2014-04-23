@@ -29,6 +29,35 @@ APP.deleteToken = function(){
     sessionStorage.removeItem('expires');
 };
 
+APP.save = function(self){
+   console.log(self);
+};
+
+APP.fetch = function(self){
+    console.log(self);
+    var page = Tools.hash();
+    REQUEST.initRequest({
+        url:'pages/'+page,
+        success:function(data){
+           self.setData(data);
+        },
+        next:function(){
+          self.postRender();
+        }
+    },'GET', 'json');
+
+};
+
+APP.delete = function(self){
+
+};
+
+APP.update = function(self){
+
+};
+
+
+
 APP.start = function(){
   this.Router.start();
 };

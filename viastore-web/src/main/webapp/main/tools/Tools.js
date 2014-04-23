@@ -30,5 +30,16 @@ var Tools = {
             var notfound = 'FLS | 404';
             $('title').text(notfound);
         }
+    },
+
+    hash:function(){
+       var hash = location.hash;
+       var result = hash.split('');
+           result.shift();
+       return result.join('');
+    },
+
+    hashChange:function(hash){
+       location.hash = hash;
     }
 };
