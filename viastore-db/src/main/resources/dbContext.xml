@@ -29,9 +29,7 @@
                        auto-connect-retry="true"/>
     </mongo:mongo>
 
-    <mongo:repositories base-package="com.viastore.db.repositories" repository-impl-postfix="CustomImpl">
-        <repository:exclude-filter type="regex" expression=".*BaseRepository"/>
-    </mongo:repositories>
+    <mongo:repositories base-package="com.viastore.db.repositories" repository-impl-postfix="CustomImpl"/>
 
     <mongo:db-factory id="mongoDbFactory"
                       dbname="${mongo.collection}"

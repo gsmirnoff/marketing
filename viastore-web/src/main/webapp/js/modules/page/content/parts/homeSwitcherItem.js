@@ -116,7 +116,7 @@ APP.SwitcherItem = (function(module){
         };
 
     view.init = function(){
-        module.initRequest({
+        REQUEST.initRequest({
             url:'pages/home',
             success:function(data){
                 _config.sections = data;
@@ -124,7 +124,7 @@ APP.SwitcherItem = (function(module){
             next:function(){
                 _render();
             }
-        }, 'GET');
+        }, 'GET', 'json');
     };
 
     return view;

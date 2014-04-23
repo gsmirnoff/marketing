@@ -2,6 +2,7 @@ package com.viastore.web.controller;
 
 import com.viastore.service.ContentService;
 import com.viastore.service.dto.PageContent;
+import com.viastore.web.response.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -38,4 +39,24 @@ public class ContentController {
         return contentService.create(page, content);
     }
 
+    @PermitAll
+    @PUT
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Path("/{page}/{id}")
+    public PageContent update(@PathParam("page") String page, @PathParam("id") Long id, PageContent content) {
+        return contentService.update(page, id, content);
+    }
+
+    @PermitAll
+    @DELETE
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Path("/{page}/{id}")
+    public ResponseEntity delete(@PathParam("page") String page, @PathParam("id") Long id) {
+        if (contentService.delete(page, id)) {
+            return new ResponseEntity(0, "Delete successful");
+        }
+        return new ResponseEntity(0, "No such page");
+    }
 }
