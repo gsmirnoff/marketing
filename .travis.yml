@@ -1,0 +1,6 @@
+language: java
+install: mvn clean package
+notifications:
+  email:
+    - gregsm1988@gmail.com
+    - sergey.n.sukhanov@gmail.com

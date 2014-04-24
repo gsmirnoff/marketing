@@ -27,20 +27,27 @@ APP.productsItem = (function(module){
         },
 
         _render = function(){
-            TemplateManager.get({mainTemplate:_template, partials:_partials}, function (tmp) {
-                var html = tmp(Tools.extend(_config));
-                $(_el).html(html);
-                _postRender();
-            });
+          $('.product-links').each(function(index, elem){
+              _tabs(elem);
+          });
+        },
+
+        _tabs = function(tab){
+            var links = $(tab).find('.product-pr');
+            var tabs = $(tab).find('.product-description');
+            for(var i=0; i<links.length; i++){
+                $(links[i]).attr('data-link', 'link'+i);
+                $(tabs[i]).attr('data-tab', 'tab'+i);
+
+                if(i === 0){
+                    $(links[i]).addClass('active');
+                    $(tabs[i]).show();
+                }
+            }
         },
 
         _postRender = function(){
-//            REQUEST.initRequest({
-//               url:config.apiFolder + 'pages/products/reduced',
-//                success:function(data){
-//                    console.log(data);
-//                }
-//            },'GET');
+
         };
 
 
