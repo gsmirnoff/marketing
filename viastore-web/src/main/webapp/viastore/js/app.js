@@ -34,7 +34,6 @@ APP.save = function(self){
 };
 
 APP.fetch = function(self){
-    console.log(self);
     var page = Tools.hash();
     REQUEST.initRequest({
         url:'pages/'+page,

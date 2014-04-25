@@ -29,15 +29,26 @@ APP.deleteToken = function(){
     sessionStorage.removeItem('expires');
 };
 
-APP.save = function(self){
-   console.log(self);
-};
-
-APP.fetch = function(self){
-    console.log(self);
+APP.save = function(self, path){
+    var data = self.getData();
     var page = Tools.hash();
     REQUEST.initRequest({
-        url:'pages/'+page,
+        url:path + '/' + page,
+        data:JSON.stringify(data),
+        success:function(data){
+//            self.setData(data);
+            console.log(data);
+        },
+        next:function(){
+//            self.postRender();
+        }
+    },'POST', 'json');
+};
+
+APP.fetch = function(self, path){
+    var page = Tools.hash();
+    REQUEST.initRequest({
+        url:path + '/' + page,
         success:function(data){
            self.setData(data);
         },
