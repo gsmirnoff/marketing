@@ -15,6 +15,15 @@ public class Content {
     private String page;
     private String content;
     private Long num;
+    private String template;
+
+    public String getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
+    }
 
     public String getTitle() {
         return title;
