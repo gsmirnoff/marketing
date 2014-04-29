@@ -1,15 +1,11 @@
 /**
- * Created with JetBrains WebStorm.
- * User: SNSukhanov
- * Date: 04.04.14
- * Time: 12:56
- * To change this template use File | Settings | File Templates.
+ * Created by SNSukhanov on 25.04.14.
  */
 
-APP.footer = (function(module){
+APP.prometheus = (function(module){
     var view = {},
         _el,
-        _template,
+        _template = 'prometheus',
         _settings,
 
         _render = function(){

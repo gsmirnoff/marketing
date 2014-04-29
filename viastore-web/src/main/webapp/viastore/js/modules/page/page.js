@@ -9,16 +9,17 @@
 APP.Page = (function(module){
     var view = {},
         _el = 'body',
-        _data = {},
+        _data = {
+            template:'layout',
+            deps:['header', 'footer', 'content']
+        },
         _layout = false,
         _settings = {},
 
         _postRender = function(){
-            console.log('layout');
-            console.log(_data);
             TemplateManager.get({mainTemplate:_data.template, partials:[]}, function(tmp){
                 var html = tmp(Tools.extend(_settings));
-                $(_el).html(html);
+                $(_el).addClass(Tools.hash()).html(html);
                 _layout = true;
                 _loadContentPage();
             });
@@ -29,9 +30,14 @@ APP.Page = (function(module){
         },
 
         _drawContent = function(){
-            var reg = /main/;
-            console.log('draw');
-            console.log(_settings);
+            for(var i=0; i<_data.deps.length; i++){
+                APP[_data.deps[i]].init({
+                    template:_data.deps[i]+'/content',
+                    el:'.main-'+_data.deps[i],
+                    settings:_settings
+                });
+            }
+            _layout = false;
         };
 
     view.getData = function(){

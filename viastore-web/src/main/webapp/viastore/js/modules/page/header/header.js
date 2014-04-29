@@ -6,27 +6,36 @@
  * To change this template use File | Settings | File Templates.
  */
 
-APP.Header = (function(module){
+APP.header = (function(module){
     var view = {},
-
-        _template = 'header',
-        _partials = ['header/brand', 'header/navigation'],
-        _el = '.main-header',
+        _el,
+        _template,
         _settings = {
-            brand:config.imagesFolder + '/logo.png'
+            brand:'resources/images/logo.png'
         },
 
         _render = function(){
-            var nav = $('ul.nav-list');
-           Tools.location(nav);
+            TemplateManager.get({mainTemplate:_template, partials:[]}, function(tmp){
+                var html = tmp(Tools.extend(_settings));
+                $(_el).html(html);
+            });
+        },
+
+        _loadNavigation = function(){
+            REQUEST.initRequest({
+                url:''
+            }, 'GET', 'json');
         };
 
-    view.init = function(){
-        TemplateManager.get({mainTemplate:_template, partials:_partials}, function (tmp) {
-            var html = tmp(Tools.extend(_settings));
-            $(_el).html(html);
-            _render();
-        });
+    view.saveConfig = function(options){
+        _el = options.el;
+        _template = options.template;
+        _settings.header = options.settings;
+    };
+
+    view.init = function(options){
+        view.saveConfig(options);
+        _render();
     };
 
     return view;
