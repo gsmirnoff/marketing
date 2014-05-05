@@ -24,11 +24,23 @@ var Tools = {
                 $(list[i]).find('a').addClass('active');
                 flagNotFount = false;
             }
+            if((location.hash === "") || (location.hash === "#")){
+                var titleHome = 'FLS | Главная';
+                $('title').text(titleHome);
+                $(list[0]).find('a').addClass('active');
+                flagNotFount = false;
+            }
         }
 
         if(flagNotFount){
             var notfound = 'FLS | 404';
             $('title').text(notfound);
         }
+    },
+    hash:function(){
+        var hash = location.hash;
+        var result = hash.split('');
+        result.shift();
+        return result.join('');
     }
 };

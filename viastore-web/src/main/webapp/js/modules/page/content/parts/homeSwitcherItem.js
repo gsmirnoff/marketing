@@ -80,6 +80,11 @@ APP.SwitcherItem = (function(module){
 
         },
 
+        _getHome = function(view){
+            var self = this;
+yande
+        },
+
         _createGraphTemplate = function(wrap, data){
             var infoBox = $('<div/>').addClass('info-box');
             if(data.smallImg){
@@ -117,7 +122,7 @@ APP.SwitcherItem = (function(module){
 
     view.init = function(){
         REQUEST.initRequest({
-            url:'pages/home',
+            url:'content/home',
             success:function(data){
                 _config.sections = data;
             },

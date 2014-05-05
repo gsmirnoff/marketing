@@ -25,6 +25,8 @@ APP.Page = (function(module){
             }
             if(_is.banner){
                 APP.Banner.init();
+            }else{
+                APP.Banner.initNoTemp();
             }
             if(_is.aside){
                 APP.Aside.init();
