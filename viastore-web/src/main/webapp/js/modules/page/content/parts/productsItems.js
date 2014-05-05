@@ -33,6 +33,9 @@ APP.productsItem = (function(module){
             $('.prod-wide').each(function(index, elem){
                 _toggle($(elem));
             });
+          $('.prod-wide').each(function(index, elem){
+              _toggle($(elem));
+          });
         },
 
         _tabs = function(tab){
