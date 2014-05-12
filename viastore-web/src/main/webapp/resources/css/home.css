@@ -267,10 +267,11 @@
 	font-size: 20px;
 }
 .simple-h3 {
-	font-size: 30px;
-	font-weight: 600;
-	padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 20px;
     color: #6e6e6e;
+    margin-top: 20px;
 }
 .contact-col p {
 	padding-bottom: 20px;
