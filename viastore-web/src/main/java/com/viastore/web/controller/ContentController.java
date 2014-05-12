@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by GSmirnoff on 16.04.14.
  */
-@Path("/pages")
+@Path("/content")
 @Component
 public class ContentController {
 

@@ -9,10 +9,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class PageContent {
 
     private String title;
+    private String template;
     private Long num;
 
     @JsonRawValue
     private String content;
+
+    public String getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
+    }
 
     public String getTitle() {
         return title;

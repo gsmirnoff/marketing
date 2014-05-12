@@ -22,6 +22,7 @@ public class ContentDeserializer extends JsonDeserializer<PageContent> {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         content.setTitle(node.get("title").asText());
         content.setContent(node.get("content").toString());
+        content.setTemplate(node.get("template").toString());
         return content;
     }
 }
