@@ -133,7 +133,16 @@
 }
 .product-description {
     display: none;
-    padding: 30px 0 50px;
+    padding: 30px 20px 50px;
+}
+
+.toggle-header{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.wrap-table{
+    display:none;
 }
 .product-description .project-it-name {
     padding: 0 0 15px;

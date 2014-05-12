@@ -33,9 +33,11 @@ APP.productsItem = (function(module){
             $('.prod-wide').each(function(index, elem){
                 _toggle($(elem));
             });
-          $('.prod-wide').each(function(index, elem){
-              _toggle($(elem));
-          });
+
+            $('.toggle-header').on('click', function(event){
+                $(event.currentTarget).toggleClass('active');
+                $(event.currentTarget).siblings('.wrap-table').slideToggle(300);
+            });
         },
 
         _tabs = function(tab){
@@ -51,12 +53,13 @@ APP.productsItem = (function(module){
                 var activeTab = $(tabs).filter('[data-tab="'+activeLink.data('link')+'"]');
                 if(activeLink.hasClass('active')){
                     activeLink.toggleClass('active');
-                    activeTab.slideToggle(400);
+                    activeTab.toggle(400);
                 }else{
                     $(links).not(activeLink).removeClass('active');
-                    $(tabs).not(activeTab).slideUp(400);
-                    activeLink.addClass('active');
-                    activeTab.slideDown(400);
+                    $(tabs).not(activeTab).slideUp(400, function(){
+                        activeLink.addClass('active');
+                        activeTab.slideDown(400);
+                    });
                 }
             });
 
