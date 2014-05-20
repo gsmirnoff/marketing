@@ -31,10 +31,28 @@ APP.Banner = (function(module){
                     }
 
                 });
+          _changeBanner();
+        },
 
+        _changeBanner = function(){
+            var hash = Tools.hash();
+            if((hash === 'home') || (hash === '#') || hash === ''){
+               console.log('home');
+            }else{
+                var ban = $(_el);
+                var img = $('<img/>').attr({
+                    src:'resources/images/solutions_bg.jpg'
+                });
+                ban.addClass('simple-page-banner');
+                ban.append(img).show();
+            }
         };
+    view.initNoTemp = function(){
+        _changeBanner();
+    };
 
     view.init = function(){
+
         TemplateManager.get({mainTemplate:_template, partials:_partials}, function (tmp) {
             var html = tmp(Tools.extend(_settings));
             $(_el).html(html);

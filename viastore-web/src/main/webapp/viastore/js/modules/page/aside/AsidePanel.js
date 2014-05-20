@@ -149,14 +149,18 @@ APP.Aside = (function(module){
             $(window).on('scroll', function(event){
                 if($(event.currentTarget).scrollTop() >= parseInt($(_el).data('offset'))){
                     $(_el).css({
-                        'position':'fixed',
-                        'top':0
+                        'position':'fixed'
                     });
+                    $(_el).animate({
+                        'top':100
+                    }, 500);
                 }else if($(event.currentTarget).scrollTop() < parseInt($(_el).data('offset'))){
                     $(_el).css({
-                        'position':'absolute',
-                        'top':200
+                        'position':'fixed'
                     });
+                    $(_el).animate({
+                        'top':200
+                    }, 500);
                     if(_listPanel){
                         _listPanel.removeClass('active');
                     }
@@ -183,7 +187,7 @@ APP.Aside = (function(module){
             $(_el).find('a').on('click', function(event){
                 event.preventDefault();
                 var scroll = $(event.currentTarget).data('navOffset');
-                $(window).scrollTop(scroll);
+                $(window).scrollTop(scroll-30);
                 console.log(event);
             });
 

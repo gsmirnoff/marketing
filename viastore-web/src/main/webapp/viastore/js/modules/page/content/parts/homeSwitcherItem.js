@@ -80,6 +80,10 @@ APP.SwitcherItem = (function(module){
 
         },
 
+        _getHome = function(view){
+            var self = this;
+        },
+
         _createGraphTemplate = function(wrap, data){
             var infoBox = $('<div/>').addClass('info-box');
             if(data.smallImg){
@@ -109,15 +113,43 @@ APP.SwitcherItem = (function(module){
 
             (function(){
                 link.on('click', function(event){
-//                    event.preventDefault();
+                    event.preventDefault();
                     console.log(event);
                 });
             })();
         };
 
+//    view.createUpdateSection = function(){
+//        var data = _config.sections[2];
+//        var newSlide = {
+//            largeImg:'crocus-large.png',
+//            linkDetails:null,
+//            linkTarget:'_blank',
+//            mediumImg:null,
+//            smallImg:'crocus-small.png',
+//            type:'graph'
+//        };
+//        data.content.push(newSlide);
+//        console.log(data);
+//        view.update('4', data);
+//    };
+
+//    view.update = function(id, dataID){
+//        REQUEST.initRequest({
+//            url:'content/home/'+id,
+//            data:JSON.stringify(dataID),
+//            success:function(data){
+//                console.log(data);
+//            },
+//            error:function(error){
+//                console.log(error);
+//            }
+//        }, 'PUT', 'json');
+//    };
+
     view.init = function(){
         REQUEST.initRequest({
-            url:'pages/home',
+            url:'content/home',
             success:function(data){
                 _config.sections = data;
             },
