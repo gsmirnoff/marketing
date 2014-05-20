@@ -1,80 +1,39 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" charset="utf-8" />
-    <meta name = "format-detection" content = "telephone=no" />
-    <meta name="viewport" content="width=device-width; ">
-    <title>First Line Software | Admin panel</title>
-    <script src="scripts/libs/jquery-1.11.0.min.js"></script>
-    <script src="scripts/libs/handlebars-v1.3.0.js"></script>
-    <!--tools-->
-    <script src="scripts/tools/Config.js"></script>
-    <script src="scripts/tools/app.js"></script>
-    <script src="scripts/tools/Tools.js"></script>
-    <script src="scripts/tools/Reguest.js"></script>
-    <script src="scripts/tools/handlebarsTunings.js"></script>
-    <script src="scripts/tools/templateManager.js"></script>
-    <script src="js/modules/router/router.js"></script>
-
-    <!--start-->
-    <script src="js/modules/main/main.js"></script>
-    <script src="js/starter.js"></script>
-
-    <!--styles-->
-    <!--<link rel="stylesheet" href="resources/css/main.css"/>-->
-    <!--<link rel="less/stylesheet" href="resources/less/main.less">-->
-    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600&subset=latin,cyrillic' rel='stylesheet' type='text/css'>-->
-    <!--<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>-->
-</head>
-<body>
-   <div id="wrapper">
-       <header class="header">
-            <div class="brand">
-                <img src=""/>
-            </div>
-            <ul>
-                <li class="account">Sergey Sukhanov</li>
-                <li class="logout">Log out</li>
-            </ul>
-       </header>
-       <div class="main-section">
-           <section>
-               <div class="list-projects">
-                  <ul>
-                      <li class="project">viastore</li>
-                      <li class="project">crm</li>
-                  </ul>
-               </div>
-               <div class="list-pages">
-                   <span class="arrow arrow-left"></span>
-                   <span class="arrow arrow-right"></span>
-                   <div class="pages">
-                       <ul>
-                           <li class="page" data-page="home">Home</li>
-                           <li class="page" data-page="about">About</li>
-                           <li class="page" data-page="products">Products</li>
-                           <li class="page" data-page="solutions">Solutions</li>
-                           <li class="page" data-page="service">Service</li>
-                           <li class="page" data-page="contacts">Contacts</li>
-                       </ul>
-                   </div>
-               </div>
-           </section>
-           <section class="workflow">
-               <div class="title">
-                   <h1 contenteditable="true">Title</h1>
-               </div>
-               <div class="templates">
-
-               </div>
-               <div class="constructor">
-
-               </div>
-               <div class="preview">
-
-               </div>
-           </section>
-       </div>
-   </div>
-</body>
+<html>
+    <head>
+        <title>Log in</title>
+        <link rel="stylesheet" href="../scripts/css/main.css"/>
+        <!--scripts-->
+        <script src="../scripts/libs/jquery-1.11.0.min.js"></script>
+        <script src="js/modules/plugin/login/login.js"></script>
+        <script src="js/starter.js"></script>
+    </head>
+    <body>
+      <div id="wrapper" class="login-panel">
+          <header>
+              <h1>admin panel</h1>
+          </header>
+          <section>
+              <form id="adminForm">
+                  <div class="row">
+                      <input id="loginName" type="text" value="" placeholder="Enter your login"/>
+                      <div class="hint">
+                          <span class="title-hint"></span>
+                          <span class="content-hint"></span>
+                          <span class="icon-hint"></span>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <input id="loginPass" type="password" value="" placeholder="Enter your password"/>
+                      <div class="hint">
+                          <span class="title-hint"></span>
+                          <span class="content-hint"></span>
+                          <span class="icon-hint"></span>
+                      </div>
+                  </div>
+                  <input id="loginSubmit" type="button" value="Sign in"/>
+              </form>
+          </section>
+      </div>
+    </body>
 </html>

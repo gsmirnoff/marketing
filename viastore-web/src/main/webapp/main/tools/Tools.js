@@ -41,5 +41,22 @@ var Tools = {
 
     hashChange:function(hash){
        location.hash = hash;
+    },
+
+    fetch:function(view, self){
+        var hash = Tools.hash();
+        if(hash === ""){
+            hash = "home";
+        }
+        AJAX.set({
+            root:'api',
+            request:'/pages/' + hash,
+            success:function(data){
+                view.setData(data);
+            },
+            next:function(){
+                view.postRender();
+            }
+        }, 'fetch');
     }
 };

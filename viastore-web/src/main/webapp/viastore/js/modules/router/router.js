@@ -1,11 +1,3 @@
-/**
- * Created with JetBrains WebStorm.
- * User: SNSukhanov
- * Date: 04.04.14
- * Time: 12:56
- * To change this template use File | Settings | File Templates.
- */
-
 
 APP.Router = (function(){
     var view = {},
@@ -17,9 +9,7 @@ APP.Router = (function(){
             'about':'about',
             'products':'products',
             'service':'service',
-            'contacts':'contacts',
-            'admin':'admin',
-            'login':'session'
+            'contacts':'contacts'
         },
 
         validationHash = function(){

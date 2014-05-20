@@ -1,32 +1,23 @@
-/**
- * Created with JetBrains WebStorm.
- * User: SNSukhanov
- * Date: 04.04.14
- * Time: 12:56
- * To change this template use File | Settings | File Templates.
- */
 
-APP.Page = (function(module){
+APP.Page = (function(module, template){
     var view = {},
         _el = 'body',
-        _data = {
-            template:'layout',
-            deps:['header', 'footer', 'content']
-        },
+        _data = {},
         _layout = false,
         _settings = {},
 
         _postRender = function(){
-            TemplateManager.get({mainTemplate:_data.template, partials:[]}, function(tmp){
-                var html = tmp(Tools.extend(_settings));
-                $(_el).addClass(Tools.hash()).html(html);
-                _layout = true;
-                _loadContentPage();
-            });
+              template.setTemplate({
+                  template:_data.template,
+                  next:_loadContentPage
+              }, 'loadTemplate');
+
         },
 
-        _loadContentPage = function(){
-            module.fetch(view, 'content');
+        _loadContentPage = function(html){
+            $(_el).html(html);
+            _layout = true;
+            Tools.fetch(view, 'content');
         },
 
         _drawContent = function(){
@@ -69,8 +60,8 @@ APP.Page = (function(module){
     };
 
     view.init = function(){
-        module.fetch(view, 'pages');
+        Tools.fetch(view, 'pages');
     };
 
     return view;
-})(APP);
+})(APP, TEMPLATES);
