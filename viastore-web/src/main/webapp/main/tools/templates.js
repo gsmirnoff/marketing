@@ -12,8 +12,8 @@ window.TEMPLATES = {
     next:null
 };
 
-TEMPLATES.loadTemplate = function(settings){
-    var url = this.path + this.template + this.type;
+TEMPLATES.loadTemplate = function(options){
+    var url = this.path + options.template + this.type;
     REQUEST.Request({
         url:url,
         type:'GET',
@@ -26,7 +26,7 @@ TEMPLATES.loadTemplate = function(settings){
             TEMPLATES.compile(res);
         },
         next:function(){
-            TEMPLATES.setAttributes(settings);
+            TEMPLATES.setAttributes(options.next, options.settings);
         },
         error:function(e){
             console.log(e);
@@ -38,9 +38,9 @@ TEMPLATES.compile = function(source){
     this.html = Handlebars.compile(source);
 };
 
-TEMPLATES.setAttributes = function(settings){
+TEMPLATES.setAttributes = function(next, settings){
     this.elem = this.html(settings);
-    this.next(this.elem, settings);
+    next(this.elem, settings);
 };
 
 TEMPLATES.changePath = function(path){
@@ -58,7 +58,9 @@ TEMPLATES.changeType = function(type){
 };
 
 TEMPLATES.setTemplate = function(options, callback){
-    this.template = options.template;
-    this.next = options.next;
-    this[callback](options.settings);
+    this[callback]({
+        template:options.template,
+        next:options.next,
+        settings:options.settings
+    });
 };

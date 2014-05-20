@@ -12,19 +12,19 @@ APP.Router = (function(){
             'contacts':'contacts'
         },
 
-        validationHash = function(){
+        validationHash = function(type){
             var hash = Tools.hash();
             if(routes[hash]){
-                APP.Page.init();
+                APP.Page.init(type);
             }else{
                Tools.hashChange('notFound');
-               APP.Page.init();
+               APP.Page.init(type);
             }
         };
 
     view.start = function(){
         $(window).on('hashchange load', function(event){
-           validationHash();
+           validationHash(event.type);
         });
     };
 

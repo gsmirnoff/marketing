@@ -49,8 +49,8 @@ var Tools = {
             hash = "home";
         }
         AJAX.set({
-            root:'api',
-            request:'/pages/' + hash,
+            root:'api/',
+            request:self + '/' + hash,
             success:function(data){
                 view.setData(data);
             },
@@ -58,5 +58,60 @@ var Tools = {
                 view.postRender();
             }
         }, 'fetch');
+    },
+
+    save:function(view, self){
+        var hash = Tools.hash();
+        if(hash === ""){
+            hash = "home";
+        }
+        var data = view.getData();
+        AJAX.set({
+            root:'api/',
+            request:self + '/' + hash,
+            data:JSON.stringify(data),
+            success:function(data){
+               console.log(data);
+            },
+            next:function(){
+
+            }
+        }, 'save');
+    },
+
+    update:function(view, self, id){
+        var hash = Tools.hash();
+        if(hash === ""){
+            hash = "home";
+        }
+        var data = view.getData();
+        AJAX.set({
+            root:'api/',
+            request:self + '/' + hash + '/' + id,
+            data:JSON.stringify(data),
+            success:function(data){
+                console.log(data);
+            },
+            next:function(){
+
+            }
+        }, 'save');
+    },
+
+    delete:function(view, self, id){
+        var hash = Tools.hash();
+        if(hash === ""){
+            hash = "home";
+        }
+        AJAX.set({
+            root:'api/',
+            request:self + '/' + hash + '/' + id,
+            success:function(data){
+                console.log(data);
+            },
+            next:function(){
+
+            }
+        }, 'save');
     }
 };

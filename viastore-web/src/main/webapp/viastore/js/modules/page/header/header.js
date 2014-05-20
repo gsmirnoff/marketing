@@ -1,12 +1,8 @@
 /**
- * Created with JetBrains WebStorm.
- * User: SNSukhanov
- * Date: 04.04.14
- * Time: 12:56
- * To change this template use File | Settings | File Templates.
+ * Created by SNSukhanov on 25.04.14.
  */
 
-APP.header = (function(module){
+APP.header = (function(module, template){
     var view = {},
         _el,
         _template,
@@ -15,16 +11,15 @@ APP.header = (function(module){
         },
 
         _render = function(){
-            TemplateManager.get({mainTemplate:_template, partials:[]}, function(tmp){
-                var html = tmp(Tools.extend(_settings));
-                $(_el).html(html);
-            });
+          template.setTemplate({
+              template:_template,
+              next:_loadPage,
+              settings:_settings
+          }, 'loadTemplate');
         },
 
-        _loadNavigation = function(){
-            REQUEST.initRequest({
-                url:''
-            }, 'GET', 'json');
+        _loadPage = function(html){
+           $(_el).html(html);
         };
 
     view.saveConfig = function(options){
@@ -39,4 +34,4 @@ APP.header = (function(module){
     };
 
     return view;
-})(APP);
+})(APP, TEMPLATES);

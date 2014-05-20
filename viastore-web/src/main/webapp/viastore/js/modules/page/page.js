@@ -2,9 +2,55 @@
 APP.Page = (function(module, template){
     var view = {},
         _el = 'body',
-        _data = {},
+        _data = {
+            title:"Home",
+            template:'layout',
+            deps:[
+                {
+                    title:'',
+                    template:'header',
+                    deps:[]
+                },
+                {
+                    title:'Главная',
+                    template:'content',
+                    deps:[]
+                },
+                {
+                    title:'',
+                    template:'footer',
+                    deps:[]
+                }
+            ]
+        },
         _layout = false,
-        _settings = {},
+        _typeLoad,
+        _settings = [
+            {
+                title:'Tiele',
+                template:'prometheus',
+                num:1,
+                content:[]
+            },
+            {
+                title:'Tiele',
+                template:'prometheus',
+                num:1,
+                content:[]
+            },
+            {
+                title:'Tiele',
+                template:'prometheus',
+                num:1,
+                content:[]
+            },
+            {
+                title:'Tiele',
+                template:'prometheus',
+                num:1,
+                content:[]
+            }
+        ],
 
         _postRender = function(){
               template.setTemplate({
@@ -46,7 +92,7 @@ APP.Page = (function(module, template){
             _data = data;
             return _data;
         }else{
-            _settings = data;
+//            _settings = data;
             return _settings;
         }
     };
@@ -59,8 +105,14 @@ APP.Page = (function(module, template){
         }
     };
 
-    view.init = function(){
-        Tools.fetch(view, 'pages');
+    view.init = function(type){
+       _typeLoad = type;
+        if(_typeLoad === 'load'){
+            Tools.fetch(view, 'pages');
+        }else if(_typeLoad === 'hashchange'){
+            _layout = true;
+            Tools.fetch(view, 'content');
+        }
     };
 
     return view;

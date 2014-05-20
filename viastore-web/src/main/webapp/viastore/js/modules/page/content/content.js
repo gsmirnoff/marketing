@@ -2,19 +2,24 @@
  * Created by SNSukhanov on 25.04.14.
  */
 
-APP.content = (function(module){
+APP.content = (function(module, template){
     var view = {},
-        _el,
-        _template,
+        _el = '.main-content',
+        _template = 'home',
         _settings = {
-
+            title:'Главная'
         },
 
         _render = function(){
-            TemplateManager.get({mainTemplate:_template, partials:[]}, function(tmp){
-                var html = tmp(Tools.extend(_settings));
-                $(_el).html(html);
-            });
+            template.setTemplate({
+                template:_template,
+                next:_loadPage,
+                settings:_settings
+            }, 'loadTemplate');
+        },
+
+        _loadPage = function(html){
+            $(_el).html(html);
         };
 
     view.saveConfig = function(options){
@@ -29,4 +34,4 @@ APP.content = (function(module){
     };
 
     return view;
-})(APP);
+})(APP, TEMPLATES);
