@@ -4,3 +4,5 @@ notifications:
   email:
     - gregsm1988@gmail.com
     - sergey.n.sukhanov@gmail.com
+after_success:
+  - mvn clean cobertura:cobertura coveralls:cobertura

@@ -26,21 +26,21 @@ var TemplateManager = {
                 $get.templates[request.mainTemplate] = template;
                 callback(tmp);
             }));
-        })
+        });
     },
     getStatic:function (request, callback) {
         var $get = this;
         $get.loadTemplate(request.mainTemplate, function (template) {
             $get.templates[request.mainTemplate] = template;
             callback(template);
-        })
+        });
     },
     loadTemplate:function (id, callback) {
         if (this.templates[id]) {
             return callback(this.templates[id]);
         }
         var url = 'resources/templates/' + id + '.tmpl';
-        return $.ajax({url:url, type:'GET', dataType:'html', contentType:'application/json', async:true, success:callback})
+        return $.ajax({url:url, type:'GET', dataType:'html', contentType:'application/json', async:true, success:callback});
     },
     setContext:function (context) {
         this.context = context;

@@ -27,23 +27,48 @@ APP.productsItem = (function(module){
         },
 
         _render = function(){
-          $('.product-links').each(function(index, elem){
-              _tabs(elem);
-          });
+            $('.product-links').each(function(index, elem){
+                _tabs(elem);
+            });
+            $('.prod-wide').each(function(index, elem){
+                _toggle($(elem));
+            });
+
+            $('.toggle-header').on('click', function(event){
+                $(event.currentTarget).toggleClass('active');
+                $(event.currentTarget).siblings('.wrap-table').slideToggle(300);
+            });
         },
 
         _tabs = function(tab){
             var links = $(tab).find('.product-pr');
             var tabs = $(tab).find('.product-description');
             for(var i=0; i<links.length; i++){
-                $(links[i]).attr('data-link', 'link'+i);
+                $(links[i]).attr('data-link', 'tab'+i);
                 $(tabs[i]).attr('data-tab', 'tab'+i);
-
-                if(i === 0){
-                    $(links[i]).addClass('active');
-                    $(tabs[i]).show();
-                }
             }
+
+            $(links).on('click', function(event){
+                var activeLink = $(event.currentTarget);
+                var activeTab = $(tabs).filter('[data-tab="'+activeLink.data('link')+'"]');
+                if(activeLink.hasClass('active')){
+                    activeLink.toggleClass('active');
+                    activeTab.toggle(400);
+                }else{
+                    $(links).not(activeLink).removeClass('active');
+                    $(tabs).not(activeTab).slideUp(400, function(){
+                        activeLink.addClass('active');
+                        activeTab.slideDown(400);
+                    });
+                }
+            });
+
+        },
+        _toggle = function(link){
+            $(link).on('click', function(event){
+                $(event.currentTarget).toggleClass('active');
+                $(event.currentTarget).next().slideToggle(400);
+            });
         },
 
         _postRender = function(){

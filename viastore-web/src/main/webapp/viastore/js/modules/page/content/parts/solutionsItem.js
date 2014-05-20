@@ -36,8 +36,8 @@ APP.solutionsItem = (function(module){
             var offsetTop = item.offset().top;
             var offsetBottom = item.offset().top + item.outerHeight();
             item.attr({
-                'data-offset-top':offsetTop,
-                'data-offset-bottom':offsetBottom
+                'data-offset-top':offsetTop-30,
+                'data-offset-bottom':offsetBottom-30
             });
             nav.attr({
                 'data-nav-offset':offsetTop
@@ -111,7 +111,7 @@ APP.solutionsItem = (function(module){
 
     view.init = function(){
         REQUEST.initRequest({
-            url:'pages/solutions',
+            url:'content/solutions',
             success:function(data){
                 _config.sections = data;
             },
