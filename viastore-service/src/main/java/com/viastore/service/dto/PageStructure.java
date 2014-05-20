@@ -8,7 +8,8 @@ import java.util.List;
 public class PageStructure {
 
     private String template;
-    private List<String> deps;
+    private String title;
+    private List<PageStructure> deps;
 
     public String getTemplate() {
         return template;
@@ -18,11 +19,19 @@ public class PageStructure {
         this.template = template;
     }
 
-    public List<String> getDeps() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<PageStructure> getDeps() {
         return deps;
     }
 
-    public void setDeps(List<String> deps) {
+    public void setDeps(List<PageStructure> deps) {
         this.deps = deps;
     }
 }

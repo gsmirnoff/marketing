@@ -1,6 +1,7 @@
 package com.viastore.db.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.List;
 
@@ -11,9 +12,9 @@ public class Page {
 
     @Id
     private String id;
-    private String name;
+    private String title;
     private String template;
-    private List<String> deps;
+    private List<Page> deps;
 
     public String getId() {
         return id;
@@ -31,19 +32,19 @@ public class Page {
         this.template = template;
     }
 
-    public List<String> getDeps() {
+    public List<Page> getDeps() {
         return deps;
     }
 
-    public void setDeps(List<String> deps) {
+    public void setDeps(List<Page> deps) {
         this.deps = deps;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
