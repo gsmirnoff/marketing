@@ -8,6 +8,7 @@
 @import 'fontello.css';
 @import 'content.css';
 @import 'addnav.css';
+@import "contacts.css";
 
 /*admin*/
 @import "admin/form.css";
