@@ -3,54 +3,62 @@ APP.Page = (function(module, template){
     var view = {},
         _el = 'body',
         _data = {
-            title:"Home",
+            title:"Solutions",
             template:'layout',
             deps:[
                 {
                     title:'',
                     template:'header',
-                    deps:[]
+                    deps:[
+                        {
+
+                        }
+                    ]
                 },
                 {
-                    title:'Главная',
+                    title:'Решения',
                     template:'content',
-                    deps:[]
+                    deps:[
+                        {
+                            title:'Tiele',
+                            template:'prometheus',
+                            num:1,
+                            content:[]
+                        },
+                        {
+                            title:'Tiele',
+                            template:'prometheus',
+                            num:1,
+                            content:[]
+                        },
+                        {
+                            title:'Tiele',
+                            template:'prometheus',
+                            num:1,
+                            content:[]
+                        },
+                        {
+                            title:'Tiele',
+                            template:'prometheus',
+                            num:1,
+                            content:[]
+                        }
+                    ]
                 },
                 {
                     title:'',
                     template:'footer',
-                    deps:[]
+                    deps:[
+                        {
+
+                        }
+                    ]
                 }
             ]
         },
         _layout = false,
         _typeLoad,
-        _settings = [
-            {
-                title:'Tiele',
-                template:'prometheus',
-                num:1,
-                content:[]
-            },
-            {
-                title:'Tiele',
-                template:'prometheus',
-                num:1,
-                content:[]
-            },
-            {
-                title:'Tiele',
-                template:'prometheus',
-                num:1,
-                content:[]
-            },
-            {
-                title:'Tiele',
-                template:'prometheus',
-                num:1,
-                content:[]
-            }
-        ],
+        _settings = [],
 
         _postRender = function(){
               template.setTemplate({
@@ -67,10 +75,11 @@ APP.Page = (function(module, template){
         },
 
         _drawContent = function(){
+
             for(var i=0; i<_data.deps.length; i++){
-                APP[_data.deps[i]].init({
-                    template:_data.deps[i]+'/content',
-                    el:'.main-'+_data.deps[i],
+                APP[_data.deps[i].template].init({
+                    template:_data.deps[i].template+'/content',
+                    el:'.main-'+_data.deps[i].template,
                     settings:_settings
                 });
             }
@@ -92,7 +101,7 @@ APP.Page = (function(module, template){
             _data = data;
             return _data;
         }else{
-//            _settings = data;
+            _settings = data;
             return _settings;
         }
     };
@@ -107,12 +116,13 @@ APP.Page = (function(module, template){
 
     view.init = function(type){
        _typeLoad = type;
-        if(_typeLoad === 'load'){
-            Tools.fetch(view, 'pages');
-        }else if(_typeLoad === 'hashchange'){
-            _layout = true;
-            Tools.fetch(view, 'content');
-        }
+//        if(_typeLoad === 'load'){
+//            Tools.fetch(view, 'pages');
+//        }else if(_typeLoad === 'hashchange'){
+//            _layout = true;
+//            Tools.fetch(view, 'content');
+//        }
+        Tools.fetch(view, 'pages');
     };
 
     return view;

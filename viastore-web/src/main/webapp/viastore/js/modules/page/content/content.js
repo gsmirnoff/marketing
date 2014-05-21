@@ -5,6 +5,7 @@
 APP.content = (function(module, template){
     var view = {},
         _el = '.main-content',
+        _generator,
         _template = 'home',
         _settings = {
             title:'Главная'
@@ -19,8 +20,28 @@ APP.content = (function(module, template){
         },
 
         _loadPage = function(html){
-            $(_el).html(html);
+            var wrap = $('<div/>').append(html);
+            for(var i=0; i<_settings.content.length; i++){
+                _generator.add(_settings.content[i]);
+            }
+        },
+
+    //TODO: hard code!!!!!!
+        _updateSettings = function(){
+            var obj = {
+                template:'zeus',
+                title:'Bla bla',
+                content:[]
+            };
+           for(var i=0; i<_settings.content.length; i++){
+               _settings.content[i].template = 'prometheus';
+           }
+           _settings.content.push(obj);
         };
+
+    view.showContent = function(){
+
+    };
 
     view.saveConfig = function(options){
         _el = options.el;
@@ -29,7 +50,9 @@ APP.content = (function(module, template){
     };
 
     view.init = function(options){
+        _generator = new TemplateGenerator().init();
         view.saveConfig(options);
+        _updateSettings();
         _render();
     };
 
