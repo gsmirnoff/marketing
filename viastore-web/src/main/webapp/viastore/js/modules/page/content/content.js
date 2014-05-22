@@ -5,7 +5,6 @@
 APP.content = (function(module, template){
     var view = {},
         _el = '.main-content',
-        _generator,
         _template = 'home',
         _settings = {
             title:'Главная'
@@ -22,7 +21,7 @@ APP.content = (function(module, template){
         _loadPage = function(html){
             var wrap = $('<div/>').append(html);
             for(var i=0; i<_settings.content.length; i++){
-                _generator.add(_settings.content[i]);
+                Tools.generator.add(_settings.content[i], view);
             }
         },
 
@@ -50,7 +49,6 @@ APP.content = (function(module, template){
     };
 
     view.init = function(options){
-        _generator = new TemplateGenerator().init();
         view.saveConfig(options);
         _updateSettings();
         _render();

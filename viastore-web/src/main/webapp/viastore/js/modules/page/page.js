@@ -2,63 +2,16 @@
 APP.Page = (function(module, template){
     var view = {},
         _el = 'body',
-        _data = {
-            title:"Solutions",
-            template:'layout',
-            deps:[
-                {
-                    title:'',
-                    template:'header',
-                    deps:[
-                        {
-
-                        }
-                    ]
-                },
-                {
-                    title:'Решения',
-                    template:'content',
-                    deps:[
-                        {
-                            title:'Tiele',
-                            template:'prometheus',
-                            num:1,
-                            content:[]
-                        },
-                        {
-                            title:'Tiele',
-                            template:'prometheus',
-                            num:1,
-                            content:[]
-                        },
-                        {
-                            title:'Tiele',
-                            template:'prometheus',
-                            num:1,
-                            content:[]
-                        },
-                        {
-                            title:'Tiele',
-                            template:'prometheus',
-                            num:1,
-                            content:[]
-                        }
-                    ]
-                },
-                {
-                    title:'',
-                    template:'footer',
-                    deps:[
-                        {
-
-                        }
-                    ]
-                }
-            ]
-        },
+        _data = {},
         _layout = false,
         _typeLoad,
         _settings = [],
+        _fakeData = [
+            {
+                type:'header',
+                template:''
+            }
+        ],
 
         _postRender = function(){
               template.setTemplate({
@@ -67,20 +20,23 @@ APP.Page = (function(module, template){
               }, 'loadTemplate');
 
         },
-
         _loadContentPage = function(html){
             $(_el).html(html);
             _layout = true;
             Tools.fetch(view, 'content');
         },
-
         _drawContent = function(){
-
             for(var i=0; i<_data.deps.length; i++){
+                var deps = [];
+                for(var j=0; j<_settings.length; j++){
+                    if(_settings[j].type === _data.deps[i].template){
+                        deps.push(_settings[j]);
+                    }
+                }
                 APP[_data.deps[i].template].init({
                     template:_data.deps[i].template+'/content',
                     el:'.main-'+_data.deps[i].template,
-                    settings:_settings
+                    settings:deps
                 });
             }
             _layout = false;
@@ -95,7 +51,6 @@ APP.Page = (function(module, template){
         }
         return data;
     };
-
     view.setData = function(data){
         if(!_layout){
             _data = data;
@@ -105,7 +60,6 @@ APP.Page = (function(module, template){
             return _settings;
         }
     };
-
     view.postRender = function(){
         if(!_layout){
             _postRender();
@@ -113,16 +67,15 @@ APP.Page = (function(module, template){
            _drawContent();
         }
     };
-
     view.init = function(type){
        _typeLoad = type;
-//        if(_typeLoad === 'load'){
-//            Tools.fetch(view, 'pages');
-//        }else if(_typeLoad === 'hashchange'){
-//            _layout = true;
-//            Tools.fetch(view, 'content');
-//        }
-        Tools.fetch(view, 'pages');
+        Tools.generator = new TemplateGenerator().init();
+        if(_typeLoad === 'load'){
+            Tools.fetch(view, 'pages');
+        }else if(_typeLoad === 'hashchange'){
+            _layout = true;
+            Tools.fetch(view, 'content');
+        }
     };
 
     return view;
