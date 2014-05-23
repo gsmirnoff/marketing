@@ -63,6 +63,7 @@ public class ContentService {
         Content content = contentRepository.findByPageAndNum(page, num);
         if (content==null) return null;
         mapper.map(pageContent, content);
+        content.setPage(page);
         content.setNum(num);
         contentRepository.save(content);
         return mapper.map(content, PageContent.class);
