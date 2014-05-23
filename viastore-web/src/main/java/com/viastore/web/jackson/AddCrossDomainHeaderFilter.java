@@ -14,6 +14,7 @@ public class AddCrossDomainHeaderFilter implements ContainerResponseFilter {
     @Override
     public ContainerResponse filter(ContainerRequest request, ContainerResponse containerResponse) {
         containerResponse.getHttpHeaders().add("Access-Control-Allow-Origin", "*");
+        containerResponse.getHttpHeaders().add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         return containerResponse;
     }
 }
