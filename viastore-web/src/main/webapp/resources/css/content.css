@@ -242,6 +242,19 @@
 .table-params .first-col-th {
     width: 320px;
 }
+.about-item {
+ border: 0 none;
+    padding: 0 0 70px;
+}
+.project-it-name.about-title {
+    padding-left: 0;
+}
+.about-item p {
+    padding: 0 0 18px;
+}
+.about-item .project-it-logo {
+    top: 50px;
+}
 
 @media (min-width: 1200px) {
     .product-pr.product-single {
