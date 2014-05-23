@@ -10,6 +10,7 @@ public class PageContent {
 
     private String title;
     private String template;
+    private String page;
     private Long num;
 
     @JsonRawValue
@@ -45,5 +46,13 @@ public class PageContent {
 
     public void setNum(Long num) {
         this.num = num;
+    }
+
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
     }
 }

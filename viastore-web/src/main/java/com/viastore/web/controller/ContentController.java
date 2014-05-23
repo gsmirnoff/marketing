@@ -26,6 +26,14 @@ public class ContentController {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
+    public List<PageContent> getAll() {
+        return contentService.getALl();
+    }
+
+    @PermitAll
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}")
     public List<PageContent> getListForPage(@PathParam("page") String page) {
         return contentService.getContent(page);

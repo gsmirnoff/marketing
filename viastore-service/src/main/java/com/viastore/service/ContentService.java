@@ -31,6 +31,13 @@ public class ContentService {
         return mapped;
     }
 
+    public List<PageContent> getALl() {
+        List<Content> found = contentRepository.findAll();
+        List<PageContent> mapped = new ArrayList<PageContent>();
+        for (Content content : found) mapped.add(mapper.map(content, PageContent.class));
+        return mapped;
+    }
+
 
     public PageContent getOne(String page, Long num) {
         Content content = contentRepository.findByPageAndNum(page, num);
