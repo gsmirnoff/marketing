@@ -95,7 +95,7 @@ var Tools = {
             next:function(){
 
             }
-        }, 'save');
+        }, 'update');
     },
 
     delete:function(view, self, id){
@@ -112,6 +112,6 @@ var Tools = {
             next:function(){
 
             }
-        }, 'save');
+        }, 'delete');
     }
 };
