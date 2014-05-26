@@ -42,14 +42,6 @@
 	padding: 35px 40px 25px;
 }
 
-@media (min-width: 1200px) {
-    .banner-text-box {
-        float: right;
-        display: block !important;
-    }
-
-}
-
 /*------*/
 
 .banner-layout {
@@ -73,7 +65,7 @@
     margin-top: -50px;
 }
 
-.banner-inner-content h2 {
+.banner-inner-content .banner-title {
     text-align: center;
     font-size: 36px;
     font-weight: 300;
@@ -175,9 +167,7 @@
     width: 300px;
     font-size: 15px;
 }
-.last{
-    margin-right: 0 !important;
-}
+
 
 
 

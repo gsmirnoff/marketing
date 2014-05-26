@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import "reset.css";
-@import 'main-style.css';
 @import 'common.css';
 @import 'layout.css';
 @import 'header.css';
@@ -11,6 +10,7 @@
 @import 'content.css';
 @import 'addnav.css';
 @import "contacts.css";
+@import "media.css";
 
 /*admin*/
 @import "admin/form.css";

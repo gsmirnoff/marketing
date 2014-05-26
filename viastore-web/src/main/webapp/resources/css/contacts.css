@@ -23,7 +23,7 @@
 .contacts-page .product-pr.active::after {
     content: '';
     position: absolute;
-    left: 225px;
+    left: 247px;
     bottom: 0px;
     border: 12px solid transparent;
     border-bottom: 12px solid #FFFFFF;

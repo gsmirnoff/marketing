@@ -41,3 +41,6 @@ body {
     float: left;
     height: 465px;
 }
+.main-col {
+    overflow: hidden;
+}
