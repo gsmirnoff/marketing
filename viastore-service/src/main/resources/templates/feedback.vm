@@ -1,0 +1,6 @@
+<html>
+<body>
+User ${name}, mail:${email} says:<p/>
+${message}
+</body>
+</html>
