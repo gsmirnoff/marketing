@@ -21,6 +21,7 @@
         <property name="locations">
             <list>
                 <value>classpath*:db.properties</value>
+                <value>classpath*:mail.properties</value>
             </list>
         </property>
     </bean>
