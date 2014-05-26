@@ -1,0 +1,53 @@
+body {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #6e6e6e;
+    background: #ffffff;
+}
+a {
+    color: #ea8026;
+    text-decoration: none;
+}
+a:hover {
+    color: #000000;
+}
+input[type=text], input[type=email], input[type=password], textarea {
+    font-size:14px;
+    background:#FFF;
+    border: 1px solid #cccccc;
+    font-family: 'Open Sans', sans-serif;
+    color: #6e6e6e;
+    font-weight: 400;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+label, select {
+    font-size:14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #6e6e6e;
+}
+.title-f {
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0 0 30px;
+    color: #6e6e6e;
+    text-align: center;
+}
+.title-f .line {
+    width: 20px;
+    display:inline-block;
+    border-bottom: 2px solid #0054a6;
+}
+
+.item {
+    font-size: 18px;
+    line-height: 24px;
+    color: #333333;
+}

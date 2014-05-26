@@ -1,3 +1,13 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+body {
+    min-width: 1000px;
+    height: auto;
+    position: relative;
+}
 .container {
 	min-width: 960px;
 	max-width: 1200px;
@@ -13,4 +23,21 @@
 }
 .boxed {
 	padding-bottom: 130px;
+}
+.content-box {
+    padding: 35px 70px;
+}
+.item {
+    padding: 70px 0;
+    border-bottom: 1px dashed #cccccc;
+    margin-top: 20px;
+}
+.item:last-child, .item.item-last  {
+    border-bottom: 0 none;
+}
+.left-col {
+    width: 300px;
+    margin-right: 40px;
+    float: left;
+    height: 465px;
 }

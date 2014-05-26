@@ -1,0 +1,10 @@
+@media (min-width: 1200px) {
+    .product-pr.product-single {
+        width: 340px;
+    }
+    .product-pr.prod-part {
+        width: 356px;
+    }
+
+
+}

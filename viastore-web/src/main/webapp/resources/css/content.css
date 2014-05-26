@@ -1,23 +1,3 @@
-.content-box {
-    padding: 35px 70px;
-}
-.item {
-    font-size: 18px;
-    line-height: 24px;
-    color: #333333;
-    padding: 70px 0;
-    border-bottom: 1px dashed #cccccc;
-    margin-top: 20px;
-}
-.item:last-child, .item.item-last  {
-    border-bottom: 0 none;
-}
-.left-col {
-    width: 300px;
-    margin-right: 40px;
-    float: left;
-    height: 465px;
-}
 .left-img-box {
     margin-bottom: 30px;
 }
@@ -256,13 +236,3 @@
     top: 50px;
 }
 
-@media (min-width: 1200px) {
-    .product-pr.product-single {
-        width: 340px;
-    }
-    .product-pr.prod-part {
-        width: 356px;
-    }
-
-
-}
