@@ -17,6 +17,7 @@ public class User {
     private String password;
     private String role = "admin";
     private Token token;
+    private byte[] avatar;
 
     public User() {}
 
@@ -63,6 +64,14 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
     }
 
     public void renewToken() {
