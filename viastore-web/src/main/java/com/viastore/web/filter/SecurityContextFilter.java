@@ -26,7 +26,7 @@ public class SecurityContextFilter implements ResourceFilter, ContainerRequestFi
     @Override
     public ContainerRequest filter(ContainerRequest request) {
         User user = userRepository.findByToken(request.getHeaderValue("token"));
-        if (user != null && user.getToken().getExpires().isAfter(DateTime.now())) {
+        if (user != null && user.getToken()!=null && user.getToken().getExpires().isAfter(DateTime.now())) {
             user.renewToken();
             userRepository.save(user);
             request.setSecurityContext(new Authorizer(user));
