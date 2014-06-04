@@ -80,7 +80,7 @@ APP.Aside = (function(module){
                 if(offset >= top && offset < bottom){
                     _listPanel.removeClass('active');
                     $(_listPanel[i]).addClass('active');
-                    if($(_listPanel[i]).filter(':hidden').length != 0){
+                    if($(_listPanel[i]).filter(':hidden').length !== 0){
                         var visible = _listPanelWrap.filter(':visible');
                         if(direction == 'down'){
                             var hiddenNextLength = _listPanelWrap.filter(':gt('+(i-1)+')').length;
