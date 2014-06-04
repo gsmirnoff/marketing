@@ -1,24 +1,27 @@
 .banner {
     display: none;
-    height: 1125px;
     position: relative;
     overflow: hidden;
+    padding-bottom: 50px;
+
+    background: url('../images/backHome.png') center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 500px;
 }
 .banner.simple-page-banner {
     height: 180px;
-}
-
-.back-img {
-    position: absolute;
-    width: 100%;
-}
-.back-img img {
-    width: 100%;
+    padding-bottom: 0;
+    background: none;
+    min-height: 100px;
 }
 
 .banner-content {
     position: relative;
-    padding-top: 170px;
+    padding-top: 158px;
     width: 960px;
 }
 .banner-logo {
@@ -46,23 +49,22 @@
 
 .banner-layout {
     background-color: #f4f4f4;
-    padding: 20px 30px;
-    padding-top: 50px;
+    padding: 0 30px 20px;
     position: relative;
 }
 
 .banner-header {
     position: relative;
-    width: 300px;
-    height: 80px;
+    width: 290px;
+    height: 78px;
     background-color: #ffffff;
-    top: -88px;
+    top: -26px;
     margin: 0 auto;
     box-shadow: 0px 1px 3px #7E7D7D;
 }
 
 .banner-inner-content {
-    margin-top: -50px;
+
 }
 
 .banner-inner-content .banner-title {
@@ -154,17 +156,16 @@
 .content-banner-ic {
     display: inline-block;
     vertical-align: top;
+    width: 300px;
 }
 
 .content-banner-ic h4 {
     font-size: 20px;
     color: #434334;
-    width: 322px;
     margin-bottom: 15px;
 }
 
 .content-banner-ic p {
-    width: 300px;
     font-size: 15px;
 }
 
