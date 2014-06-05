@@ -6,7 +6,7 @@ package com.viastore.service.dto;
 public class UserPersonal {
 
     private String name;
-    private byte[] avatar;
+    private String avatarId;
 
     public String getName() {
         return name;
@@ -16,11 +16,11 @@ public class UserPersonal {
         this.name = name;
     }
 
-    public byte[] getAvatar() {
-        return avatar;
+    public String getAvatarId() {
+        return avatarId;
     }
 
-    public void setAvatar(byte[] avatar) {
-        this.avatar = avatar;
+    public void setAvatarId(String avatarId) {
+        this.avatarId = avatarId;
     }
 }

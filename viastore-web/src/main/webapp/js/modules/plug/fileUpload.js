@@ -106,21 +106,19 @@ function FileUpload(options){
         },
 
         _saveFile = function(e){
+            var formData = new FormData();
+            formData.append('image', $(e.currentTarget).parent().find('img').attr('src'));
             $.ajax({
                 beforeSend:function(request){
                     request.setRequestHeader('token', localStorage.token);
                 },
-                url:'api/user/current',
-                dataType:'json',
+                url:'api/image',
                 type:'POST',
-                contentType:'application/json',
-                data:JSON.stringify({
-                    name:'admin',
-                    avatar:$(e.currentTarget).parent().find('img').attr('src')
-                }),
+                contentType:false,
+                processData:false,
+                data:formData,
                 success:function(data){
                     console.log(data);
-
                 },
                 error:function(e){
                     console.log(e);
