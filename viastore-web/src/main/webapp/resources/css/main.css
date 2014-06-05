@@ -12,6 +12,7 @@
 @import "contacts.css";
 @import "media.css";
 @import "fileupload.css";
+@import "modal.css";
 
 /*admin*/
 @import "admin/form.css";

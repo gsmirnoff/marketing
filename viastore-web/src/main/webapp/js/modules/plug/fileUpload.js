@@ -12,6 +12,7 @@ function FileUpload(options){
             html:options.html || false,
             attr:options.attr
         },
+        _modal,
 
         _container,
 
@@ -57,7 +58,33 @@ function FileUpload(options){
 
             settings.wrap.appendChild(fileUploadWrap);
             settings.wrap.appendChild(btn);
-            _handlers(input, label, drop, btn);
+
+            //main handlers
+            (function(){
+                input.addEventListener('change', function(event){
+                    event.preventDefault();
+                    _parseFile(event.currentTarget.files);
+                });
+
+                label.addEventListener('click', function(event){
+                    event.preventDefault();
+                    $(input).trigger('change');
+                });
+
+                drop.addEventListener('dragover', function(event){
+                    event.preventDefault();
+                });
+
+                drop.addEventListener('drop', function(event){
+                    event.preventDefault();
+                    _parseFile(event.dataTransfer.files);
+                });
+
+                btn.addEventListener('click', function(event){
+                    event.preventDefault();
+                    _saveFile(event);
+                });
+            })();
         },
 
         _emptyContainer = function(drop){
@@ -91,8 +118,8 @@ function FileUpload(options){
         _preloader = {
             start:function(){
                 var preload = document.createElement('img');
-                preload.src = 'img/254.GIF';
-                preload.className = 'preloader-gif';
+                    preload.src = 'img/254.GIF';
+                    preload.className = 'preloader-gif';
                 return preload;
             },
 
@@ -132,38 +159,75 @@ function FileUpload(options){
         _loadImage = function(url, name){
             var num = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
             var figure = document.createElement('figure');
-                $(figure).attr({
-                   'data-figure':'figure-' + num
-                });
+                figure.setAttribute('data-figure', 'figure-' + num);
+
             var p = document.createElement('p');
             var img  = document.createElement('img');
-            img.src = url;
-            img.className = 'progress';
+                img.src = url;
+                img.className = 'progress';
+
+            //edit layout
+            var editLayout = document.createElement('div');
+                editLayout.className = 'edit-layout';
+            var editBtn = document.createElement('span');
+                editBtn.className = 'edit';
+            var deleteBtn = document.createElement('span');
+                deleteBtn.className = 'delete';
+
+            editLayout.appendChild(editBtn);
+            editLayout.appendChild(deleteBtn);
 
             var figcaption = document.createElement('figcaption');
             figcaption.innerText = name;
 
             p.appendChild(img);
+            p.appendChild(editLayout);
             figure.appendChild(p);
             figure.appendChild(figcaption);
 
-//            (function(){
-//                figure.addEventListener('dragover', function(event){
-//                    var figures = event.currentTarget.parentElement;
-//                    var currentData = $(event.currentTarget).data('figure');
-//
-//
-//                    for(var i=0; i<figures.children.length; i++){
-//                        var item = $(figures.children[i]).data('figure');
-//                        if(currentData == item){
-//                            if((event.x >= figure.offsetHeight)){
-//                                $(event.currentTarget).remove();
-//                            }
-//                        }
-//                    }
-//
-//                });
-//            })();
+            //handlers
+            (function(){
+                figure.addEventListener('dragover', function(event){
+                   console.log(event);
+                });
+
+                editLayout.addEventListener('mouseover', function(event){
+                    if(event.target === event.currentTarget){
+                        $(this).animate({
+                            opacity:0.6
+                        });
+                    }
+
+                });
+
+                editLayout.addEventListener('mouseout', function(event){
+                    var edit = event.currentTarget.children[0];
+                    var del = event.currentTarget.children[1];
+
+                    if(event.target === event.currentTarget){
+                        if((event.toElement != edit) && (event.toElement != del)){
+                            $(this).animate({
+                                opacity:0
+                            });
+                        }
+                    }
+                });
+
+                editBtn.addEventListener('click', function(event){
+                    $(event.currentTarget.parentNode).animate({
+                        opacity:0
+                    });
+                    _modal.newModal().create(function(wrap){
+                        _contentModal(event, wrap);
+                    });
+                });
+
+                deleteBtn.addEventListener('click', function(event){
+                    console.log(event);
+                });
+
+
+            })();
 
             if($(_container).find('.empty-content').length !== 0){
                 $(_container).empty();
@@ -180,35 +244,34 @@ function FileUpload(options){
 
         },
 
+        _contentModal = function(event, wrap){
+            var figure = $(event.currentTarget).parents('figure');
+
+            var wrapModalImg = document.createElement('div');
+            wrapModalImg.className = 'wrap-modal-img';
+            var titleModal = document.createElement('h2');
+            titleModal.setAttribute('contenteditable', 'true');
+            titleModal.innerText = figure.find('figcaption').text();
+
+            var imgModal = document.createElement('img');
+            imgModal.setAttribute('data-modal-figure', $(figure).data('figure'));
+            imgModal.src = figure.find('img').attr('src');
+
+            wrapModalImg.appendChild(titleModal);
+            wrapModalImg.appendChild(imgModal);
+
+            var wrapModalEdit = document.createElement('div');
+            wrapModalEdit.className = 'wrap-modal-edit';
+
+            wrap.appendChild(wrapModalImg);
+            wrap.appendChild(wrapModalEdit);
+            _modal.newModal().setModal(wrap);
+        },
+
         _parseFile = function(files){
             for(var i=0; i<files.length; i++){
                 _showFile(files[i]);
             }
-        },
-
-        _handlers = function(input, label, drop, btn){
-            input.addEventListener('change', function(event){
-                event.preventDefault();
-                console.log(event.currentTarget.files);
-                _parseFile(event.currentTarget.files);
-            });
-
-            label.addEventListener('click', function(event){
-                $(input).trigger('change');
-            });
-
-            drop.addEventListener('dragover', function(event){
-                event.preventDefault();
-            });
-
-            drop.addEventListener('drop', function(event){
-                event.preventDefault();
-                _parseFile(event.dataTransfer.files);
-            });
-
-            btn.addEventListener('click', function(event){
-                _saveFile(event);
-            });
         },
 
         _localStorage = {
@@ -246,6 +309,8 @@ function FileUpload(options){
 
     view.init = function(){
         _render();
+        _modal = new Modal();
+
     };
 
     view.init();
