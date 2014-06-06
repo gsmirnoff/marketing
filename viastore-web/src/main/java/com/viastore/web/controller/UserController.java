@@ -1,8 +1,7 @@
 package com.viastore.web.controller;
 
-import com.viastore.db.entities.User;
 import com.viastore.service.UserService;
-import com.viastore.service.dto.UserPersonal;
+import com.viastore.service.dto.user.UserPersonal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Request;
 
 /**
  * Created by GSmirnoff on 30.05.14.

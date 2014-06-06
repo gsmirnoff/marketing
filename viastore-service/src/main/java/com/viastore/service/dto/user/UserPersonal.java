@@ -1,4 +1,4 @@
-package com.viastore.service.dto;
+package com.viastore.service.dto.user;
 
 /**
  * Created by GSmirnoff on 30.05.14.

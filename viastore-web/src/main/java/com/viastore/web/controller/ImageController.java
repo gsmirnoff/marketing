@@ -7,6 +7,7 @@ import com.viastore.web.response.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.security.PermitAll;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.ByteArrayInputStream;
@@ -25,6 +26,7 @@ public class ImageController {
     private ImageService imageService;
 
     @POST
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public ResponseEntity upload(@FormDataParam("image") InputStream uploadedInputStream){
@@ -40,11 +42,24 @@ public class ImageController {
     }
 
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{id}")
     public ResponseEntity getById(@PathParam("id") String id) {
         return new ResponseEntity(0, imageService.getById(id));
+    }
+
+    @DELETE
+    @PermitAll
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Path("{id}")
+    public ResponseEntity deletebyId(@PathParam("id") String id) {
+        if (imageService.deleteById(id)) {
+            return new ResponseEntity(0, "Delete successful");
+        }
+        return new ResponseEntity(0, "Could not delete - entity is missing or id is null");
     }
 
     public byte[] getBytes(InputStream is) throws IOException {

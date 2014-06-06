@@ -2,7 +2,7 @@ package com.viastore.service;
 
 import com.viastore.db.entities.User;
 import com.viastore.db.repositories.UserRepository;
-import com.viastore.service.dto.UserPersonal;
+import com.viastore.service.dto.user.UserPersonal;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
