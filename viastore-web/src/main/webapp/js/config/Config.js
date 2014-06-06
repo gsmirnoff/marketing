@@ -22,7 +22,9 @@ var config = {
 
     //api
     apiFolder:'/api/',
-    auth:'auth'
+    auth:'auth',
+
+    defaultAvatar:'../../resources/images/defaultavatar.jpg'
 
     //templateData
 //{

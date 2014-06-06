@@ -7,6 +7,8 @@
  */
 
 window.APP = {};
+window.ADMIN = {};
+window.SESSION = {};
 
 APP.setToken = function(user, token){
     sessionStorage.setItem('name', user.name);

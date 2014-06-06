@@ -48,6 +48,9 @@ function FileUpload(options){
             btn.value = 'Send';
             btn.type = 'button';
 
+            var uploadedImg = document.createElement('div');
+                uploadedImg.className = 'uploaded-image';
+
             if(!_localStorage.check()){
                 _emptyContainer(drop);
             }
@@ -58,9 +61,14 @@ function FileUpload(options){
 
             settings.wrap.appendChild(fileUploadWrap);
             settings.wrap.appendChild(btn);
+            settings.wrap.appendChild(uploadedImg);
+
+            _getFile(uploadedImg);
 
             //main handlers
             (function(){
+
+
                 input.addEventListener('change', function(event){
                     event.preventDefault();
                     _parseFile(event.currentTarget.files);
@@ -146,6 +154,27 @@ function FileUpload(options){
                 data:formData,
                 success:function(data){
                     console.log(data);
+                },
+                error:function(e){
+                    console.log(e);
+
+                }
+            });
+        },
+
+        _getFile = function(wrap){
+            $.ajax({
+                beforeSend:function(request){
+                    request.setRequestHeader('token', localStorage.token);
+                },
+                url:'api/image/' + '53906010e82e62ca35ac915a',
+                type:'GET',
+                contentType:'application/json',
+                success:function(data){
+                  var img =$('<img/>').attr({
+                        src:data.response.data
+                    });
+                    $(wrap).append(img);
                 },
                 error:function(e){
                     console.log(e);

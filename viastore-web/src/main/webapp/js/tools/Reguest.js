@@ -7,7 +7,7 @@ window.REQUEST = {};
 REQUEST.Request = function(options){
     try{
         $.ajax({
-            beforeSend:options.token,
+            beforeSend:options.beforeSend,
             url:config.apiFolder + options.url,
             type:options.type,
             dataType:options.dataType,

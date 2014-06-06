@@ -37,7 +37,7 @@ var Tools = {
             $('title').text(notfound);
         }
     },
-    hash:function(){
+    hashh:function(){
         var hash = location.hash;
         var result = hash.split('');
         result.shift();
