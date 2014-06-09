@@ -1,0 +1,9 @@
+@import "reset.css";
+@import "login.css";
+@import url(http://fonts.googleapis.com/css?family=Lobster|Oswald:400,300|Indie+Flower|Pinyon+Script&subset=latin,cyrillic-ext);
+*{
+    margin:0;
+    padding:0;
+    border:0;
+}
+
