@@ -1,7 +1,19 @@
 /**
- * Created by SNSukhanov on 23.04.14.
+ * Created by SNSukhanov on 09.06.14.
  */
 
-$(document).ready(function(){
-   new Login();
-});
+window.onload = function(){
+    if(!sessionStorage.token){
+       if(location.pathname === '/pages/login/'){
+           PLATFORM.RouteLogin.start();
+       }else{
+           location.pathname = '/pages/login/';
+       }
+    }else{
+        if(location.pathname === '/pages/account/'){
+            PLATFORM.RouteAccount.start();
+        }else{
+            location.pathname = '/pages/account/';
+        }
+    }
+};
