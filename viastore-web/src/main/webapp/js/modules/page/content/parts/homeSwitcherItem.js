@@ -113,7 +113,7 @@ APP.SwitcherItem = (function(module){
 
             (function(){
                 link.on('click', function(event){
-                    event.preventDefault();
+
                     console.log(event);
                 });
             })();

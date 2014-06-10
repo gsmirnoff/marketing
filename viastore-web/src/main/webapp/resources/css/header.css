@@ -8,8 +8,9 @@
     box-shadow: 1px 1px 3px #646464;
 }
 .logo {
-    padding: 6px 0;
+    padding: 3px 0px 0 3px;
     float: left;
+    margin-bottom: -3px;
 }
 
 .title-page {
@@ -24,9 +25,9 @@
 }
 
 .main-nav {
-	float: right;
-	padding: 25px 0 10px;
-	display: block;
+    float: right;
+    padding: 13px 0 7px;
+    display: block;
 }
 .nav-list {
 	list-style-type: none;
