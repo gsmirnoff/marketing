@@ -42,5 +42,18 @@ var Tools = {
         var result = hash.split('');
         result.shift();
         return result.join('');
+    },
+
+    send:function(data, success, error){
+        REQUEST.initRequest({
+            url:'mail/compose',
+            data:JSON.stringify(data),
+            success:function(suck){
+                success(suck);
+            },
+            error:function(){
+                error();
+            }
+        }, 'POST', 'json');
     }
 };

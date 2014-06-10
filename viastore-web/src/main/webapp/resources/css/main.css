@@ -14,3 +14,15 @@
 
 /*admin*/
 @import "admin/form.css";
+
+/*remove*/
+
+.success-mail {
+    position: absolute;
+    background-color: #2FB950;
+    color: #ffffff;
+    padding: 30px;
+    font-family: sans-serif;
+    font-size: 25px;
+    opacity: 0.9;
+}
