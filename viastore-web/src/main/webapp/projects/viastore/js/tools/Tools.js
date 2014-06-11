@@ -24,12 +24,6 @@ var Tools = {
                 $(list[i]).find('a').addClass('active');
                 flagNotFount = false;
             }
-            if((location.hash === "") || (location.hash === "#")){
-                var titleHome = 'FLS | Главная';
-                $('title').text(titleHome);
-                $(list[0]).find('a').addClass('active');
-                flagNotFount = false;
-            }
         }
 
         if(flagNotFount){
@@ -51,8 +45,12 @@ var Tools = {
 
     fetch:function(view, self){
         var hash = Tools.hash();
+        if(hash === ""){
+            hash = "home";
+        }
         AJAX.set({
-            request:'pages' + hash,
+            root:'api/',
+            request:self + '/' + hash,
             success:function(data){
                 view.setData(data);
             },
@@ -61,11 +59,59 @@ var Tools = {
             }
         }, 'fetch');
     },
-    
-    hashh:function(){
-        var hash = location.hash;
-        var result = hash.split('');
-        result.shift();
-        return result.join('');
+
+    save:function(view, self){
+        var hash = Tools.hash();
+        if(hash === ""){
+            hash = "home";
+        }
+        var data = view.getData();
+        AJAX.set({
+            root:'api/',
+            request:self + '/' + hash,
+            data:JSON.stringify(data),
+            success:function(data){
+               console.log(data);
+            },
+            next:function(){
+
+            }
+        }, 'save');
+    },
+
+    update:function(view, self, id){
+        var hash = Tools.hash();
+        if(hash === ""){
+            hash = "home";
+        }
+        var data = view.getData();
+        AJAX.set({
+            root:'api/',
+            request:self + '/' + hash + '/' + id,
+            data:JSON.stringify(data),
+            success:function(data){
+                console.log(data);
+            },
+            next:function(){
+
+            }
+        }, 'update');
+    },
+
+    delete:function(view, self, id){
+        var hash = Tools.hash();
+        if(hash === ""){
+            hash = "home";
+        }
+        AJAX.set({
+            root:'api/',
+            request:self + '/' + hash + '/' + id,
+            success:function(data){
+                console.log(data);
+            },
+            next:function(){
+
+            }
+        }, 'delete');
     }
 };

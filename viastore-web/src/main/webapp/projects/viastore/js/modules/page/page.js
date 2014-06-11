@@ -1,4 +1,3 @@
-
 APP.Page = (function(module, template){
     var view = {},
         _el = 'body',
@@ -15,7 +14,7 @@ APP.Page = (function(module, template){
 
         _postRender = function(){
               template.setTemplate({
-                  template:_data.template,
+                  template:_data.template+'/content',
                   next:_loadContentPage
               }, 'loadTemplate');
 

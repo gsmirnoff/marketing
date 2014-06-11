@@ -52,7 +52,7 @@ var Tools = {
     fetch:function(view, self){
         var hash = Tools.hash();
         AJAX.set({
-            request:'pages' + hash,
+            request:'api/pages' + hash,
             success:function(data){
                 view.setData(data);
             },
