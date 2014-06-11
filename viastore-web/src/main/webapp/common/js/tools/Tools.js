@@ -11,10 +11,6 @@ var Tools = {
        return $.extend({}, config, localConfig);
     },
 
-    extendTools:function(tools, localTools){
-        return $.extend({}, tools, localTools);
-    },
-
     location:function(menu){
         var flagNotFount = true;
         var list = menu.children();

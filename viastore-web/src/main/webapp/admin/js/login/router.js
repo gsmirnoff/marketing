@@ -20,12 +20,14 @@ PLATFORM.RouteLogin = (function(){
 
         _startHistory = function(){
             window.addEventListener('hashchange', function(event){
+                localStorage.typeEventLoad = event.type;
                 _render(event);
             }, false);
             _render(null);
         };
 
     view.start = function(){
+        localStorage.typeEventLoad = 'load';
        _startHistory();
     };
 

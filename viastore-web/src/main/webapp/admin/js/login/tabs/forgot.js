@@ -5,20 +5,22 @@
 PLATFORM.forgot = (function(){
     var view = {},
 
-        _el = 'wrapper',
-
         _settings = {
 
         },
 
         _render = function(tmpl){
-            console.log(tmpl);
-            var wrapper = document.getElementById(_el);
-            wrapper.innerHTML = tmpl;
+            ToolsAdmin.slideTabs(tmpl, function(){
+                var btn = document.getElementById('remind');
+                btn.addEventListener('click', function(event){
+                    var form = event.currentTarget.parentNode;
+                    ToolsAdmin.parseFormData(form);
+                });
+            });
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(config.pathTemplate, {
+        ToolsAdmin.loadTemplate(configLogin.pathTemplate, {
             template:'login/forgot',
             callback:_render,
             settings:_settings

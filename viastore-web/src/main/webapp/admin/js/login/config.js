@@ -2,6 +2,7 @@
  * Created by SNSukhanov on 09.06.14.
  */
 
-var config = {
+var configLogin = {
+    pathApi:'../../api/',
     pathTemplate:'../../../../resources/templates/'
 };

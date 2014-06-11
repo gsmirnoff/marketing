@@ -4,27 +4,38 @@
 
 PLATFORM.login = (function(){
     var view = {},
-
-        _el = 'wrapper',
-
         _settings = {
 
         },
 
         _render = function(tmpl){
-           console.log(tmpl);
-            var wrapper = document.getElementById(_el);
-
-            wrapper.innerHTML = tmpl;
+            ToolsAdmin.slideTabs(tmpl, function(){
+                var btn = document.getElementById('signin');
+                btn.addEventListener('click', function(event){
+                    var form = event.currentTarget.parentNode;
+                   var result =  ToolsAdmin.parseFormData(form);
+                   _enterAdminPanel(result);
+                });
+            });
         },
 
-        _animateSwing = function(wrapper){
-             var form = $(wrapper).find('form');
-            
+        _enterAdminPanel = function(data){
+            REQUEST.initRequest({
+                url:configLogin.pathApi + 'auth',
+                data:JSON.stringify(data),
+                success:function(result){
+                   console.log(result);
+                    PLATFORM.setToken(result.response.token.token);
+                    location.pathname = 'pages/account/';
+                },
+                error:function(){
+
+                }
+            }, 'POST', 'json');
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(config.pathTemplate, {
+        ToolsAdmin.loadTemplate(configLogin.pathTemplate, {
             template:'login/login',
             callback:_render,
             settings:_settings
