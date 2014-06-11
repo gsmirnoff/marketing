@@ -26,7 +26,7 @@ public class PageService {
 
     public PageStructure create(String page, PageStructure structure) {
         Page mapped = mapper.map(structure, Page.class);
-        mapped.setName(page);
+        mapped.setTitle(page);
         mapped = pageRepository.save(mapped);
         return mapper.map(mapped, PageStructure.class);
     }

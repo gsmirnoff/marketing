@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Waiting...</title>
+</head>
+<body>
+<script>
+    window.onload = function(){
+        if(sessionStorage.token){
+            location.pathname = '/pages/account/';
+        }else{
+            location.pathname = '/pages/login/';
+        }
+    }
+</script>
+
+</body>
+</html>
