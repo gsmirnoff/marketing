@@ -1,11 +1,11 @@
-package com.viastore.service.dto;
+package com.viastore.service.dto.user;
 
 import com.viastore.db.entities.Token;
 
 /**
  * Created by GSmirnoff on 15.04.14.
  */
-public class AuthUser {
+public class UserAuth {
     private String name;
     private String role = "admin";
     private Token token;

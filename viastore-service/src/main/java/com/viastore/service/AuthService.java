@@ -2,7 +2,7 @@ package com.viastore.service;
 
 import com.viastore.db.entities.User;
 import com.viastore.db.repositories.UserRepository;
-import com.viastore.service.dto.AuthUser;
+import com.viastore.service.dto.user.UserAuth;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +18,11 @@ public class AuthService {
     @Autowired
     private DozerBeanMapper mapper;
 
-    public AuthUser authorize(User req) {
+    public UserAuth authorize(User req) {
         User user = userRepository.findByNameAndPass(req.getName(), req.getPassword());
         if (user == null) user = req;
         user.createToken();
         user = userRepository.save(user);
-        return mapper.map(user, AuthUser.class);
+        return mapper.map(user, UserAuth.class);
     }
 }

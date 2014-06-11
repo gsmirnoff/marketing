@@ -17,6 +17,7 @@ public class User {
     private String password;
     private String role = "admin";
     private Token token;
+    private String avatarId;
 
     public User() {}
 
@@ -63,6 +64,14 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getAvatarId() {
+        return avatarId;
+    }
+
+    public void setAvatarId(String avatarId) {
+        this.avatarId = avatarId;
     }
 
     public void renewToken() {
