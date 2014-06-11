@@ -35,7 +35,7 @@ PLATFORM.login = (function(){
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configLogin.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'login/login',
             callback:_render,
             settings:_settings

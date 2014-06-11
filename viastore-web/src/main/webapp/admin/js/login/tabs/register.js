@@ -20,7 +20,7 @@ PLATFORM.register = (function(){
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configLogin.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'login/register',
             callback:_render,
             settings:_settings

@@ -5,13 +5,17 @@
 window.onload = function(){
     if(!sessionStorage.token){
        if(location.pathname === '/pages/login/'){
-           PLATFORM.RouteLogin.start();
+           window.workConfig = Tools.extend(config, configLogin);
+           PLATFORM.Route.start();
        }else{
            location.pathname = '/pages/login/';
        }
     }else{
         if(location.pathname === '/pages/account/'){
-            PLATFORM.RouteAccount.start();
+            userSettings.getSettings(function(){
+                window.workConfig = Tools.extend(config, configAccount);
+                PLATFORM.Route.start();
+            });
         }else{
             location.pathname = '/pages/account/';
         }

@@ -20,7 +20,7 @@ PLATFORM.forgot = (function(){
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configLogin.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'login/forgot',
             callback:_render,
             settings:_settings
