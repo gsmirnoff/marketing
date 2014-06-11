@@ -6,6 +6,11 @@ var configLogin = {
     apiFolder:'../../api/',
     templatesFolder:'../../../../resources/templates/',
 
+    //paths
+    page:'login',
+    currentPath:'/pages/login/',
+    toPath:'/pages/account/',
+
     //routes
     routes:{
         '':'login',

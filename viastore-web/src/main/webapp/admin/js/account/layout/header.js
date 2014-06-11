@@ -32,14 +32,28 @@ PLATFORM.header = (function(){
                 exit.href = '#';
                 exit.innerText = 'Log out';
 
+            (function(){
+                exit.addEventListener('click', function(event){
+                    console.log(event);
+                   ToolsAdmin.exit(function(){
+                       _exit();
+                   });
+                });
+            })();
+
             wrapper.appendChild(name);
             wrapper.appendChild(avatar);
             wrapper.appendChild(exit);
+        },
+
+        _exit = function(){
+            location.hash = '';
+            location.pathname = workConfig.toPath;
         };
 
     view.init = function(el){
         _el = el;
-        ToolsAdmin.loadTemplate(configAccount.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'account/head',
             callback:_render,
             settings:_settings

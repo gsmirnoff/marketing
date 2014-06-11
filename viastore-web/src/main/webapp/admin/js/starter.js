@@ -3,21 +3,22 @@
  */
 
 window.onload = function(){
+    var localConfig = window.configLogin || window.configAccount;
+    window.workConfig = Tools.extend(config, localConfig);
+
     if(!sessionStorage.token){
-       if(location.pathname === '/pages/login/'){
-           window.workConfig = Tools.extend(config, configLogin);
-           PLATFORM.Route.start();
-       }else{
-           location.pathname = '/pages/login/';
-       }
+        if((location.pathname === workConfig.currentPath) && (workConfig.page === 'login')){
+            PLATFORM.Route.start();
+        }else{
+           location.pathname = workConfig.toPath;
+        }
     }else{
-        if(location.pathname === '/pages/account/'){
+        if((location.pathname === workConfig.currentPath) && (workConfig.page === 'account')){
             userSettings.getSettings(function(){
-                window.workConfig = Tools.extend(config, configAccount);
                 PLATFORM.Route.start();
             });
         }else{
-            location.pathname = '/pages/account/';
+            location.pathname = workConfig.toPath;
         }
     }
 };

@@ -15,7 +15,7 @@ PLATFORM.footer = (function(){
 
     view.init = function(el){
         _el = el;
-        ToolsAdmin.loadTemplate(configAccount.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'account/footer',
             callback:_render,
             settings:_settings

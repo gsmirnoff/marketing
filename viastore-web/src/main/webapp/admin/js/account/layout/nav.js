@@ -15,7 +15,7 @@ PLATFORM.nav = (function(){
 
     view.init = function(el){
         _el = el;
-        ToolsAdmin.loadTemplate(configAccount.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'account/nav',
             callback:_render,
             settings:_settings

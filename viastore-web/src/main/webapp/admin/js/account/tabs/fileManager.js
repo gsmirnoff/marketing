@@ -18,7 +18,7 @@ PLATFORM.fileManager = (function(){
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configAccount.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'account/fileManager',
             callback:_render,
             settings:_settings
