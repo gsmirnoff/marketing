@@ -6,6 +6,8 @@ var configAccount = {
     apiFolder:'../../api/',
     templatesFolder:'../../../../resources/templates/',
 
+    //image
+    defaultImageAccount:'defaultavatar.jpg',
 
     //paths
     page:'account',

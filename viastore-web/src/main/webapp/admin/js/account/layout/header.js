@@ -9,7 +9,6 @@ PLATFORM.header = (function(){
         _settings = {},
 
         _render = function(tmpl){
-            console.log(tmpl);
             $(_el).append(tmpl);
             _createUser();
         },
@@ -25,11 +24,12 @@ PLATFORM.header = (function(){
                 if(configAccount.personalSettings.avatarId){
                     avatar.src = configAccount.personalSettings.avatarId;
                 }else{
-                    avatar.src = '';
+                    avatar.src = workConfig.imagesFolder + workConfig.defaultImageAccount;
                 }
             avatarWrap.appendChild(avatar);
             var exit = document.createElement('a');
                 exit.href = '#';
+                exit.className = 'exit';
                 exit.innerText = 'Log out';
 
             (function(){
@@ -42,7 +42,7 @@ PLATFORM.header = (function(){
             })();
 
             wrapper.appendChild(name);
-            wrapper.appendChild(avatar);
+            wrapper.appendChild(avatarWrap);
             wrapper.appendChild(exit);
         },
 
