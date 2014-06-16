@@ -9,6 +9,7 @@ public class UserAuth {
     private String name;
     private String role = "admin";
     private Token token;
+    private boolean isNew;
 
     public String getName() {
         return name;
@@ -32,5 +33,13 @@ public class UserAuth {
 
     public void setToken(Token token) {
         this.token = token;
+    }
+
+    public boolean isNew() {
+        return isNew;
+    }
+
+    public void setNew(boolean isNew) {
+        this.isNew = isNew;
     }
 }

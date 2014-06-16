@@ -14,32 +14,32 @@ import java.util.UUID;
 public class User {
     @Id
     private String id;
-    private String name;
+    private String email;
     private String password;
     private String role = "admin";
     private Token token;
     private String avatarId;
 
     private String firstName;
-    private String surName;
-    private String patronymName;
+    private String lastName;
+    private String middleName;
 
     private String organization;
     private Gender gender;
 
     public User() {}
 
-    public User(String name, String password) {
-        this.name = name;
+    public User(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -94,20 +94,20 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPatronymName() {
-        return patronymName;
+    public String getMiddleName() {
+        return middleName;
     }
 
-    public void setPatronymName(String patronymName) {
-        this.patronymName = patronymName;
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     public String getOrganization() {

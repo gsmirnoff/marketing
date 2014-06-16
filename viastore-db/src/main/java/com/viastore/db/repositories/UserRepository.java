@@ -15,9 +15,9 @@ public interface UserRepository extends MongoRepository<User, String> {
     @Query("{'token.token':?0}")
     public User findByToken(String token);
 
-    @Query("{'name':?0}")
-    public User findByName(String name);
+    @Query("{'email':?0}")
+    public User findByEmail(String email);
 
-    @Query("{'name':?0, 'password':?1}")
-    public User findByNameAndPass(String name, String pass);
+    @Query("{'email':?0, 'password':?1}")
+    public User findByEmailAndPass(String email, String pass);
 }
