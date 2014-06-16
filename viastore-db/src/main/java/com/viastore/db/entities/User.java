@@ -1,5 +1,6 @@
 package com.viastore.db.entities;
 
+import com.viastore.db.entities.enums.Gender;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,6 +19,13 @@ public class User {
     private String role = "admin";
     private Token token;
     private String avatarId;
+
+    private String firstName;
+    private String surName;
+    private String patronymName;
+
+    private String organization;
+    private Gender gender;
 
     public User() {}
 
@@ -76,6 +84,46 @@ public class User {
 
     public void renewToken() {
         this.token.setExpires(DateTime.now().plusMinutes(30));
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
+    public String getPatronymName() {
+        return patronymName;
+    }
+
+    public void setPatronymName(String patronymName) {
+        this.patronymName = patronymName;
+    }
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public void createToken() {
