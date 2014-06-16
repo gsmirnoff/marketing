@@ -17,7 +17,7 @@ PLATFORM.settings = (function(){
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configAccount.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'account/settings',
             callback:_render,
             settings:_settings

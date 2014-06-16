@@ -13,6 +13,12 @@ var ToolsAdmin = {
       });
     },
 
+    exit:function(callback){
+        sessionStorage.clear();
+        localStorage.clear();
+        callback();
+    },
+
     title:function(hash){
         var title = document.getElementsByTagName('title');
         var wrapper = document.getElementById('wrapper');
@@ -75,7 +81,8 @@ var ToolsAdmin = {
        }else if(hash === ''){
            PLATFORM[routes[hash]].init();
        }else{
-           console.log(hash);
+           hash = '';
+           PLATFORM[routes[hash]].init();
        }
     }
 };

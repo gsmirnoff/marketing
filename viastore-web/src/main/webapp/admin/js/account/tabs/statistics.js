@@ -18,7 +18,7 @@ PLATFORM.statistics = (function(){
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configAccount.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'account/statistics',
             callback:_render,
             settings:_settings
