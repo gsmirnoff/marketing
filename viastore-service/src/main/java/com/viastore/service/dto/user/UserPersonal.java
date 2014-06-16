@@ -7,6 +7,7 @@ import com.viastore.db.entities.enums.Gender;
  */
 public class UserPersonal {
 
+    private String email;
     private String avatarId;
 
     private String firstName;
@@ -15,6 +16,14 @@ public class UserPersonal {
 
     private String organization;
     private Gender gender;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getAvatarId() {
         return avatarId;
