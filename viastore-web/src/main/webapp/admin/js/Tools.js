@@ -13,6 +13,32 @@ var ToolsAdmin = {
       });
     },
 
+    insertTmpl:function(tmpl, wrap, callback){
+        wrap.innerHTML = tmpl;
+        callback();
+    },
+
+    progressBar:function(){
+
+    },
+
+    fetchAvatar:function(id, callback){
+        REQUEST.initRequest({
+            url:'/api/image/' + id,
+            contentType:'application/json',
+            success:function(data){
+                userSettings.setSettings(workConfig.personalSettings, function(){
+                    workConfig.personalSettings.avatarUrl = data.response.data;
+                    callback();
+                });
+
+            },
+            error:function(error){
+                console.log(error);
+            }
+        }, 'GET', 'json');
+    },
+
     exit:function(callback){
         sessionStorage.clear();
         localStorage.clear();

@@ -14,7 +14,7 @@ PLATFORM.header = (function(){
         },
 
         _createUser = function(){
-            var wrapper = document.getElementById('userAccount');
+            var wrapper = document.getElementById('account');
             var name = document.createElement('span');
                 name.className = 'account-name';
                 name.innerText = workConfig.personalSettings.email.replace('%40', '@');
@@ -29,7 +29,7 @@ PLATFORM.header = (function(){
             avatarWrap.appendChild(avatar);
             var exit = document.createElement('a');
                 exit.href = '#';
-                exit.className = 'exit';
+                exit.className = 'account-exit';
                 exit.innerText = 'Log out';
 
             (function(){

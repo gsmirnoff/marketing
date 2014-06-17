@@ -17,7 +17,7 @@ function Modal(){
             setModal:function(modal){
                console.log(modal);
                 var marginTop = 100 + window.scrollY;
-                var marginLeft = (window.outerWidth/2)-(500/2);
+                var marginLeft = (window.outerWidth/2)-(750/2);
                 $(modal).css({
                     'margin-top':marginTop,
                     'margin-left':marginLeft

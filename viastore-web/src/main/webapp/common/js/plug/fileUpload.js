@@ -13,16 +13,17 @@ function FileUpload(){
         _modal,
 
         _container,
+        _loaded,
 
         _render = function(){
             if(!settings.html){
-                _createHTMLAvatar();
+                _createHTML();
             }else{
 
             }
         },
 
-        _createHTMLAvatar = function(){
+        _createHTML = function(){
             var wrap = document.createElement('div');
                 wrap.className = 'wrap-' + settings.type;
 
@@ -40,72 +41,46 @@ function FileUpload(){
                 drop.idDrop = settings.attr.id;
                 drop.nameDrop = settings.attr.name || settings.attr.id;
 
+            var loaded = document.createElement('div');
+                loaded.className = 'loaded-images-' + settings.type;
+
+            var btn = document.createElement('input');
+                btn.className = 'send-file-' + settings.type;
+                btn.value = 'Load';
+                btn.type = 'button';
+
+            _container = drop;
+            _loaded = loaded;
+
             if(settings.drop){
                 wrap.appendChild(drop);
             }
 
             if(settings.input){
                if(settings.before){
-                   wrap.prependChild(label);
-                   wrap.prependChild(input);
+                   $(wrap).prepend(label);
+                   $(wrap).prepend(input);
                }else{
                    wrap.appendChild(input);
                    wrap.appendChild(label);
                }
             }
 
-            $(settings.wrap).append(wrap);
-        },
+            _emptyContainer(drop, label);
 
-        _createHTMLUploader = function(){
-
-        },
-
-        _createHTML = function(){
-            var fileUploadWrap = document.createElement('div');
-            fileUploadWrap.className = 'file-upload-wrap';
-
-            var input = document.createElement('input');
-            input.type = 'file';
-            input.id = settings.attr.id;
-            input.name = settings.attr.name || settings.attr.id;
-
-            var label = document.createElement('label');
-            label.setAttribute('for', settings.attr.id);
-            label.innerText = 'Click for choose of image files';
-
-            var drop = document.createElement('div');
-            drop.className = 'file-drop';
-            drop.idDrop = settings.attr.id;
-            drop.nameDrop = settings.attr.name || settings.attr.id;
-
-            _container = drop;
-            var btn = document.createElement('input');
-            btn.className = 'send-files';
-            btn.value = 'Send';
-            btn.type = 'button';
-
-            var uploadedImg = document.createElement('div');
-                uploadedImg.className = 'uploaded-image';
-
-            if(!_localStorage.check()){
-                _emptyContainer(drop);
+            if(workConfig.avatarUrl){
+                var wrapperAvatar = document.createElement('div');
+                    wrapperAvatar.className = 'current-avatar';
+                var currentAvatar = document.createElement('img');
+                    currentAvatar.src = workConfig.avatarUrl;
+                wrapperAvatar.appendChild(currentAvatar);
             }
 
-            fileUploadWrap.appendChild(input);
-            fileUploadWrap.appendChild(label);
-            fileUploadWrap.appendChild(drop);
+            $(settings.wrap).append(wrap);
+            $(settings.wrap).append(btn);
+            $(settings.wrap).append(loaded);
 
-            settings.wrap.appendChild(fileUploadWrap);
-            settings.wrap.appendChild(btn);
-            settings.wrap.appendChild(uploadedImg);
-
-            _getFile(uploadedImg);
-
-            //main handlers
             (function(){
-
-
                 input.addEventListener('change', function(event){
                     event.preventDefault();
                     _parseFile(event.currentTarget.files);
@@ -113,7 +88,7 @@ function FileUpload(){
 
                 label.addEventListener('click', function(event){
                     event.preventDefault();
-                    $(input).trigger('change');
+                    $(input).trigger('click');
                 });
 
                 drop.addEventListener('dragover', function(event){
@@ -132,10 +107,30 @@ function FileUpload(){
             })();
         },
 
-        _emptyContainer = function(drop){
-            var emptyContent = document.createElement('p');
+        _emptyContainer = function(drop, label){
+            var emptyContent = document.createElement('div');
             emptyContent.className = 'empty-content';
-            emptyContent.innerText = 'Drop here image files';
+
+            var dropPlace = document.createElement('p');
+            dropPlace.innerText = 'Drop a photo here';
+
+            var or = document.createElement('p');
+                or.innerText = 'or';
+
+            var fakeFileBtn = document.createElement('div');
+            fakeFileBtn.className = 'fake-file-input';
+            fakeFileBtn.innerText = 'Select a photo from your computer';
+
+            emptyContent.appendChild(dropPlace);
+            emptyContent.appendChild(or);
+            emptyContent.appendChild(fakeFileBtn);
+
+            (function(){
+                fakeFileBtn.addEventListener('click', function(event){
+                    event.preventDefault();
+                    $(label).trigger('click');
+                });
+            })();
 
             drop.appendChild(emptyContent);
         },
@@ -145,7 +140,7 @@ function FileUpload(){
 
             reader.readAsDataURL(file);
             reader.onprogress = function(event){
-                _progressImage(event);
+
             };
 
             reader.onloadstart = function(event){
@@ -160,58 +155,30 @@ function FileUpload(){
             };
         },
 
-        _preloader = {
-            start:function(){
-                var preload = document.createElement('img');
-                    preload.src = 'img/254.GIF';
-                    preload.className = 'preloader-gif';
-                return preload;
-            },
-
-            stop:function(){
-                $('.preloader-gif').remove();
-            }
-        },
-
-        _progressImage = function(event){
-
-        },
-
         _saveFile = function(e){
             var formData = new FormData();
             formData.append('image', $(e.currentTarget).parent().find('img').attr('src'));
             $.ajax({
                 beforeSend:function(request){
-                    request.setRequestHeader('token', localStorage.token);
+                    request.setRequestHeader('token', PLATFORM.getToken());
                 },
-                url:'api/image',
+                url:'/api/image',
                 type:'POST',
                 contentType:false,
                 processData:false,
                 data:formData,
                 success:function(data){
-                    console.log(data);
-                },
-                error:function(e){
-                    console.log(e);
+                    workConfig.personalSettings.avatarId = data.response.id;
 
-                }
-            });
-        },
+                    ToolsAdmin.fetchAvatar(data.response.id, function(){
+                        var img = $('<img/>').attr({
+                              src:workConfig.personalSettings.avatarUrl
+                        });
+                        $(_loaded).append(img);
 
-        _getFile = function(wrap){
-            $.ajax({
-                beforeSend:function(request){
-                    request.setRequestHeader('token', localStorage.token);
-                },
-                url:'api/image/' + '53906010e82e62ca35ac915a',
-                type:'GET',
-                contentType:'application/json',
-                success:function(data){
-                  var img =$('<img/>').attr({
-                        src:data.response.data
+
                     });
-                    $(wrap).append(img);
+
                 },
                 error:function(e){
                     console.log(e);
@@ -228,67 +195,17 @@ function FileUpload(){
             var p = document.createElement('p');
             var img  = document.createElement('img');
                 img.src = url;
-                img.className = 'progress';
-
-            //edit layout
-            var editLayout = document.createElement('div');
-                editLayout.className = 'edit-layout';
-            var editBtn = document.createElement('span');
-                editBtn.className = 'edit';
-            var deleteBtn = document.createElement('span');
-                deleteBtn.className = 'delete';
-
-            editLayout.appendChild(editBtn);
-            editLayout.appendChild(deleteBtn);
 
             var figcaption = document.createElement('figcaption');
             figcaption.innerText = name;
 
             p.appendChild(img);
-            p.appendChild(editLayout);
             figure.appendChild(p);
             figure.appendChild(figcaption);
 
             //handlers
             (function(){
-                figure.addEventListener('dragover', function(event){
-                   console.log(event);
-                });
 
-                editLayout.addEventListener('mouseover', function(event){
-                    if(event.target === event.currentTarget){
-                        $(this).animate({
-                            opacity:0.6
-                        });
-                    }
-
-                });
-
-                editLayout.addEventListener('mouseout', function(event){
-                    var edit = event.currentTarget.children[0];
-                    var del = event.currentTarget.children[1];
-
-                    if(event.target === event.currentTarget){
-                        if((event.toElement != edit) && (event.toElement != del)){
-                            $(this).animate({
-                                opacity:0
-                            });
-                        }
-                    }
-                });
-
-                editBtn.addEventListener('click', function(event){
-                    $(event.currentTarget.parentNode).animate({
-                        opacity:0
-                    });
-                    _modal.newModal().create(function(wrap){
-                        _contentModal(event, wrap);
-                    });
-                });
-
-                deleteBtn.addEventListener('click', function(event){
-                    console.log(event);
-                });
 
 
             })();
@@ -308,66 +225,9 @@ function FileUpload(){
 
         },
 
-        _contentModal = function(event, wrap){
-            var figure = $(event.currentTarget).parents('figure');
-
-            var wrapModalImg = document.createElement('div');
-            wrapModalImg.className = 'wrap-modal-img';
-            var titleModal = document.createElement('h2');
-            titleModal.setAttribute('contenteditable', 'true');
-            titleModal.innerText = figure.find('figcaption').text();
-
-            var imgModal = document.createElement('img');
-            imgModal.setAttribute('data-modal-figure', $(figure).data('figure'));
-            imgModal.src = figure.find('img').attr('src');
-
-            wrapModalImg.appendChild(titleModal);
-            wrapModalImg.appendChild(imgModal);
-
-            var wrapModalEdit = document.createElement('div');
-            wrapModalEdit.className = 'wrap-modal-edit';
-
-            wrap.appendChild(wrapModalImg);
-            wrap.appendChild(wrapModalEdit);
-            _modal.newModal().setModal(wrap);
-        },
-
         _parseFile = function(files){
             for(var i=0; i<files.length; i++){
                 _showFile(files[i]);
-            }
-        },
-
-        _localStorage = {
-            check:function(){
-                if(localStorage.files){
-                    return true;
-                }else{
-                    return false;
-                }
-            },
-
-            add:function(event, file){
-                if(_localStorage.check()){
-                    var localFiles = JSON.parse(localStorage.files);
-                    localFiles.push({
-                        url:event.currentTarget.result,
-                        name:file.name
-                    });
-                    localStorage.files = JSON.stringify(localFiles);
-                }else{
-                    var arr = [
-                        {
-                            url:event.currentTarget.result,
-                            name:file.name
-                        }
-                    ];
-                    localStorage.files = JSON.stringify(arr);
-                }
-            },
-
-            remove:function(){
-
             }
         };
 

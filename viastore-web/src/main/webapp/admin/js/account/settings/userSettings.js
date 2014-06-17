@@ -29,8 +29,8 @@ var userSettings = {
             },
             url:'/api/user/current',
             data:data,
-            success:function(data){
-                console.log(data);
+            success:function(result){
+                console.log(result);
             },
             error:function(){
 

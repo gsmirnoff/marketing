@@ -41,6 +41,9 @@ PLATFORM.page = (function(){
         _routes = routes;
         window.modal = new Modal();
         window.fileUpload = new FileUpload();
+        if(workConfig.personalSettings.avatarId){
+            ToolsAdmin.fetchAvatar(workConfig.personalSettings.avatarId);
+        }
         _render();
     };
 
