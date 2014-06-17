@@ -11,7 +11,7 @@ var userSettings = {
             url:'/api/user/current',
             success:function(data){
                 console.log(data);
-                configAccount.personalSettings = data;
+                workConfig.personalSettings = data;
             },
             error:function(error){
                 console.log(error);
@@ -20,5 +20,24 @@ var userSettings = {
                 callback();
             }
         }, 'GET', 'json');
+    },
+
+    setSettings:function(data, callback){
+        REQUEST.initRequest({
+            token:function(request){
+                request.setRequestHeader('token', PLATFORM.getToken());
+            },
+            url:'/api/user/current',
+            data:data,
+            success:function(data){
+                console.log(data);
+            },
+            error:function(){
+
+            },
+            next:function(){
+                callback();
+            }
+        }, 'POST', 'json');
     }
 };

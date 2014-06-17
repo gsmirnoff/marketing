@@ -1,18 +1,18 @@
 @import "settings/profile.css";
 
 #content {
-    background-color: #f3f3f3;
+    background-color: #CFCFCF;
 }
 
 .account-settings .left{
     float: left;
-    background-color: #f3f3f3;
-    margin-right: 25px;
+    background-color: #CFCFCF;
 }
 
 .account-settings .right{
    background-color: #ffffff;
     padding-top: 15px;
+    overflow: hidden;
 }
 
 .account-settings-menu {

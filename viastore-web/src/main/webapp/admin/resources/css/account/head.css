@@ -5,7 +5,7 @@
 .admin-page .brand h1 {
     font-family: sans-serif;
     color: #636363;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
     margin-left: 20px;
     padding-top: 10px;
 }
@@ -45,7 +45,7 @@
 .user-account .account-name {
     position: relative;
     font-family: sans-serif;
-    top: 18px;
+    top: 31px;
     font-size: 21px;
     left: -16px;
     color: #727272;
@@ -58,7 +58,7 @@
     border-radius: 50px;
     box-shadow: 1px 1px 2px #8B8B8B;
     position: relative;
-    top: 5px;
+    top: 16px;
     left: -6px;
 }
 

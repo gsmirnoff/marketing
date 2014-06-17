@@ -17,12 +17,12 @@ PLATFORM.header = (function(){
             var wrapper = document.getElementById('userAccount');
             var name = document.createElement('span');
                 name.className = 'account-name';
-                name.innerText = configAccount.personalSettings.name;
+                name.innerText = workConfig.personalSettings.email.replace('%40', '@');
             var avatarWrap = document.createElement('div');
                 avatarWrap.className = 'account-avatar';
             var avatar = document.createElement('img');
-                if(configAccount.personalSettings.avatarId){
-                    avatar.src = configAccount.personalSettings.avatarId;
+                if(workConfig.personalSettings.avatarId){
+                    avatar.src = workConfig.personalSettings.avatarId;
                 }else{
                     avatar.src = workConfig.imagesFolder + workConfig.defaultImageAccount;
                 }

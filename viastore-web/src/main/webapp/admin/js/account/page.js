@@ -39,6 +39,8 @@ PLATFORM.page = (function(){
 
     view.init = function(routes){
         _routes = routes;
+        window.modal = new Modal();
+        window.fileUpload = new FileUpload();
         _render();
     };
 

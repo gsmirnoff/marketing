@@ -8,7 +8,9 @@ PLATFORM.settings = (function(){
         _el = 'content',
 
         _settings = {
-
+           tmpl:{
+               defaultProfilePhoto:'resources/img/defaultAvatar.jpg'
+           }
         },
 
         _render = function(tmpl){
@@ -45,6 +47,7 @@ PLATFORM.settings = (function(){
         },
 
         _loadSettingsTab = function(list, active){
+            _settings.tmpl = workConfig.personalSettings;
             if(active){
                 ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
                     template:'account/settings/'+$(active).data('idTab'),
