@@ -32,4 +32,9 @@ public class UserService {
         return mapper.map(user, UserPersonal.class);
     }
 
+    public boolean isUserExists(String email) {
+        User user = userRepository.findByEmail(email);
+        return user != null;
+    }
+
 }
