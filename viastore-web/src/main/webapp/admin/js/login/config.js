@@ -3,6 +3,19 @@
  */
 
 var configLogin = {
-    pathApi:'../../api/',
-    pathTemplate:'../../../../resources/templates/'
+    apiFolder:'../../api/',
+    templatesFolder:'../../../../resources/templates/',
+
+    //paths
+    page:'login',
+    currentPath:'/pages/login/',
+    toPath:'/pages/account/',
+
+    //routes
+    routes:{
+        '':'login',
+        'login':'login',
+        'register':'register',
+        'forgot':'forgot'
+    }
 };

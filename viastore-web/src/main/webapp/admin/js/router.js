@@ -2,19 +2,13 @@
  * Created by SNSukhanov on 09.06.14.
  */
 
-PLATFORM.RouteAccount = (function(){
+PLATFORM.Route = (function(){
     var view = {},
 
-        _routes = {
-            '':'constructor',
-            'constructor':'constructor',
-            'fileManager':'fileManager',
-            'settings':'settings',
-            'statistics':'statistics'
-        },
+        _routes = {},
 
         _render = function(event){
-            PLATFORM.page.init(_routes);
+           PLATFORM.page.init(_routes);
         },
 
         _startHistory = function(){
@@ -26,8 +20,9 @@ PLATFORM.RouteAccount = (function(){
         };
 
     view.start = function(){
+        _routes = workConfig.routes;
         localStorage.typeEventLoad = 'load';
-        _startHistory();
+       _startHistory();
     };
 
     return view;

@@ -18,7 +18,7 @@ public class Authorizer implements SecurityContext {
         this.principal = new Principal() {
             @Override
             public String getName() {
-                return user.getName();
+                return user.getEmail();
             }
         };
     }

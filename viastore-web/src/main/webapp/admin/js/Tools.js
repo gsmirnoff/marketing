@@ -13,6 +13,61 @@ var ToolsAdmin = {
       });
     },
 
+    insertTmpl:function(tmpl, wrap, callback, type){
+        switch(type){
+            case 'insert':(function(){
+                wrap.innerHTML = tmpl;
+            })();
+                break;
+            case 'add':(function(){
+                wrap.appendChild(tmpl);
+            })();
+                break;
+            default:(function(){
+                wrap.innerHTML = tmpl;
+            })();
+        }
+        callback();
+    },
+
+    changeAvatar:function(id, arrayAvatar, callback){
+        delete workConfig.personalSettings.avatarUrl;
+        userSettings.setSettings(workConfig.personalSettings, function(){
+            ToolsAdmin.fetchAvatar(id, function(){
+                var url = workConfig.personalSettings.avatarUrl;
+                for(var i=0; i<arrayAvatar.length; i++){
+                    arrayAvatar[i].src = url;
+                }
+                callback();
+            });
+
+        });
+    },
+
+    progressBar:function(){
+
+    },
+
+    fetchAvatar:function(id, callback){
+        REQUEST.initRequest({
+            url:'/api/image/' + id,
+            contentType:'application/json',
+            success:function(data){
+                workConfig.personalSettings.avatarUrl = data.response.data;
+              callback();
+            },
+            error:function(error){
+                console.log(error);
+            }
+        }, 'GET', 'json');
+    },
+
+    exit:function(callback){
+        sessionStorage.clear();
+        localStorage.clear();
+        callback();
+    },
+
     title:function(hash){
         var title = document.getElementsByTagName('title');
         var wrapper = document.getElementById('wrapper');
@@ -75,7 +130,8 @@ var ToolsAdmin = {
        }else if(hash === ''){
            PLATFORM[routes[hash]].init();
        }else{
-           console.log(hash);
+           hash = '';
+           PLATFORM[routes[hash]].init();
        }
     }
 };

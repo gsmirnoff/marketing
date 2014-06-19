@@ -4,6 +4,7 @@
 
 PLATFORM.login = (function(){
     var view = {},
+        _template = 'login/login',
         _settings = {
 
         },
@@ -16,27 +17,39 @@ PLATFORM.login = (function(){
                    var result =  ToolsAdmin.parseFormData(form);
                    _enterAdminPanel(result);
                 });
+                document.addEventListener('keyup', function(event){
+                   if(event.keyCode === 13){
+                       var form = btn.parentNode;
+                       var result =  ToolsAdmin.parseFormData(form);
+                       for(var k in result){
+                           if(result[k] === ''){
+                               return false;
+                           }
+                       }
+
+                       $(btn).trigger('click');
+                   }
+                });
             });
         },
 
         _enterAdminPanel = function(data){
             REQUEST.initRequest({
-                url:configLogin.pathApi + 'auth',
+                url:workConfig.apiFolder + 'auth',
                 data:JSON.stringify(data),
                 success:function(result){
-                   console.log(result);
                     PLATFORM.setToken(result.response.token.token);
-                    location.pathname = 'pages/account/';
+                    location.pathname = workConfig.toPath;
                 },
-                error:function(){
-
+                error:function(error){
+                    console.log(error);
                 }
             }, 'POST', 'json');
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configLogin.pathTemplate, {
-            template:'login/login',
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
+            template:_template,
             callback:_render,
             settings:_settings
         });

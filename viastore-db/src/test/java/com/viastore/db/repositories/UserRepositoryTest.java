@@ -29,7 +29,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testFindByToken() throws Exception {
-        User user = new User("name", "pass");
+        User user = new User("name@email.com", "pass");
         user.createToken();
         Token token = user.getToken();
         userRepository.save(user);
@@ -37,32 +37,32 @@ public class UserRepositoryTest {
         user = userRepository.findByToken(token.getToken());
 
         assertThat(user, notNullValue());
-        assertThat(user.getName(), is("name"));
+        assertThat(user.getEmail(), is("name@email.com"));
     }
 
     @Test
     public void testFindByName() throws Exception {
-        User user = new User("name", "pass");
+        User user = new User("name@mail.com", "pass");
         user.setRole("some_role");
         userRepository.save(user);
 
-        user = userRepository.findByName("name");
+        user = userRepository.findByEmail("name@mail.com");
         assertThat(user, notNullValue());
         assertThat(user.getRole(), is("some_role"));
     }
 
     @Test
     public void testFindByNameAndPass() throws Exception {
-        User user = new User("name", "pass");
+        User user = new User("name@mail.com", "pass");
         user.setRole("some_role");
 
         userRepository.save(user);
 
-        user = userRepository.findByNameAndPass("name", "pass");
+        user = userRepository.findByEmailAndPass("name@mail.com", "pass");
         assertThat(user, notNullValue());
         assertThat(user.getRole(), is("some_role"));
 
-        user = userRepository.findByNameAndPass("name", "invalid_pass");
+        user = userRepository.findByEmailAndPass("name@mail.com", "invalid_pass");
         assertThat(user, nullValue());
     }
 }

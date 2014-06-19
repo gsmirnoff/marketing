@@ -18,7 +18,7 @@ PLATFORM.constructor = (function(){
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configAccount.pathTemplate, {
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
             template:'account/constructor',
             callback:_render,
             settings:_settings

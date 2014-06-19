@@ -1,0 +1,81 @@
+.admin-page .brand {
+    text-align: center;
+}
+
+.admin-page .brand h1 {
+    font-family: sans-serif;
+    color: #636363;
+    margin-bottom: 13px;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+
+.account .wrap-user-pic {
+    position: relative;
+    top: 18px;
+    left: 37px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+.wrap-user-pic img {
+    width: 100%;
+}
+
+
+/*admin*/
+
+.admin-page header > div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.account {
+    float: right;
+}
+
+.account > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.account .account-name {
+    position: relative;
+    font-family: sans-serif;
+    top: 31px;
+    font-size: 21px;
+    left: -16px;
+    color: #727272;
+}
+
+.account .account-avatar {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50px;
+    box-shadow: 1px 1px 2px #8B8B8B;
+    position: relative;
+    top: 16px;
+    left: -6px;
+}
+
+.account .account-avatar img {
+    width: 100%;
+}
+
+.account .account-exit {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #707070;
+    font-size: 15px;
+    top: 5px;
+    position: relative;
+    margin-right: 10px;
+}
+
+.account .exit:hover{
+    text-decoration: underline;
+}

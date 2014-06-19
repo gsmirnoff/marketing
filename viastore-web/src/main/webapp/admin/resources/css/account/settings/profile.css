@@ -1,0 +1,181 @@
+.avatar-wrapper,
+.data-profile{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.avatar-wrapper{
+    width: 200px;
+    height: 200px;
+    margin-left: 20px;
+}
+
+.avatar-upload {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tools-load {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #323232;
+    opacity: 0;
+    -webkit-transition:all 0.5s ease;
+    cursor: pointer;
+}
+
+.tools-load:hover{
+    opacity: 0.6;
+}
+
+.tools-load p {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: sans-serif;
+    position: relative;
+    margin-top: 97px;
+    margin-left: 7px;
+}
+
+.icon-change{
+    display: block;
+    width: 48px;
+    height: 40px;
+    background-image: url('../../../img/upload-avatar.png');
+    background-repeat: no-repeat;
+    background-position: -6px 0;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+}
+
+.data-profile {
+    margin-left: 20px;
+}
+
+.data-profile > h2{
+    font-family: sans-serif;
+    color: #5C5C5C;
+    font-size: 34px;
+}
+
+.data-profile  p {
+    margin: 10px 0px 10px;
+    font-family: sans-serif;
+    color: #868686;
+    font-weight: 700;
+}
+
+.data-profile .contacts {
+    font-size: 13px;
+}
+
+.data-profile ul{
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #868686;
+    font-weight: 700;
+}
+
+.data-profile li span{
+    color: #830707;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.profile p .title {
+    font-family: sans-serif;
+    color: #868686;
+    font-weight: 800;
+    font-size: 14px;
+    display: block;
+}
+
+.profile p .value {
+    font-size: 15px;
+    font-family: sans-serif;
+    display: inline-block;
+}
+
+.profile p .value ul{
+
+}
+
+.profile p .value ul li{
+
+}
+
+.profile p .value ul li .title.sub{
+
+}
+
+.profile p .value ul li .value.sub{
+
+}
+
+.avatar-modal-wrapper{
+
+}
+
+.avatar-modal-wrapper h2{
+    font-family: sans-serif;
+    font-size: 25px;
+    color: #555454;
+    margin-bottom: 10px;
+}
+
+.avatar-modal-wrapper input[type='file']{
+    display: none;
+}
+
+.avatar-modal-wrapper label{
+    display: none;
+}
+
+.avatar-modal-wrapper .file-drop-avatar{
+    border: 10px dashed #747474;
+    width: 98%;
+    height: 500px;
+    background-color: #AAAAAA;
+}
+
+
+.avatar-modal-wrapper .file-drop-avatar > p{
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 40px;
+    margin-top: 200px;
+    margin-left: 79px;
+}
+
+.avatar-modal-wrapper figure{
+    width: 50%;
+    margin-top: 15%;
+    margin-left: 23%;
+}
+
+.avatar-modal-wrapper figure img{
+    width: 100%;
+}
+
+.send-file-avatar {
+    background-color: #830000;
+    border: 0;
+    color: #fcfcfc;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 35px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.avatar-upload img {
+    width: 100%;
+}

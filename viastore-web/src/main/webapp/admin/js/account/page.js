@@ -35,11 +35,28 @@ PLATFORM.page = (function(){
                 _sections.footer = true;
                 PLATFORM.footer.init(footer);
             }
+
+            (function(load){
+                if(load){
+                    $(document).on('changeAvatar', function(event){
+                        ToolsAdmin.changeAvatar(event.avatarId, workConfig.avatarContainer, event.callbackAvatar);
+                    });
+                }
+            })(localStorage.typeEventLoad  === "load");
         };
 
     view.init = function(routes){
         _routes = routes;
-        _render();
+        window.modal = new Modal().newModal();
+        window.fileUpload = new FileUpload();
+        if(workConfig.personalSettings.avatarId){
+            ToolsAdmin.fetchAvatar(workConfig.personalSettings.avatarId, function(){
+                _render();
+            });
+        }else{
+            _render();
+        }
+
     };
 
     return view;

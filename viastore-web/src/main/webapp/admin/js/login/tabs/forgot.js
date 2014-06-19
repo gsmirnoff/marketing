@@ -4,7 +4,7 @@
 
 PLATFORM.forgot = (function(){
     var view = {},
-
+        _template = 'login/forgot',
         _settings = {
 
         },
@@ -14,14 +14,28 @@ PLATFORM.forgot = (function(){
                 var btn = document.getElementById('remind');
                 btn.addEventListener('click', function(event){
                     var form = event.currentTarget.parentNode;
-                    ToolsAdmin.parseFormData(form);
+                    var result =  ToolsAdmin.parseFormData(form);
+
+                });
+                document.addEventListener('keyup', function(event){
+                    if(event.keyCode === 13){
+                        var form = btn.parentNode;
+                        var result =  ToolsAdmin.parseFormData(form);
+                        for(var k in result){
+                            if(result[k] === ''){
+                                return false;
+                            }
+                        }
+
+                        $(btn).trigger('click');
+                    }
                 });
             });
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(configLogin.pathTemplate, {
-            template:'login/forgot',
+        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
+            template:_template,
             callback:_render,
             settings:_settings
         });
