@@ -4,6 +4,7 @@
 
 function Modal(){
     var view = this,
+        m = [],
 
         _render = function(){
 
@@ -24,13 +25,12 @@ function Modal(){
                 });
             },
 
-            delete:function(m){
+            delete:function(){
                $(m).remove();
             }
         },
 
         _createModal = function(callback){
-            var m = [];
             var layout = document.createElement('div');
                 layout.className = 'layout-modal modal';
             var close = document.createElement('div');

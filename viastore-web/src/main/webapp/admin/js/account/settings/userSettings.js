@@ -26,9 +26,10 @@ var userSettings = {
         REQUEST.initRequest({
             token:function(request){
                 request.setRequestHeader('token', PLATFORM.getToken());
+                delete data.avatarUrl;
             },
             url:'/api/user/current',
-            data:data,
+            data:JSON.stringify(data),
             success:function(result){
                 console.log(result);
             },
@@ -38,6 +39,6 @@ var userSettings = {
             next:function(){
                 callback();
             }
-        }, 'POST', 'json');
+        }, 'PUT', 'json');
     }
 };

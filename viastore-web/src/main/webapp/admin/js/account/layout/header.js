@@ -9,11 +9,12 @@ PLATFORM.header = (function(){
         _settings = {},
 
         _render = function(tmpl){
-            $(_el).append(tmpl);
-            _createUser();
+            ToolsAdmin.insertTmpl(tmpl, _el, function(){
+                _account();
+            });
         },
 
-        _createUser = function(){
+        _account = function(){
             var wrapper = document.getElementById('account');
             var name = document.createElement('span');
                 name.className = 'account-name';
@@ -21,8 +22,9 @@ PLATFORM.header = (function(){
             var avatarWrap = document.createElement('div');
                 avatarWrap.className = 'account-avatar';
             var avatar = document.createElement('img');
+            workConfig.avatarContainer.push(avatar);
                 if(workConfig.personalSettings.avatarId){
-                    avatar.src = workConfig.personalSettings.avatarId;
+                    avatar.src = workConfig.personalSettings.avatarUrl;
                 }else{
                     avatar.src = workConfig.imagesFolder + workConfig.defaultImageAccount;
                 }

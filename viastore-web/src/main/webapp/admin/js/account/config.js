@@ -20,6 +20,9 @@ var configAccount = {
         'constructor':'constructor',
         'fileManager':'fileManager',
         'settings':'settings',
-        'statistics':'statistics'
-    }
+        'statistics':'statistics',
+        'chat':'chat'
+    },
+
+    avatarContainer:[]
 };

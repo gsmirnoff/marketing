@@ -9,8 +9,9 @@ PLATFORM.nav = (function(){
         _settings = {},
 
         _render = function(tmpl){
-            console.log(tmpl);
-            $(_el).append(tmpl);
+            ToolsAdmin.insertTmpl(tmpl, _el, function(){
+
+            });
         };
 
     view.init = function(el){

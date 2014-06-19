@@ -13,9 +13,35 @@ var ToolsAdmin = {
       });
     },
 
-    insertTmpl:function(tmpl, wrap, callback){
-        wrap.innerHTML = tmpl;
+    insertTmpl:function(tmpl, wrap, callback, type){
+        switch(type){
+            case 'insert':(function(){
+                wrap.innerHTML = tmpl;
+            })();
+                break;
+            case 'add':(function(){
+                wrap.appendChild(tmpl);
+            })();
+                break;
+            default:(function(){
+                wrap.innerHTML = tmpl;
+            })();
+        }
         callback();
+    },
+
+    changeAvatar:function(id, arrayAvatar, callback){
+        delete workConfig.personalSettings.avatarUrl;
+        userSettings.setSettings(workConfig.personalSettings, function(){
+            ToolsAdmin.fetchAvatar(id, function(){
+                var url = workConfig.personalSettings.avatarUrl;
+                for(var i=0; i<arrayAvatar.length; i++){
+                    arrayAvatar[i].src = url;
+                }
+                callback();
+            });
+
+        });
     },
 
     progressBar:function(){
@@ -27,11 +53,8 @@ var ToolsAdmin = {
             url:'/api/image/' + id,
             contentType:'application/json',
             success:function(data){
-                userSettings.setSettings(workConfig.personalSettings, function(){
-                    workConfig.personalSettings.avatarUrl = data.response.data;
-                    callback();
-                });
-
+                workConfig.personalSettings.avatarUrl = data.response.data;
+              callback();
             },
             error:function(error){
                 console.log(error);

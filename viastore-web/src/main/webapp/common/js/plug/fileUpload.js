@@ -169,15 +169,12 @@ function FileUpload(){
                 data:formData,
                 success:function(data){
                     workConfig.personalSettings.avatarId = data.response.id;
-
-                    ToolsAdmin.fetchAvatar(data.response.id, function(){
-                        var img = $('<img/>').attr({
-                              src:workConfig.personalSettings.avatarUrl
-                        });
-                        $(_loaded).append(img);
-
-
-                    });
+                    var event = $.Event('changeAvatar');
+                        event.avatarId = workConfig.personalSettings.avatarId;
+                        event.callbackAvatar = function(){
+                          window.modal.delete();
+                        };
+                    $(document).trigger(event);
 
                 },
                 error:function(e){

@@ -2,29 +2,33 @@
     <div class="avatar-wrapper">
         <div class="avatar-upload">
             {{#if tmpl.avatarId }}
-            <img src="{{tmpl.avatarUrl}}"/>
+            <img id="{{tmpl.avatarIdProfile}}" src="{{tmpl.avatarUrl}}"/>
             {{else}}
-            <img src="{{tmpl.defaultProfilePhoto}}"/>
+            <img id="{{tmpl.avatarIdProfile}}" src="{{tmpl.defaultProfilePhoto}}"/>
             {{/if}}
         </div>
         <div id="loadImg" class="tools-load">
             <p><span class="icon-change"></span>Change profile photo</p>
         </div>
+        <div class="edit-profile">
+            <a href="#">Edit profile</a>
+            <a href="#">something else</a>
+        </div>
     </div>
     <div class="data-profile">
         <h2>Sergey Sukhanov</h2>
-        <p>Works at <span>FirstLine software</span></p>
-        <p>Lives in <span>Saint-Petersburg</span></p>
+        <p>Works at <span class="write">FirstLine software</span></p>
+        <p>Lives in <span class="write">Saint-Petersburg</span></p>
         <p class="contacts">Contacts:</p>
         <ul>
             <li>
-                <p>Tel:<span>+7(965)786-22-05</span></p>
+                <p>Tel:<span class="write">+7(965)786-22-05</span></p>
             </li>
             <li>
-                <p>Skype:<span>guru66628</span></p>
+                <p>Skype:<span class="write">guru66628</span></p>
             </li>
             <li>
-                <p>Email(public):<span>sergey.n.sukhanov@gmail.com</span></p>
+                <p>Email(public):<span class="write">sergey.n.sukhanov@gmail.com</span></p>
             </li>
         </ul>
     </div>
