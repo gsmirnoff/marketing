@@ -1,0 +1,28 @@
+@charset "utf-8";
+@import "../../../../common/css/reset.css";
+@import 'common.css';
+@import 'layout.css';
+@import 'header.css';
+@import 'footer.css';
+@import 'banner.css';
+@import 'home.css';
+@import 'fontello.css';
+@import 'content.css';
+@import 'addnav.css';
+@import "contacts.css";
+@import "media.css";
+
+/*admin*/
+@import "../../../../admin/resources/css/login/form.css";
+
+/*remove*/
+
+.success-mail {
+    position: absolute;
+    background-color: #2FB950;
+    color: #ffffff;
+    padding: 30px;
+    font-family: sans-serif;
+    font-size: 25px;
+    opacity: 0.9;
+}

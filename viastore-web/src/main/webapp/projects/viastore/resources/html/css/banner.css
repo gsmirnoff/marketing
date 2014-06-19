@@ -1,0 +1,67 @@
+.banner {
+	height: 550px;
+	position: relative;
+	overflow: hidden;
+}
+.banner.banner-home {
+    height: 1000px;
+    overflow: hidden;
+}
+.banner.banner-home .back-img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner.banner-home .back-img img {
+    width: 100%;
+    min-height: 1000px;
+}
+
+.static-img {
+    position: relative;
+    margin-top: 10px;
+    width: 964px;
+    margin: 10px auto;
+    margin-bottom: 0;
+}
+
+.static-img img {
+    width: 100%;
+}
+
+.banner.simple-page-banner {height: 180px;}
+.back-img {
+	position: absolute;
+}
+.banner-content {
+	position: relative;
+	padding-top: 140px;
+}
+.banner-logo {
+	float: left;
+}
+.banner-text-box {
+	float: left;
+	background: #fff;
+	font-size: 18px;
+	width: 545px;
+	display: none;
+}
+.banner-text-box ul {
+	padding-left: 20px;
+    list-style-image: url(../images/list-point.gif);
+}
+.banner-text-box li {
+	padding-bottom: 15px;
+}
+.banner-text {
+	padding: 35px 40px 25px;
+}
+
+@media (min-width: 1200px) {
+    .banner-text-box {
+        float: right;
+        display: block !important;
+    }
+
+}

@@ -24,5 +24,27 @@ var configAccount = {
         'chat':'chat'
     },
 
+   //pages
+    layout:[
+        'header',
+        'footer',
+        'nav'
+    ],
+
+    pages:[
+       'header',
+       'footer',
+       'nav',
+       'constructor',
+       'fileManager',
+       'settings',
+       'statistics',
+       'chat',
+       'settings/profile',
+       'settings/history',
+       'settings/change',
+       'settings/projects'
+   ],
+
     avatarContainer:[]
 };

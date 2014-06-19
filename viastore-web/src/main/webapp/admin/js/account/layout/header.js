@@ -56,7 +56,7 @@ PLATFORM.header = (function(){
     view.init = function(el){
         _el = el;
         ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
-            template:'account/head',
+            template:'account/header',
             callback:_render,
             settings:_settings
         });

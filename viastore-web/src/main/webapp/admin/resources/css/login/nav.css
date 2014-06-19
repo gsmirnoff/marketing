@@ -10,10 +10,9 @@
     padding: 10px 20px;
     font-family: sans-serif;
     text-decoration: none;
-    border: 1px solid #93BDEC;
     cursor: pointer;
     color: #ffffff;
-    background-color: #0054a6;
+    background-color: #830000;
     font-size: 15px;
     text-transform: uppercase;
 }
@@ -21,5 +20,9 @@
 .navigation a.active{
     opacity: 0.3;
     cursor: default;
+}
+
+.navigation a:hover{
+    background-color: #5D0C0C;
 }
 

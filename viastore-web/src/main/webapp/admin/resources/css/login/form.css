@@ -2,67 +2,39 @@
     width: 353px;
     margin: 0 auto;
     text-align: center;
-    overflow: hidden;
-}
-.brand > *{
-    position: relative;
 }
 
-
-.brand h1 {
-    padding-top: 140px;
-    font-size: 35px;
-    font-weight: 100;
-    font-family: sans-serif;
-    color: #7A7A7A;
-}
-
-.brand small {
+.brand {
+    padding-top: 150px;
+    margin-bottom: 40px;
     font-size: 18px;
-    font-weight: 100;
-    font-family: sans-serif;
-    color: #7A7A7A;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.brand .mark-red{
-   color: crimson;
-}
-
-.brand sup {
-    vertical-align: top;
-    font-size: 12px;
-}
-
-.form-admin form{
-    position: relative;
+    color: #818181;
 }
 
 .form-admin input {
     display: block;
     margin-bottom: 30px;
     height: 45px;
-    box-shadow: 0 1px 2px #A29E9E;
-    border: 1px solid #D3D3D3;
+    border:0;
 }
 
 .form-admin input[type="text"],
 .form-admin input[type="password"]{
     padding-left: 7px;
-    width: 343px;
+    width: 346px;
+    box-shadow: 1px 1px 4px #A29E9E inset;
+    color: #6F6F6F;
 }
 
 .form-admin input[type="button"]{
     color: #ffffff;
-    background-color: #0054a6;
-    font-size: 15px;
+    background-color: #830000;
+    font-size: 16px;
     text-transform: uppercase;
-    padding: 0 148px;
+    padding: 0 147px;
     cursor: pointer;
-    width: 353px;
 }
 
 .form-admin input[type="button"]:hover{
-    background-color:#ff8419;
+    background-color: #5D0C0C;
 }

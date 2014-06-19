@@ -6,6 +6,12 @@ PLATFORM.page = (function(){
     var view = {},
         _routes = {},
         _settings = {},
+        _stuffPage = [
+            'header',
+            'footer',
+            'nav',
+            'content'
+        ],
         _sections = {
             header:false,
             nav:false,
@@ -35,6 +41,14 @@ PLATFORM.page = (function(){
                 _sections.footer = true;
                 PLATFORM.footer.init(footer);
             }
+
+//            for(var i=0; i<_stuffPage.length; i++){
+//                var selector = document.getElementById(_stuffPage[i]);
+//                console.log(selector);
+//                PLATFORM[_stuffPage[i]].init(selector);
+//
+//            }
+
 
             (function(load){
                 if(load){
