@@ -30,7 +30,7 @@ public class PageRepositoryTest {
     public void testFindByName() throws Exception {
         Page page = new Page();
         page.setTemplate("test_tmpl");
-        page.setName("test_name");
+        page.setTitle("test_name");
         pageRepository.save(page);
 
         page = pageRepository.findByName("test_name");

@@ -1,0 +1,41 @@
+.admin-page .navigation-top {
+    color: transparent;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 2px #fcfcfc;
+    display: block;
+}
+
+.admin-page .navigation-top ul{
+    list-style-type: none;
+    text-align: center;
+
+}
+.admin-page .navigation-top li{
+    display: inline-block;
+}
+
+.admin-page .navigation-top li a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 20px;
+    color: transparent;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 2px #fcfcfc;
+    -webkit-transition:all 0.5s ease;
+}
+
+.admin-page .navigation-top li a:hover{
+    color:#fcfcfc;
+    text-shadow: 0 0 1px #ffffff;
+    cursor: pointer;
+}
+
+.admin-page .navigation-top li a.active{
+    color:#fcfcfc;
+    text-shadow: 0 0 1px #ffffff;
+    cursor: pointer;
+}

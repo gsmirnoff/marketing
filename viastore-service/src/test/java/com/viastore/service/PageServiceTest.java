@@ -35,30 +35,34 @@ public class PageServiceTest {
     @Test
     public void testGetPage() throws Exception {
         Page page = new Page();
-        page.setName("p");
+        page.setTitle("p");
         page.setTemplate("layout");
-        page.setDeps(Arrays.asList("dep1", "dep2"));
+        Page dep1 = new Page();
+        dep1.setTitle("dep1");
+        Page dep2 = new Page();
+        dep2.setTitle("dep2");
+        page.setDeps(Arrays.asList(dep1, dep2));
         pageRepository.save(page);
         PageStructure pageStructure = pageService.getPage("p");
         assertThat(pageStructure, notNullValue());
         assertThat(pageStructure.getTemplate(), is("layout"));
         assertThat(pageStructure.getDeps().size(), is(2));
-        assertThat(pageStructure.getDeps().contains("dep1"), is(true));
-        assertThat(pageStructure.getDeps().contains("dep2"), is(true));
     }
 
     @Test
     public void testCreate() throws Exception {
         PageStructure pageStructure = new PageStructure();
         pageStructure.setTemplate("layout");
-        pageStructure.setDeps(Arrays.asList("dep1", "dep2"));
+        PageStructure dep1 = new PageStructure();
+        dep1.setTitle("dep1");
+        PageStructure dep2 = new PageStructure();
+        dep2.setTitle("dep2");
+        pageStructure.setDeps(Arrays.asList(dep1, dep2));
         pageService.create("p", pageStructure);
 
         Page page = pageRepository.findByName("p");
         assertThat(page, notNullValue());
         assertThat(page.getTemplate(), is("layout"));
         assertThat(page.getDeps().size(), is(2));
-        assertThat(page.getDeps().contains("dep1"), is(true));
-        assertThat(page.getDeps().contains("dep2"), is(true));
     }
 }

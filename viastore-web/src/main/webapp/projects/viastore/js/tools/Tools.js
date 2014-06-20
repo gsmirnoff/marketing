@@ -7,7 +7,7 @@
  */
 
 var Tools = {
-    extend:function(localConfig){
+    extend:function(config, localConfig){
        return $.extend({}, config, localConfig);
     },
 

@@ -1,5 +1,6 @@
 package com.viastore.db.entities;
 
+import com.viastore.db.entities.enums.Gender;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,24 +14,32 @@ import java.util.UUID;
 public class User {
     @Id
     private String id;
-    private String name;
+    private String email;
     private String password;
     private String role = "admin";
     private Token token;
+    private String avatarId;
+
+    private String firstName;
+    private String lastName;
+    private String middleName;
+
+    private String organization;
+    private Gender gender;
 
     public User() {}
 
-    public User(String name, String password) {
-        this.name = name;
+    public User(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -65,8 +74,56 @@ public class User {
         this.id = id;
     }
 
+    public String getAvatarId() {
+        return avatarId;
+    }
+
+    public void setAvatarId(String avatarId) {
+        this.avatarId = avatarId;
+    }
+
     public void renewToken() {
         this.token.setExpires(DateTime.now().plusMinutes(30));
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public void createToken() {

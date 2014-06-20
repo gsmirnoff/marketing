@@ -1,21 +1,22 @@
-package com.viastore.service.dto;
+package com.viastore.service.dto.user;
 
 import com.viastore.db.entities.Token;
 
 /**
  * Created by GSmirnoff on 15.04.14.
  */
-public class AuthUser {
-    private String name;
+public class UserAuth {
+    private String email;
     private String role = "admin";
     private Token token;
+    private boolean isNew;
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getRole() {
@@ -32,5 +33,13 @@ public class AuthUser {
 
     public void setToken(Token token) {
         this.token = token;
+    }
+
+    public boolean isNew() {
+        return isNew;
+    }
+
+    public void setNew(boolean isNew) {
+        this.isNew = isNew;
     }
 }
