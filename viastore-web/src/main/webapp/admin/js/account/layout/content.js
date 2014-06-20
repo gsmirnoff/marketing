@@ -10,7 +10,6 @@ PLATFORM.content = (function(){
         _settings = {},
 
         _render = function(){
-           console.log(_tab);
             _load();
         },
 
@@ -30,7 +29,6 @@ PLATFORM.content = (function(){
 
     view.changeContent = function(tab){
         _tab = tab;
-        console.log(_tab);
         _load();
     };
 

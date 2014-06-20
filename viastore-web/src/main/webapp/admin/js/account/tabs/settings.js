@@ -6,6 +6,7 @@ PLATFORM.settings = (function(){
     var view = {},
 
         _el = 'content',
+        _tab,
 
         _settings = {
            tmpl:{
@@ -15,10 +16,13 @@ PLATFORM.settings = (function(){
         },
 
         _render = function(tmpl){
-           _postRender();
+            _tab = 'profile';
+            _settings.tmpl = $.extend({}, _settings.tmpl, workConfig.personalSettings);
+           _activateMenu();
+            _loadSettingsTab(_tab);
         },
 
-        _postRender = function(){
+        _activateMenu = function(){
             var wrap = document.getElementById('menuTabsAccount'),
                 list = wrap.children,
                 active = null;
@@ -32,71 +36,33 @@ PLATFORM.settings = (function(){
                     list[i].addEventListener('click', function(event){
                         var target = event.currentTarget,
                             siblings = $(target).siblings();
+                        _tab  = $(target).data('idTab');
                         $(target).addClass('active');
                         $(siblings).removeClass('active');
-                        _loadSettingsTab('', target);
+                        _loadSettingsTab(_tab);
                     });
                 })();
             }
 
-            _loadSettingsTab(list, active);
-
         },
 
-        _createModalAvatar = function(event, wrap){
-            var wrapperUpload = document.createElement('div');
-                wrapperUpload.id = 'uploadAvatar';
-            var title = document.createElement('h2');
-                title.innerText = 'Upload profile photo';
-
-            $(wrap).addClass('avatar-modal-wrapper');
-            wrap.appendChild(title);
-            wrap.appendChild(wrapperUpload);
-            window.fileUpload.init({
-                wrap:wrapperUpload,
-                before:true,
-                type:'avatar',
-                attr:{
-                    id:'avatar190'
-                }
+        _loadSettingsTab = function(tab){
+            ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
+                template:'account/settings/' + tab,
+                callback:_postRenderTab,
+                settings:_settings
             });
-            window.modal.setModal(wrap);
-        },
-
-        _loadSettingsTab = function(list, active){
-            _settings.tmpl = $.extend({}, _settings.tmpl, workConfig.personalSettings);
-            if(active){
-                ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
-                    template:'account/settings/'+$(active).data('idTab'),
-                    callback:_postRenderTab,
-                    settings:_settings
-                });
-            }else{
-                $(list[0]).addClass('active');
-                ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
-                    template:'account/settings/profile',
-                    callback:_postRenderTab,
-                    settings:_settings
-                });
-            }
         },
 
         _postRenderTab = function(tmpl){
             var wrap = document.getElementById('tabsAccount');
             ToolsAdmin.insertTmpl(tmpl, wrap, function(){
-                var avatarProfile = document.getElementById(_settings.tmpl.avatarIdProfile);
-                workConfig.avatarContainer.push(avatarProfile);
-                var wrapImg = document.getElementById('loadImg');
-                wrapImg.addEventListener('click', function(event){
-                    window.modal.create(function(wrap){
-                        _createModalAvatar(event, wrap);
-                    });
-                });
-            });
+               PLATFORM[_tab].init();
+            }, 'insert');
         };
 
     view.init = function(){
-        _postRender();
+        _render();
     };
 
     return view;

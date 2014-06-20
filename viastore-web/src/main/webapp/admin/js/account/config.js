@@ -36,7 +36,7 @@ var configAccount = {
         },
         {
             url:'#settings',
-            title:'Settings'
+            title:'Profile'
         },
         {
             url:'#statistics',
