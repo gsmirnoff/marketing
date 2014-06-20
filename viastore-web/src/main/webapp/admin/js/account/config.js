@@ -24,17 +24,39 @@ var configAccount = {
         'chat':'chat'
     },
 
+    //navigation
+    nav:[
+        {
+            url:'#constructor',
+            title:'Constructor'
+        },
+        {
+            url:'#fileManager',
+            title:'File manager'
+        },
+        {
+            url:'#settings',
+            title:'Settings'
+        },
+        {
+            url:'#statistics',
+            title:'Statistics'
+        },
+        {
+            url:'#chat',
+            title:'Chat'
+        }
+    ],
+
    //pages
     layout:[
         'header',
-        'footer',
-        'nav'
+        'nav',
+        'content',
+        'footer'
     ],
 
     pages:[
-       'header',
-       'footer',
-       'nav',
        'constructor',
        'fileManager',
        'settings',

@@ -35,3 +35,10 @@
     text-shadow: 0 0 1px #ffffff;
     cursor: pointer;
 }
+
+.admin-page .navigation-top li a.active{
+    background-color: #5D0C0C;
+    color:#fcfcfc;
+    text-shadow: 0 0 1px #ffffff;
+    cursor: pointer;
+}

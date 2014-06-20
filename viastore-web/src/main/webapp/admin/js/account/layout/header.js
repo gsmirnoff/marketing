@@ -8,10 +8,8 @@ PLATFORM.header = (function(){
 
         _settings = {},
 
-        _render = function(tmpl){
-            ToolsAdmin.insertTmpl(tmpl, _el, function(){
-                _account();
-            });
+        _render = function(){
+            _account();
         },
 
         _account = function(){
@@ -53,13 +51,8 @@ PLATFORM.header = (function(){
             location.pathname = workConfig.toPath;
         };
 
-    view.init = function(el){
-        _el = el;
-        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
-            template:'account/header',
-            callback:_render,
-            settings:_settings
-        });
+    view.init = function(route){
+        _render();
     };
 
     return view;

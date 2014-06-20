@@ -4,17 +4,18 @@
 
 PLATFORM.page = (function(){
     var view = {},
-        _routes = {},
+        _route = {},
         _settings = {},
 
         _render = function(){
             var hash = Tools.hash();
-            ToolsAdmin.routeHash(hash, _routes);
+            ToolsAdmin.routeHash(hash, _route);
+
             ToolsAdmin.title(hash);
         };
 
-    view.init = function(routes){
-        _routes = routes;
+    view.init = function(route){
+        _route = route;
         _render();
     };
 

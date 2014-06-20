@@ -15,8 +15,7 @@ PLATFORM.settings = (function(){
         },
 
         _render = function(tmpl){
-            var wrap = document.getElementById(_el);
-            ToolsAdmin.insertTmpl(tmpl, wrap, _postRender);
+           _postRender();
         },
 
         _postRender = function(){
@@ -97,11 +96,7 @@ PLATFORM.settings = (function(){
         };
 
     view.init = function(){
-        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
-            template:'account/settings',
-            callback:_render,
-            settings:_settings
-        });
+        _postRender();
     };
 
     return view;

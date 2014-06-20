@@ -8,18 +8,12 @@ PLATFORM.footer = (function(){
 
         _settings = {},
 
-        _render = function(tmpl){
-           console.log(tmpl);
-            $(_el).append(tmpl);
+        _render = function(){
+
         };
 
-    view.init = function(el){
-        _el = el;
-        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
-            template:'account/footer',
-            callback:_render,
-            settings:_settings
-        });
+    view.init = function(route){
+
     };
 
     return view;

@@ -20,7 +20,7 @@ var ToolsAdmin = {
             })();
                 break;
             case 'add':(function(){
-                wrap.appendChild(tmpl);
+                $(wrap).append(tmpl);
             })();
                 break;
             default:(function(){

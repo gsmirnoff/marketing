@@ -7,16 +7,32 @@ PLATFORM.Route = (function(){
 
         _routes = {},
 
-        _render = function(event){
-           PLATFORM.page.init(_routes);
-        },
-
         _startHistory = function(){
+            var hash = Tools.hash();
+            if(!_routes[hash]){
+                hash = '';
+                location.hash = '';
+            }
             window.addEventListener('hashchange', function(event){
                 localStorage.typeEventLoad = event.type;
-                _render(event);
+                var hash = Tools.hash();
+                if(!_routes[hash]){
+                    hash = '';
+                    location.hash = '';
+                }
+
+                if(PLATFORM.content){
+                    PLATFORM.content.changeContent(_routes[hash]);
+                }else{
+                    PLATFORM.page.init(_routes);
+                }
             }, false);
-            _render(null);
+            if(PLATFORM.content){
+                PLATFORM.page.init(_routes[hash]);
+            }else{
+                PLATFORM.page.init(_routes);
+            }
+
         };
 
     view.start = function(){

@@ -4,23 +4,24 @@
 
 PLATFORM.nav = (function(){
     var view = {},
-        _el,
 
-        _settings = {},
+        _render = function(){
+            var menu = document.getElementById('menuNav');
+            var list = $(menu).find('a');
+            var hash = Tools.hash();
+            Tools.location(list, hash, 'Admin panel');
 
-        _render = function(tmpl){
-            ToolsAdmin.insertTmpl(tmpl, _el, function(){
-
-            });
+            (function(){
+                list.on('click', function(event){
+                    list.not($(event.currentTarget)).removeClass('active');
+                    $(event.currentTarget).addClass('active');
+                    $('title').text('Admin panel | ' + $(event.currentTarget).text());
+                });
+            })();
         };
 
-    view.init = function(el){
-        _el = el;
-        ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
-            template:'account/nav',
-            callback:_render,
-            settings:_settings
-        });
+    view.init = function(page){
+       _render();
     };
 
     return view;

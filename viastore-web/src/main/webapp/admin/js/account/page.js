@@ -4,52 +4,14 @@
 
 PLATFORM.page = (function(){
     var view = {},
-        _routes = {},
+        _el = document.body,
+        _route = {},
         _settings = {},
-        _stuffPage = [
-            'header',
-            'footer',
-            'nav',
-            'content'
-        ],
-        _sections = {
-            header:false,
-            nav:false,
-            footer:false
-        },
+        _stuffPage = [],
+        _currentLayout = 0,
 
         _render = function(){
-           var header = document.getElementById('header');
-           var nav = document.getElementById('nav');
-           var content = document.getElementById('content');
-           var footer = document.getElementById('footer');
-
-            if(!_sections.header){
-                _sections.header = true;
-                PLATFORM.header.init(header);
-            }
-
-            if(!_sections.nav){
-                _sections.nav = true;
-                PLATFORM.nav.init(nav);
-            }
-
-            var hash = Tools.hash();
-            ToolsAdmin.routeHash(hash, _routes);
-
-            if(!_sections.footer){
-                _sections.footer = true;
-                PLATFORM.footer.init(footer);
-            }
-
-//            for(var i=0; i<_stuffPage.length; i++){
-//                var selector = document.getElementById(_stuffPage[i]);
-//                console.log(selector);
-//                PLATFORM[_stuffPage[i]].init(selector);
-//
-//            }
-
-
+            _load(_currentLayout);
             (function(load){
                 if(load){
                     $(document).on('changeAvatar', function(event){
@@ -57,20 +19,37 @@ PLATFORM.page = (function(){
                     });
                 }
             })(localStorage.typeEventLoad  === "load");
+        },
+
+        _load = function(index){
+            ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
+                template:'account/' + _stuffPage[index],
+                callback:_reload,
+                settings:_settings
+            });
+        },
+
+        _reload = function(tmpl){
+           ToolsAdmin.insertTmpl(tmpl, _el, function(){
+               if(_currentLayout !== window.countLayout-1){
+                   PLATFORM[_stuffPage[_currentLayout]].init(_route);
+                   _currentLayout++;
+                   _load(_currentLayout);
+               }else{
+
+               }
+           }, 'add');
         };
 
-    view.init = function(routes){
-        _routes = routes;
+    view.init = function(route){
+        _el = document.getElementById('wrapper');
+        _settings.nav = workConfig.nav;
+        _route = route;
+        window.countLayout = workConfig.layout.length;
+        _stuffPage = workConfig.layout;
         window.modal = new Modal().newModal();
         window.fileUpload = new FileUpload();
-        if(workConfig.personalSettings.avatarId){
-            ToolsAdmin.fetchAvatar(workConfig.personalSettings.avatarId, function(){
-                _render();
-            });
-        }else{
-            _render();
-        }
-
+        _render();
     };
 
     return view;

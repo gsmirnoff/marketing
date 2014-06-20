@@ -15,7 +15,9 @@ window.onload = function(){
     }else{
         if((location.pathname === workConfig.currentPath) && (workConfig.page === 'account')){
             userSettings.getSettings(function(){
-                PLATFORM.Route.start();
+                ToolsAdmin.fetchAvatar(workConfig.personalSettings.avatarId, function(){
+                    PLATFORM.Route.start();
+                });
             });
         }else{
             location.pathname = workConfig.toPath;

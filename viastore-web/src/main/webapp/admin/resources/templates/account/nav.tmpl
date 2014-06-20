@@ -1,9 +1,9 @@
-<div class="navigation-top">
-    <ul>
-        <li><a href="#constructor">Constructor</a></li>
-        <li><a href="#fileManager">File manager</a></li>
-        <li><a href="#settings">Account settings</a></li>
-        <li><a href="#statistics">Charts and statistics</a></li>
-        <li><a href="#chat">Chat</a></li>
-    </ul>
-</div>
+<nav id="nav">
+    <div class="navigation-top">
+        <ul id="menuNav">
+            {{#each nav}}
+            <li><a href="{{url}}">{{title}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+</nav>
