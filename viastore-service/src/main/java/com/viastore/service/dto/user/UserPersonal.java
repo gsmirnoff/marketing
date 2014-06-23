@@ -17,6 +17,11 @@ public class UserPersonal {
     private String organization;
     private Gender gender;
 
+    private String publicEmail;
+    private String skype;
+    private String phone;
+    private String location;
+
     public String getEmail() {
         return email;
     }
@@ -71,5 +76,37 @@ public class UserPersonal {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public String getPublicEmail() {
+        return publicEmail;
+    }
+
+    public void setPublicEmail(String publicEmail) {
+        this.publicEmail = publicEmail;
+    }
+
+    public String getSkype() {
+        return skype;
+    }
+
+    public void setSkype(String skype) {
+        this.skype = skype;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
