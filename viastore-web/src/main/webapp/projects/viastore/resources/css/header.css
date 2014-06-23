@@ -8,11 +8,19 @@
     box-shadow: 1px 1px 3px #646464;
 }
 .logo {
-    padding: 3px 0px 0 3px;
+    padding: 8px 0px 13px 3px;
     float: left;
     margin-bottom: -3px;
 }
-
+.logo-proj-name {
+    font-weight: 900;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #ea8026;
+    display: block;
+    text-align: right;
+    padding: 0 13px 3px 0;
+}
 .title-page {
     position: absolute;
     margin-left: 184px;
