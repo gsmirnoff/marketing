@@ -4,15 +4,21 @@
 
 }
 
+.account-settings {
+    height: 600px;
+}
+
 .account-settings .left{
     float: left;
     background-color: #CFCFCF;
+    height: 100%;
 }
 
 .account-settings .right{
    background-color: #ffffff;
     padding-top: 15px;
     overflow: hidden;
+    height: 100%;
 }
 
 .account-settings-menu {
@@ -39,6 +45,45 @@
 .account-settings-menu li:hover{
     text-decoration: underline;
 }
+
+.edit-profile a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-top: 5px;
+    display: block;
+    text-align: center;
+    font-weight: 800;
+    cursor: pointer;
+    padding: 3px 0px;
+}
+
+.write.now {
+    display: block;
+    height: 30px;
+    width: 300px;
+    vertical-align: middle;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 16px !important;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #323232 !important;
+    box-shadow: 1px 1px 3px #A29E9E inset;
+    margin-top: 5px;
+}
+
+.button-default{
+    text-align: center;
+    background-color: #949485;
+    font-weight: 800;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 0;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+
 
 
 

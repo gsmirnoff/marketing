@@ -16,20 +16,21 @@
         </div>
     </div>
     <div class="data-profile">
-        <h2>Sergey Sukhanov</h2>
-        <p>Works at <span class="write">FirstLine software</span></p>
-        <p>Lives in <span class="write">Saint-Petersburg</span></p>
+        <h2 class="write" data-type="text" data-id="profileName">{{tmpl.firstName}} {{tmpl.lastName}}</h2>
+        <p>Works at <span class="write" data-type="text" data-id="profileCompany">{{tmpl.organization}}</span></p>
+        <p>Lives in <span class="write" data-type="text" data-id="profileLocation">Saint-Petersburg</span></p>
         <p class="contacts">Contacts:</p>
         <ul>
             <li>
-                <p>Tel:<span class="write">+7(965)786-22-05</span></p>
+                <p>Tel:<span class="write" data-type="text" data-format="tel" data-id="profilePhone">+7(965)786-22-05</span></p>
             </li>
             <li>
-                <p>Skype:<span class="write">guru66628</span></p>
+                <p>Skype:<span class="write" data-type="text" data-id="profileSkype">guru66628</span></p>
             </li>
             <li>
-                <p>Email(public):<span class="write">sergey.n.sukhanov@gmail.com</span></p>
+                <p>Email(public):<span class="write" data-type="text" data-format="email" data-id="profileEmail">{{tmpl.email}}</span></p>
             </li>
+
         </ul>
     </div>
 

@@ -8,7 +8,7 @@
     padding-top: 150px;
     margin-bottom: 40px;
     font-size: 18px;
-    color: #818181;
+    color: #E9E9E9;
 }
 
 .form-admin input {
@@ -22,7 +22,7 @@
 .form-admin input[type="password"]{
     padding-left: 7px;
     width: 346px;
-    box-shadow: 1px 1px 4px #A29E9E inset;
+    box-shadow: 2px 2px 4px #313131 inset;
     color: #6F6F6F;
 }
 
@@ -33,6 +33,7 @@
     text-transform: uppercase;
     padding: 0 147px;
     cursor: pointer;
+    border: 1px solid #D6D6D6;
 }
 
 .form-admin input[type="button"]:hover{

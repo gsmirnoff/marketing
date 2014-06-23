@@ -15,6 +15,7 @@
     background-color: #830000;
     font-size: 15px;
     text-transform: uppercase;
+    border: 1px solid #AFD1FD;
 }
 
 .navigation a.active{

@@ -1,2 +1,12 @@
 @import "form.css";
 @import "nav.css";
+
+html, body{
+    height: 100%;
+}
+
+#wrapper{
+    min-height: 100%;
+    background-image: url(../../../scripts/img/projectParts/bg.jpg);
+    background-repeat: no-repeat;
+}

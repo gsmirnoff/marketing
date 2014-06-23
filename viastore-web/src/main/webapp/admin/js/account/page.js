@@ -47,6 +47,7 @@ PLATFORM.page = (function(){
         _route = route;
         window.countLayout = workConfig.layout.length;
         _stuffPage = workConfig.layout;
+        window.editorProfile = EDITOR.profile.init();
         window.modal = new Modal().newModal();
         window.fileUpload = new FileUpload();
         _render();

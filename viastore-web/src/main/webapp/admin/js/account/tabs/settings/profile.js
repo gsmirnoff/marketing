@@ -10,12 +10,19 @@ PLATFORM.profile = (function(){
 
         _render = function(){
             var avatarProfile = document.getElementById('loadImg');
+            var edit = $('.edit-profile > a');
+
             workConfig.avatarContainer.push(avatarProfile);
             var wrapImg = document.getElementById('loadImg');
             wrapImg.addEventListener('click', function(event){
                 window.modal.create(function(wrap){
                     _createModalAvatar(event, wrap);
                 });
+            });
+
+            edit.on('click', function(event){
+                event.preventDefault();
+               window.editorProfile.start();
             });
         },
 
