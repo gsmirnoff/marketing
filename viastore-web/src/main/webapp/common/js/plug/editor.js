@@ -116,7 +116,7 @@ EDITOR.profile = (function(module){
                 var id = $(fields[i]).data('id');
                 var val = $(fields[i]).text();
                 if(val === ""){
-                    currentSettings[id] = null;
+                    currentSettings[id] = "";
                 }else{
                     if(id === 'name'){
                         var fullName = val.split(' ');
