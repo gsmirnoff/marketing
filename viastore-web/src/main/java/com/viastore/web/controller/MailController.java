@@ -1,7 +1,6 @@
 package com.viastore.web.controller;
 
 import com.viastore.service.MailService;
-import com.viastore.service.dto.PageContent;
 import com.viastore.service.dto.mail.Feedback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

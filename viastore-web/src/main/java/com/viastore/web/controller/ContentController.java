@@ -1,8 +1,8 @@
 package com.viastore.web.controller;
 
 import com.viastore.service.ContentService;
-import com.viastore.service.dto.PageContent;
-import com.viastore.service.dto.PageContentReduced;
+import com.viastore.service.dto.page.PageContent;
+import com.viastore.service.dto.page.PageContentReduced;
 import com.viastore.web.response.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

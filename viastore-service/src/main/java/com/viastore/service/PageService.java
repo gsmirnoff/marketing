@@ -2,7 +2,7 @@ package com.viastore.service;
 
 import com.viastore.db.entities.Page;
 import com.viastore.db.repositories.PageRepository;
-import com.viastore.service.dto.PageStructure;
+import com.viastore.service.dto.page.PageStructure;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,7 +2,7 @@ package com.viastore.web.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.viastore.service.dto.PageContent;
+import com.viastore.service.dto.page.PageContent;
 import com.viastore.web.jackson.serialize.ContentDeserializer;
 import com.viastore.web.jackson.serialize.ContentSerializer;
 

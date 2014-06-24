@@ -2,8 +2,8 @@ package com.viastore.service;
 
 import com.viastore.db.entities.Content;
 import com.viastore.db.repositories.ContentRepository;
-import com.viastore.service.dto.PageContent;
-import com.viastore.service.dto.PageContentReduced;
+import com.viastore.service.dto.page.PageContent;
+import com.viastore.service.dto.page.PageContentReduced;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

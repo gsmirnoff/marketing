@@ -1,40 +1,38 @@
 package com.viastore.web.controller;
 
-import com.viastore.service.PageService;
-import com.viastore.service.dto.page.PageStructure;
+import com.viastore.service.ProjectService;
+import com.viastore.service.dto.project.ProjectContent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.security.PermitAll;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 /**
- * Created by GSmirnoff on 24.04.14.
+ * Created by GSmirnoff on 24.06.14.
  */
-@Path("/pages")
+@Path("project")
 @Component
-public class PageController {
+public class ProjectController {
 
     @Autowired
-    private PageService pageService;
+    private ProjectService projectService;
 
     @PermitAll
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    @Path("/{page}")
-    public PageStructure getListForPage(@PathParam("page") String page) {
-        return pageService.getPage(page);
+    public List<ProjectContent> getAll() {
+        return projectService.getAll();
     }
-
 
     @PermitAll
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    @Path("/{page}")
-    public PageStructure create(@PathParam("page") String page, PageStructure structure) {
-        return pageService.create(page, structure);
+    public ProjectContent create(ProjectContent project) {
+        return projectService.create(project);
     }
 }

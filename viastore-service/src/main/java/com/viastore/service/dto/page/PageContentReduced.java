@@ -1,4 +1,4 @@
-package com.viastore.service.dto;
+package com.viastore.service.dto.page;
 
 /**
  * Created by GSmirnoff on 21.04.14.

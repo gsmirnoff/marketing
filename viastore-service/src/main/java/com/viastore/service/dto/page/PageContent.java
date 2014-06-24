@@ -1,4 +1,4 @@
-package com.viastore.service.dto;
+package com.viastore.service.dto.page;
 
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.fasterxml.jackson.annotation.JsonValue;

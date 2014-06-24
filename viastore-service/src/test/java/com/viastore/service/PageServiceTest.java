@@ -2,7 +2,7 @@ package com.viastore.service;
 
 import com.viastore.db.entities.Page;
 import com.viastore.db.repositories.PageRepository;
-import com.viastore.service.dto.PageStructure;
+import com.viastore.service.dto.page.PageStructure;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
