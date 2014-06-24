@@ -15,9 +15,13 @@ window.onload = function(){
     }else{
         if((location.pathname === workConfig.currentPath) && (workConfig.page === 'account')){
             userSettings.getSettings(function(){
-                ToolsAdmin.fetchAvatar(workConfig.personalSettings.avatarId, function(){
+                if(workConfig.personalSettings.avatarId){
+                    ToolsAdmin.fetchAvatar(workConfig.personalSettings.avatarId, function(){
+                        PLATFORM.Route.start();
+                    });
+                }else{
                     PLATFORM.Route.start();
-                });
+                }
             });
         }else{
             location.pathname = workConfig.toPath;

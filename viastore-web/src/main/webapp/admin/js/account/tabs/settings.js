@@ -17,7 +17,7 @@ PLATFORM.settings = (function(){
 
         _render = function(tmpl){
             _tab = 'profile';
-            _settings.tmpl = $.extend({}, _settings.tmpl, workConfig.personalSettings);
+//            _settings.tmpl = $.extend({}, _settings.tmpl, workConfig.personalSettings);
            _activateMenu();
             _loadSettingsTab(_tab);
         },
@@ -47,6 +47,7 @@ PLATFORM.settings = (function(){
         },
 
         _loadSettingsTab = function(tab){
+            _settings.tmpl = $.extend({}, _settings.tmpl, workConfig.personalSettings);
             ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
                 template:'account/settings/' + tab,
                 callback:_postRenderTab,

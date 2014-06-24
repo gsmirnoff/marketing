@@ -50,6 +50,7 @@ PLATFORM.page = (function(){
         window.editorProfile = EDITOR.profile.init();
         window.modal = new Modal().newModal();
         window.fileUpload = new FileUpload();
+
         _render();
     };
 

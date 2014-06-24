@@ -34,7 +34,11 @@ PLATFORM.content = (function(){
 
     view.init = function(tab){
         _el = document.getElementById('content');
-        _tab = tab;
+        if(localStorage.newUser == 'true'){
+            _tab = 'settings';
+        }else{
+            _tab = tab;
+        }
         _render();
     };
 

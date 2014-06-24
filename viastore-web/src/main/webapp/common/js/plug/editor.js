@@ -8,10 +8,18 @@ EDITOR.profile = (function(module){
     var view = {},
         formData = {},
         fields,
+        buttons = [],
 
-        _parseForm = function(){
+        _parseForm = function(callback){
             var wrap = $('.data-profile');
                 fields = wrap.find('.write');
+            var row = fields.parent();
+                row.show();
+            callback(wrap);
+        },
+
+        _edit = function(wrap){
+            buttons = [];
             for(var i=0; i<fields.length; i++){
                 $(fields[i]).attr({
                     'contenteditable':'true'
@@ -22,7 +30,7 @@ EDITOR.profile = (function(module){
             var save = document.getElementById('saveProfile');
             var reset = document.getElementById('resetProfile');
 
-            if(!save && !reset){
+            if(buttons.length === 0){
                 (function(){
                     var save = document.createElement('input');
                     save.type = 'button';
@@ -37,25 +45,33 @@ EDITOR.profile = (function(module){
                     reset.className = 'button-default';
 
                     save.addEventListener('click', function(event){
-                        $(save).hide();
-                        $(reset).hide();
-                       _save();
+                        _save();
+                        _endEdit();
                     });
 
                     reset.addEventListener('click', function(event){
                         _reset();
-                        $(save).hide();
-                        $(reset).hide();
+                        _endEdit();
                     });
 
                     wrap.append(save);
                     wrap.append(reset);
+
+                    buttons.push(save);
+                    buttons.push(reset);
                 })();
             }else{
-                $(save).show();
-                $(reset).show();
+               $(buttons).show();
             }
+        },
 
+        _check = function(){
+             for(var i=0; i<fields.length; i++){
+                 var val = fields[i].innerText;
+                 if(val === ""){
+                     $(fields[i]).parent().hide();
+                 }
+             }
         },
 
         _text = {
@@ -90,24 +106,53 @@ EDITOR.profile = (function(module){
         },
 
         _save = function(){
+            var currentSettings = workConfig.personalSettings;
+               delete currentSettings.avatarUrl;
             for(var i=0; i<fields.length; i++){
                 $(fields[i])
                     .removeClass('now')
                     .removeAttr('contenteditable')
                     .removeAttr('data-val');
+                var id = $(fields[i]).data('id');
+                var val = $(fields[i]).text();
+                if(val === ""){
+                    currentSettings[id] = null;
+                }else{
+                    if(id === 'name'){
+                        var fullName = val.split(' ');
+                        currentSettings.firstName = fullName[0];
+                        if(fullName[1]){
+                            currentSettings.lastName = fullName[1];
+                        }
+                    }else{
+                        currentSettings[id] = val;
+                    }
+                }
             }
 
+            console.log(currentSettings);
+
+            userSettings.setSettings(currentSettings, function(){
+                _endEdit();
+            });
         },
 
 
 
         _startEdit = function(){
-            console.log('start');
-            _parseForm();
+            _parseForm(_edit);
+        },
+
+        _checkForm = function(){
+          _parseForm(_check);
         },
 
         _endEdit = function(){
-           console.log('stop');
+           for(var i=0; i<buttons.length; i++){
+               $(buttons[i]).hide();
+           }
+            _checkForm();
+
         };
 
     view.text = function(){
@@ -117,7 +162,8 @@ EDITOR.profile = (function(module){
     view.init = function(){
       return {
           start:_startEdit,
-          stop:_endEdit
+          stop:_endEdit,
+          check:_checkForm
       };
     };
 

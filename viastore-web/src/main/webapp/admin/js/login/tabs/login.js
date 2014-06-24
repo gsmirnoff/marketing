@@ -39,6 +39,7 @@ PLATFORM.login = (function(){
                 data:JSON.stringify(data),
                 success:function(result){
                     PLATFORM.setToken(result.response.token.token);
+                    localStorage.newUser = result.response.new;
                     location.pathname = workConfig.toPath;
                 },
                 error:function(error){

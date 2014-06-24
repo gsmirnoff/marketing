@@ -9,7 +9,7 @@ PLATFORM.profile = (function(){
         _settings = {},
 
         _render = function(){
-            var avatarProfile = document.getElementById('loadImg');
+            var avatarProfile = document.getElementById('avatarProfile');
             var edit = $('.edit-profile > a');
 
             workConfig.avatarContainer.push(avatarProfile);
@@ -48,6 +48,12 @@ PLATFORM.profile = (function(){
 
     view.init = function(route){
        _render();
+        window.editorProfile.check();
+        if(localStorage.newUser == 'true'){
+            window.editorProfile.start();
+            localStorage.newUser = false;
+        }
+
     };
 
     return view;
