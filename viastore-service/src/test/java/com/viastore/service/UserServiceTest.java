@@ -66,7 +66,7 @@ public class UserServiceTest {
         userPersonal.setGender(Gender.FEMALE);
         userPersonal.setOrganization("tst_organization");
         userPersonal.setAvatarId("some_image");
-        user.setLocation("some_other_location");
+        userPersonal.setLocation("some_other_location");
         userPersonal = userService.updateCurrentUser(auth.getToken().getToken(), userPersonal);
 
         assertThat(userPersonal.getFirstName(), is("another_1st_name"));
