@@ -58,7 +58,7 @@ APP.Router = (function(){
                    }
                 }
             }else{
-
+                view.hashChange('notfound');
                 _loadPage('notfound');
             }
         },
