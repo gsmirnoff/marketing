@@ -6,6 +6,7 @@ import com.viastore.db.repositories.UserRepository;
 import com.viastore.service.dto.user.UserAuth;
 import com.viastore.service.dto.user.UserPersonal;
 import org.dozer.DozerBeanMapper;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class UserServiceTest {
     private AuthService authService;
     @Autowired
     private DozerBeanMapper mapper;
+
+    @Before
+    public void setUp() {
+        userRepository.deleteAll();
+    }
 
     @Test
     public void testGetCurrentUser() throws Exception {
