@@ -20,8 +20,9 @@ public class ContentRepositoryCustomImpl implements ContentRepositoryCustom {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public Long getCurrentCount(String page) {
+    public Long getCurrentCount(String page, String project) {
         TypedAggregation<Content> aggregation = newAggregation(Content.class,
+                match(where("project").is(project)),
                 group("page").max("num").as("num"),
                 match(where("_id").is(page))
         );

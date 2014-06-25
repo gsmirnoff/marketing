@@ -12,10 +12,13 @@ import java.util.List;
  */
 public interface ContentRepository extends MongoRepository<Content, String>, ContentRepositoryCustom {
 
-    @Query("{'page':?0}")
-    public List<Content> findByPage(String page);
+    @Query("{'page':?0, 'project':?1}")
+    public List<Content> findByPage(String page, String project);
 
 
-    @Query("{'page':?0, 'num':?1}")
-    public Content findByPageAndNum(String page, Long num);
+    @Query("{'page':?0, 'num':?1, 'project':?2}")
+    public Content findByPageAndNum(String page, Long num, String project);
+
+    @Query("{'project':?0}")
+    public List<Content> findByProject(String project);
 }

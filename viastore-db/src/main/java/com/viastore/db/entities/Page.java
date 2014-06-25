@@ -14,6 +14,7 @@ public class Page {
     private String id;
     private String title;
     private String template;
+    private String project;
     private List<Page> deps;
 
     public String getId() {
@@ -46,5 +47,13 @@ public class Page {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getProject() {
+        return project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
     }
 }

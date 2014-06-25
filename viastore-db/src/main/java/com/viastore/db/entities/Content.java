@@ -14,6 +14,7 @@ public class Content {
     private String title;
     private String page;
     private String content;
+    private String project;
     private Long num;
     private String template;
 
@@ -63,5 +64,13 @@ public class Content {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getProject() {
+        return project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
     }
 }

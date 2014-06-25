@@ -42,8 +42,9 @@ public class PageServiceTest {
         Page dep2 = new Page();
         dep2.setTitle("dep2");
         page.setDeps(Arrays.asList(dep1, dep2));
+        page.setProject("test_project");
         pageRepository.save(page);
-        PageStructure pageStructure = pageService.getPage("p");
+        PageStructure pageStructure = pageService.getPage("p", "test_project");
         assertThat(pageStructure, notNullValue());
         assertThat(pageStructure.getTemplate(), is("layout"));
         assertThat(pageStructure.getDeps().size(), is(2));
@@ -58,9 +59,9 @@ public class PageServiceTest {
         PageStructure dep2 = new PageStructure();
         dep2.setTitle("dep2");
         pageStructure.setDeps(Arrays.asList(dep1, dep2));
-        pageService.create("p", pageStructure);
+        pageService.create("p", pageStructure, "test_project");
 
-        Page page = pageRepository.findByName("p");
+        Page page = pageRepository.findByName("p", "test_project");
         assertThat(page, notNullValue());
         assertThat(page.getTemplate(), is("layout"));
         assertThat(page.getDeps().size(), is(2));

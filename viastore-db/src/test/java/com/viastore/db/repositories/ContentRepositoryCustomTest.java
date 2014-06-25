@@ -28,16 +28,17 @@ public class ContentRepositoryCustomTest {
 
     @Test
     public void testGetCurrentCount() throws Exception {
-        Long current = contentRepository.getCurrentCount("p");
+        Long current = contentRepository.getCurrentCount("p", "project");
         assertThat(current, equalTo(1L));
 
         Content content = new Content();
         content.setPage("p");
         content.setTitle("title");
+        content.setProject("project");
         content.setNum(2L);
         contentRepository.save(content);
 
-        current = contentRepository.getCurrentCount("p");
+        current = contentRepository.getCurrentCount("p", "project");
         assertThat(current, equalTo(2L));
     }
 }

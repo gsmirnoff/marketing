@@ -5,6 +5,6 @@ package com.viastore.db.repositories;
  */
 public interface ContentRepositoryCustom {
 
-    Long getCurrentCount(String page);
+    Long getCurrentCount(String page, String project);
 
 }

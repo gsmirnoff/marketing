@@ -31,9 +31,10 @@ public class PageRepositoryTest {
         Page page = new Page();
         page.setTemplate("test_tmpl");
         page.setTitle("test_name");
+        page.setProject("test_project");
         pageRepository.save(page);
 
-        page = pageRepository.findByName("test_name");
+        page = pageRepository.findByName("test_name", "test_project");
         assertThat(page, notNullValue());
         assertThat(page.getTemplate(), is("test_tmpl"));
     }

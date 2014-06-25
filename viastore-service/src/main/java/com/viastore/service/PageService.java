@@ -18,15 +18,16 @@ public class PageService {
     @Autowired
     private DozerBeanMapper mapper;
 
-    public PageStructure getPage(String page) {
-        Page found = pageRepository.findByName(page);
+    public PageStructure getPage(String page, String project) {
+        Page found = pageRepository.findByName(page, project);
         if (found==null) return null;
         return mapper.map(found, PageStructure.class);
     }
 
-    public PageStructure create(String page, PageStructure structure) {
+    public PageStructure create(String page, PageStructure structure, String project) {
         Page mapped = mapper.map(structure, Page.class);
         mapped.setTitle(page);
+        mapped.setProject(project);
         mapped = pageRepository.save(mapped);
         return mapper.map(mapped, PageStructure.class);
     }

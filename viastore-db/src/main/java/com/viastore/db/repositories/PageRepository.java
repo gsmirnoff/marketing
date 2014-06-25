@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.Query;
  */
 public interface PageRepository extends MongoRepository<Page, String> {
 
-    @Query("{'title':?0}")
-    public Page findByName(String name);
+    @Query("{'title':?0, 'project':?1}")
+    public Page findByName(String name, String project);
 
 }
