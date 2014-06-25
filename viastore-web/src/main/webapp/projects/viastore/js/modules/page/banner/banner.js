@@ -38,6 +38,8 @@ APP.Banner = (function(module){
             var hash = Tools.hash();
             if((hash === 'home') || (hash === '#') || hash === ''){
                console.log('home');
+            }else if(hash === 'notFound'){
+                $(_el).addClass('not-found-banner');
             }else{
                 var ban = $(_el);
                 var img = $('<img/>').attr({

@@ -132,7 +132,7 @@ EDITOR.profile = (function(module){
 
             console.log(currentSettings);
 
-            userSettings.setSettings(currentSettings, function(){
+            userSettings.setProfile(currentSettings, function(){
                 _endEdit();
             });
         },

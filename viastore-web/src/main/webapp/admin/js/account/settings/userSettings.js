@@ -3,7 +3,7 @@
  */
 
 var userSettings = {
-    getSettings:function(callback){
+    getProfile:function(callback){
         REQUEST.initRequest({
             token:function(request){
               request.setRequestHeader('token', PLATFORM.getToken());
@@ -22,7 +22,7 @@ var userSettings = {
         }, 'GET', 'json');
     },
 
-    setSettings:function(data, callback){
+    setProfile:function(data, callback){
         REQUEST.initRequest({
             token:function(request){
                 request.setRequestHeader('token', PLATFORM.getToken());
@@ -40,5 +40,39 @@ var userSettings = {
                 callback();
             }
         }, 'PUT', 'json');
+    },
+
+    getProjects:function(callback){
+        REQUEST.initRequest({
+            url:'/api/project',
+            success:function(data){
+                console.log(data);
+                workConfig.personalSettings.projects = data;
+            },
+            error:function(error){
+                console.log(error);
+            },
+            next:function(){
+                callback();
+            }
+        }, 'GET', 'json');
+    },
+
+    setProjects:function(callback){
+        REQUEST.initRequest({
+            url:'/api/project',
+            data:JSON.stringify(data),
+            success:function(r){
+                console.log(r);
+            },
+            error:function(error){
+                console.log(error);
+            },
+            next:function(){
+                callback();
+            }
+        }, 'POST', 'json');
     }
+
+
 };
