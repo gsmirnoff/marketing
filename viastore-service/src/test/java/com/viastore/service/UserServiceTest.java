@@ -50,20 +50,34 @@ public class UserServiceTest {
     public void testUpdateCurrentUser() throws Exception {
         User user = new User("tst@tst.com", "tst");
         user.setFirstName("1st_name");
+        user.setLastName("last_name");
+        user.setMiddleName("middle_name");
+        user.setLocation("some_location");
+        user.setPublicEmail("public_email");
+        user.setSkype("skype_contact");
         user.setGender(Gender.MALE);
         user = userRepository.save(user);
         UserAuth auth = authService.authorize(user);
 
         UserPersonal userPersonal = mapper.map(user, UserPersonal.class);
         userPersonal.setFirstName("another_1st_name");
+        userPersonal.setLastName("another_last_name");
+        userPersonal.setMiddleName("another_middle_name");
         userPersonal.setGender(Gender.FEMALE);
         userPersonal.setOrganization("tst_organization");
-
+        userPersonal.setAvatarId("some_image");
+        user.setLocation("some_other_location");
         userPersonal = userService.updateCurrentUser(auth.getToken().getToken(), userPersonal);
 
         assertThat(userPersonal.getFirstName(), is("another_1st_name"));
         assertThat(userPersonal.getGender(), is(Gender.FEMALE));
         assertThat(userPersonal.getOrganization(), is("tst_organization"));
+        assertThat(userPersonal.getLastName(), is("another_last_name"));
+        assertThat(userPersonal.getMiddleName(), is("another_middle_name"));
+        assertThat(userPersonal.getAvatarId(), is("some_image"));
+        assertThat(userPersonal.getLocation(), is("some_other_location"));
+        assertThat(userPersonal.getSkype(), is("skype_contact"));
+        assertThat(userPersonal.getPublicEmail(), is("public_email"));
     }
 
     @Test
