@@ -40,6 +40,8 @@ APP.Banner = (function(module){
                console.log('home');
             }else if(hash === 'notfound'){
                 $(_el).addClass('not-found-banner');
+            }else if(hash === 'serverError'){
+                $(_el).addClass('server-error-banner');
             }else{
                 var ban = $(_el);
                 var img = $('<img/>').attr({

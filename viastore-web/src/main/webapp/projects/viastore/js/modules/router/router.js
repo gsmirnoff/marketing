@@ -24,7 +24,8 @@ APP.Router = (function(){
             '#service':'service',
             '#contacts':'contacts',
             '#admin':'admin',
-            '#login':'session'
+            '#login':'session',
+            '#serverError':'serverError'
         },
 
         _token,
