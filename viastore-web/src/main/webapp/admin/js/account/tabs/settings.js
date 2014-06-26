@@ -11,13 +11,17 @@ PLATFORM.settings = (function(){
         _settings = {
            tmpl:{
                defaultProfilePhoto:'/resources/img/defaultAvatar.jpg',
+               defaultProjectPhoto:'/resources/img/defaultProject.png',
                avatarIdProfile:'avatarProfile'
            }
         },
 
         _render = function(tmpl){
-            _tab = 'profile';
-//            _settings.tmpl = $.extend({}, _settings.tmpl, workConfig.personalSettings);
+            if(localStorage.settingsTab){
+                _tab = localStorage.settingsTab;
+            }else{
+                _tab = 'profile';
+            }
            _activateMenu();
             _loadSettingsTab(_tab);
         },
@@ -28,8 +32,11 @@ PLATFORM.settings = (function(){
                 active = null;
 
             for(var i=0; i<list.length; i++){
-                var has = $(list[i]).hasClass('active');
-                if(has){
+
+                var has = $(list[i]).data('idTab');
+
+                if(has == _tab){
+                    $(list[i]).addClass('active');
                     active = $(list[i]);
                 }
                 (function(){
@@ -37,6 +44,7 @@ PLATFORM.settings = (function(){
                         var target = event.currentTarget,
                             siblings = $(target).siblings();
                         _tab  = $(target).data('idTab');
+                        localStorage.settingsTab = $(target).data('idTab');
                         $(target).addClass('active');
                         $(siblings).removeClass('active');
                         _loadSettingsTab(_tab);
@@ -48,6 +56,7 @@ PLATFORM.settings = (function(){
 
         _loadSettingsTab = function(tab){
             _settings.tmpl = $.extend({}, _settings.tmpl, workConfig.personalSettings);
+            console.log(_settings);
             ToolsAdmin.loadTemplate(workConfig.templatesFolder, {
                 template:'account/settings/' + tab,
                 callback:_postRenderTab,

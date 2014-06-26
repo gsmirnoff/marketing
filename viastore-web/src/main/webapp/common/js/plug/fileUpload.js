@@ -240,7 +240,6 @@ function FileUpload(){
         };
 
         _render();
-//        _modal = new Modal();
 
     };
 }

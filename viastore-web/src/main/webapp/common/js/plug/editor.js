@@ -160,6 +160,7 @@ EDITOR.profile = (function(module){
     };
 
     view.init = function(){
+        console.log('editor form load complete...');
       return {
           start:_startEdit,
           stop:_endEdit,

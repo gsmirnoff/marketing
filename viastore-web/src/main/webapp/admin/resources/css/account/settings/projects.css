@@ -1,0 +1,79 @@
+.projects-list {
+    border-bottom: 1px solid #8D8D8D;
+    margin: 5px 20px;
+}
+
+.project {
+    border: 1px solid #1A627E;
+    border-bottom: 0px;
+    padding: 8px 17px;
+    cursor: pointer;
+    background-color: #247C97;
+    position: relative;
+}
+.project:hover {
+    border: 1px solid #00517e;
+    border-bottom: 0px;
+    padding: 8px 17px;
+    cursor: pointer;
+    background-color: #126c97;
+}
+
+.project .project-wrap-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: 1px 1px 2px #000000;
+}
+
+.project img{
+    width: 100%;
+}
+
+.project .project-title {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    top: 9px;
+    font-family: sans-serif;
+    font-size: 22px;
+    color: #FFFFFF;
+    left: 10px;
+}
+
+.add-project {
+    color: #19779B;
+    font-size: 20px;
+    margin-left: 21px;
+    margin-bottom: 15px;
+}
+
+.add-project a {
+    color: #0F6379;
+    text-decoration: none;
+}
+
+.add-project a:hover{
+    text-decoration: underline;
+}
+
+.edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.edit a {
+    color: #FCFCFC;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.edit a:hover {
+    text-decoration: underline;
+}

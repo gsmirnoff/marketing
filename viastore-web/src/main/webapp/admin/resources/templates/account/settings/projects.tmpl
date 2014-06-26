@@ -1,8 +1,26 @@
 <div class="projecs">
-    <div id="projectsList" class="projects-list">
-       {{}}
+    <div class="add-project">
+        <span>+</span><a href="#">Add project</a>
     </div>
-    <div class="projects-details">
+    <div id="projectsList" class="projects-list">
+        {{#each tmpl.projects}}
+         <div class="project">
+             <div class="project-wrap-img">
+             {{#if avatarId}}
+                <img src=""/>
+             {{else}}
+                <img src="{{../../tmpl.defaultProjectPhoto}}"/>
+             {{/if}}
+             </div>
+             <p class="project-title">{{title}}</p>
+             <div class="edit">
+                 <a href="#">Edit project</a>
+                 <a href="#">Delete project</a>
+             </div>
+         </div>
+         <div class="projects-details">
 
+         </div>
+        {{/each}}
     </div>
 </div>

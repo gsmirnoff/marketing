@@ -75,7 +75,7 @@ function Modal(){
     };
 
     view.init = function(){
-
+       console.log('modal load complete...');
     };
 
     view.init();
