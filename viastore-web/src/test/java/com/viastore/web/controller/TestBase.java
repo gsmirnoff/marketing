@@ -18,6 +18,8 @@ public class TestBase extends JerseyTest {
                 .servletClass(SpringServlet.class)
                 .contextListenerClass(ContextLoaderListener.class)
                 .requestListenerClass(RequestContextListener.class)
+                .initParam("com.sun.jersey.api.json.POJOMappingFeature", "true")
+                .initParam("com.sun.jersey.config.property.packages", "com.viastore.web")
                 .build();
     }
 
