@@ -25,16 +25,19 @@ public class ImageControllerTest extends TestBase {
 
     private static final String PATH = "image";
 
-    @Test
-    public void testUpload() throws Exception {
+    private ResponseEntity create() {
         FormDataMultiPart container = new FormDataMultiPart();
         container.field("image", "some_image_src");
-        WebResource webResource = resource();
 
-        ResponseEntity re = webResource.path(PATH)
+        return resource().path(PATH)
                 .type(MediaType.MULTIPART_FORM_DATA)
                 .accept(MediaType.APPLICATION_JSON)
                 .post(ResponseEntity.class, container);
+    }
+
+    @Test
+    public void testUpload() throws Exception {
+        ResponseEntity re = create();
         assertThat(re.getStatus(), is(0));
         assertThat(re.getResponse(), is(notNullValue()));
         assertThat(((Map<String, String>) re.getResponse()).get("id"), is(notNullValue()));
@@ -42,11 +45,23 @@ public class ImageControllerTest extends TestBase {
 
     @Test
     public void testGetById() throws Exception {
-        //todo
+        ResponseEntity re = create();
+        String id = ((Map<String, String>) re.getResponse()).get("id");
+        re = resource().path(PATH+"/"+id).get(ResponseEntity.class);
+        assertThat(re.getStatus(), is(0));
+        assertThat(((Map<String, String>) re.getResponse()).get("data"), is("some_image_src"));
     }
 
     @Test
     public void testDeletebyId() throws Exception {
-        //todo
+        ResponseEntity re = create();
+        String id = ((Map<String, String>) re.getResponse()).get("id");
+        re = resource().path(PATH+"/"+id).delete(ResponseEntity.class);
+        assertThat(re.getStatus(), is(0));
+        assertThat((String) re.getResponse(), is("Delete successful"));
+
+        re = resource().path(PATH+"/not_exists").delete(ResponseEntity.class);
+        assertThat(re.getStatus(), is(0));
+        assertThat((String) re.getResponse(), is("Could not delete - entity is missing or id is null"));
     }
 }

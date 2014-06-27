@@ -34,12 +34,17 @@ public class ContentRepositoryTest {
         content.setTitle("title");
         content.setPage("test_page");
         content.setProject("test_project");
+        content.setContent("some_content");
+        content.setTemplate("some_template");
         contentRepository.save(content);
         List<Content> found = contentRepository.findByPage("test_page", "test_project");
         assertThat(found.isEmpty(), is(false));
+        assertThat(found.get(0).getId(), is(notNullValue()));
         assertThat(found.get(0).getTitle(), is("title"));
         assertThat(found.get(0).getPage(), is("test_page"));
         assertThat(found.get(0).getProject(), is("test_project"));
+        assertThat(found.get(0).getContent(), is("some_content"));
+        assertThat(found.get(0).getTemplate(), is("some_template"));
     }
 
     @Test
