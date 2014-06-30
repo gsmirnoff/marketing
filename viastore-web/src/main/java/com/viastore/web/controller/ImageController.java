@@ -62,7 +62,7 @@ public class ImageController {
         return new ResponseEntity(0, "Could not delete - entity is missing or id is null");
     }
 
-    public byte[] getBytes(InputStream is) throws IOException {
+    private byte[] getBytes(InputStream is) throws IOException {
         int len;
         int size = 1024;
         byte[] buf;

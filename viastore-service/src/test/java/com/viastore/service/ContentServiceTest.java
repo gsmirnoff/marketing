@@ -41,8 +41,9 @@ public class ContentServiceTest {
         content.setTitle("title");
         content.setTemplate("layout");
         content.setContent("content");
+        content.setProject("test_project");
         contentRepository.save(content);
-        List<PageContent> pageContents = contentService.getContent("p");
+        List<PageContent> pageContents = contentService.getContent("p", "test_project");
         assertThat(pageContents, notNullValue());
         assertThat(pageContents.size(), is(1));
         PageContent elem = pageContents.get(0);
@@ -50,6 +51,7 @@ public class ContentServiceTest {
         assertThat(elem.getTemplate(), is("layout"));
         assertThat(elem.getContent(), is("content"));
         assertThat(elem.getNum(), is(1L));
+        assertThat(elem.getPage(), is("p"));
     }
 
     @Test
@@ -60,9 +62,10 @@ public class ContentServiceTest {
         content.setTitle("title");
         content.setTemplate("layout");
         content.setContent("content");
+        content.setProject("test_project");
         contentRepository.save(content);
 
-        PageContent elem = contentService.getOne("p", 1L);
+        PageContent elem = contentService.getOne("p", 1L, "test_project");
         assertThat(elem.getTitle(), is("title"));
         assertThat(elem.getTemplate(), is("layout"));
         assertThat(elem.getContent(), is("content"));
@@ -76,9 +79,10 @@ public class ContentServiceTest {
         content.setTitle("title");
         content.setTemplate("layout");
         content.setContent("content");
+        content.setProject("test_project");
         contentRepository.save(content);
 
-        List<PageContentReduced> reducedList = contentService.getReducedList("p");
+        List<PageContentReduced> reducedList = contentService.getReducedList("p", "test_project");
         assertThat(reducedList, notNullValue());
         assertThat(reducedList.size(), is(1));
 
@@ -93,9 +97,9 @@ public class ContentServiceTest {
         content.setTitle("title");
         content.setTemplate("layout");
         content.setContent("content");
-        contentService.create("p", content);
+        contentService.create("p", content, "test_project");
 
-        List<Content> contents = contentRepository.findByPage("p");
+        List<Content> contents = contentRepository.findByPage("p", "test_project");
 
         assertThat(contents, notNullValue());
         assertThat(contents.size(), is(1));
@@ -116,15 +120,16 @@ public class ContentServiceTest {
         content.setTitle("title");
         content.setTemplate("layout");
         content.setContent("content");
+        content.setProject("test_project");
         contentRepository.save(content);
 
         PageContent toUpdate = new PageContent();
         toUpdate.setContent(content.getContent());
         toUpdate.setTemplate("new-layout");
         toUpdate.setTitle("new-title");
-        contentService.update("p", 1L, toUpdate);
+        contentService.update("p", 1L, toUpdate, "test_project");
 
-        List<Content> contents = contentRepository.findByPage("p");
+        List<Content> contents = contentRepository.findByPage("p", "test_project");
 
         assertThat(contents, notNullValue());
         assertThat(contents.size(), is(1));
@@ -145,11 +150,11 @@ public class ContentServiceTest {
         content.setTitle("title");
         content.setTemplate("layout");
         content.setContent("content");
+        content.setProject("test_project");
         contentRepository.save(content);
 
-        contentService.delete("p", 1L);
-
-        Content found = contentRepository.findByPageAndNum("p", 1L);
+        contentService.delete("p", 1L, "test_project");
+        Content found = contentRepository.findByPageAndNum("p", 1L, "test_project");
         assertThat(found, nullValue());
     }
 }

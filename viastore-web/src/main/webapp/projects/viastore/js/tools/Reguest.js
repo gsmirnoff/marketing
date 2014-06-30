@@ -7,7 +7,7 @@ window.REQUEST = {};
 REQUEST.Request = function(options){
     try{
         $.ajax({
-            beforeSend:options.token,
+            beforeSend:options.beforeSend,
             url:config.apiFolder + options.url,
             type:options.type,
             dataType:options.dataType,
@@ -23,7 +23,9 @@ REQUEST.Request = function(options){
 
 REQUEST.get = function(options, dataType){
     this.Request({
-        beforeSend:options.token,
+        beforeSend:function(request){
+            request.setRequestHeader('project', 'viastore');
+        },
         url:options.url,
         type:'GET',
         dataType:dataType,
@@ -37,7 +39,9 @@ REQUEST.get = function(options, dataType){
 
 REQUEST.post = function(options, dataType){
     this.Request({
-        beforeSend:options.token,
+        beforeSend:function(request){
+            request.setRequestHeader('project', 'viastore');
+        },
         url:options.url,
         type:'POST',
         dataType:dataType,

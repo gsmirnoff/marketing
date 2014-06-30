@@ -24,8 +24,8 @@ public class PageController {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}")
-    public PageStructure getListForPage(@PathParam("page") String page) {
-        return pageService.getPage(page);
+    public PageStructure getListForPage(@PathParam("page") String page, @HeaderParam("project") String project) {
+        return pageService.getPage(page, project);
     }
 
 
@@ -34,7 +34,7 @@ public class PageController {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}")
-    public PageStructure create(@PathParam("page") String page, PageStructure structure) {
-        return pageService.create(page, structure);
+    public PageStructure create(@PathParam("page") String page, PageStructure structure, @HeaderParam("project") String project) {
+        return pageService.create(page, structure, project);
     }
 }

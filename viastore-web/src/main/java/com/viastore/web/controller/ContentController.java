@@ -26,8 +26,8 @@ public class ContentController {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    public List<PageContent> getAll() {
-        return contentService.getALl();
+    public List<PageContent> getAll(@HeaderParam("project") String project) {
+        return contentService.getALl(project);
     }
 
     @PermitAll
@@ -35,8 +35,8 @@ public class ContentController {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}")
-    public List<PageContent> getListForPage(@PathParam("page") String page) {
-        return contentService.getContent(page);
+    public List<PageContent> getListForPage(@PathParam("page") String page, @HeaderParam("project") String project) {
+        return contentService.getContent(page, project);
     }
 
     @PermitAll
@@ -44,8 +44,8 @@ public class ContentController {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("{page}/reduced")
-    public List<PageContentReduced> getreducedList(@PathParam("page") String page) {
-        return contentService.getReducedList(page);
+    public List<PageContentReduced> getreducedList(@PathParam("page") String page, @HeaderParam("project") String project) {
+        return contentService.getReducedList(page, project);
     }
 
     @PermitAll
@@ -53,8 +53,8 @@ public class ContentController {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}/{id}")
-    public PageContent getOne(@PathParam("page") String page, @PathParam("id") Long id) {
-        return contentService.getOne(page, id);
+    public PageContent getOne(@PathParam("page") String page, @PathParam("id") Long num, @HeaderParam("project") String project) {
+        return contentService.getOne(page, num, project);
     }
 
     @PermitAll
@@ -62,8 +62,8 @@ public class ContentController {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}")
-    public PageContent create(@PathParam("page") String page, PageContent content) {
-        return contentService.create(page, content);
+    public PageContent create(@PathParam("page") String page, PageContent content, @HeaderParam("project") String project) {
+        return contentService.create(page, content, project);
     }
 
     @PermitAll
@@ -71,8 +71,8 @@ public class ContentController {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}/{id}")
-    public PageContent update(@PathParam("page") String page, @PathParam("id") Long id, PageContent content) {
-        return contentService.update(page, id, content);
+    public PageContent update(@PathParam("page") String page, @PathParam("id") Long id, PageContent content, @HeaderParam("project") String project) {
+        return contentService.update(page, id, content, project);
     }
 
     @PermitAll
@@ -80,8 +80,8 @@ public class ContentController {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("/{page}/{id}")
-    public ResponseEntity delete(@PathParam("page") String page, @PathParam("id") Long id) {
-        if (contentService.delete(page, id)) {
+    public ResponseEntity delete(@PathParam("page") String page, @PathParam("id") Long id, @HeaderParam("project") String project) {
+        if (contentService.delete(page, id, project)) {
             return new ResponseEntity(0, "Delete successful");
         }
         return new ResponseEntity(0, "No such page");
