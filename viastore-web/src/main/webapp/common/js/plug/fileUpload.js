@@ -14,6 +14,9 @@ function FileUpload(){
 
         _container,
         _loaded,
+        _findClass = '.init-avatar',
+        _findContainer,
+        _postInitCallback,
 
         _render = function(){
             if(!settings.html){
@@ -200,13 +203,6 @@ function FileUpload(){
             figure.appendChild(p);
             figure.appendChild(figcaption);
 
-            //handlers
-            (function(){
-
-
-
-            })();
-
             if($(_container).find('.empty-content').length !== 0){
                 $(_container).empty();
                 _container.appendChild(figure);
@@ -226,7 +222,44 @@ function FileUpload(){
             for(var i=0; i<files.length; i++){
                 _showFile(files[i]);
             }
+        },
+
+        _layoutFileUpload = function(){
+            var layout = document.createElement('div');
+                layout.className = 'layout-file-upload';
+            var p = document.createElement('p');
+            var icon = document.createElement('span');
+                icon.className = 'icon-change';
+            var label = document.createElement('span');
+                label.className = 'label-change';
+                label.innerText = 'Change photo';
+
+            p.appendChild(icon);
+            p.appendChild(label);
+            layout.appendChild(p);
+
+            (function(){
+                layout.addEventListener('click', function(event){
+                    _postInitCallback(event);
+                });
+            })();
+
+            return layout;
         };
+
+    view.initFileUpload = function(context, callback){
+           _postInitCallback = callback;
+           _findClass = '.init-avatar';
+        if(context){
+            _findContainer = $(context).find(_findClass);
+        }else{
+            _findContainer = $(document.body).find(_findClass);
+        }
+
+        for(var i=0; i<_findContainer.length; i++){
+             $(_findContainer[i]).append(_layoutFileUpload());
+        }
+    };
 
     view.init = function(options){
         settings = {
@@ -236,7 +269,9 @@ function FileUpload(){
             html:options.html || false,
             attr:options.attr,
             type: options.type || 'uploader',
-            before:options.before || false
+            before:options.before || false,
+            save:options.save,
+            delete:options.delete
         };
 
         _render();

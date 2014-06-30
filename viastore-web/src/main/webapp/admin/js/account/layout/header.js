@@ -15,29 +15,28 @@ PLATFORM.header = (function(){
         _account = function(){
             var wrapper = document.getElementById('account');
             var name = document.createElement('span');
-                name.className = 'account-name';
-                name.innerText = workConfig.personalSettings.email.replace('%40', '@');
+            name.className = 'account-name';
+            name.innerText = workConfig.personalSettings.email.replace('%40', '@');
             var avatarWrap = document.createElement('div');
-                avatarWrap.className = 'account-avatar';
+            avatarWrap.className = 'account-avatar';
             var avatar = document.createElement('img');
             workConfig.avatarContainer.push(avatar);
-                if(workConfig.personalSettings.avatarId){
-                    avatar.src = workConfig.personalSettings.avatarUrl;
-                }else{
-                    avatar.src = workConfig.imagesFolder + workConfig.defaultImageAccount;
-                }
+            if(workConfig.personalSettings.avatarId){
+                avatar.src = workConfig.personalSettings.avatarUrl;
+            }else{
+                avatar.src = workConfig.imagesFolder + workConfig.defaultImageAccount;
+            }
             avatarWrap.appendChild(avatar);
             var exit = document.createElement('a');
-                exit.href = '#';
-                exit.className = 'account-exit';
-                exit.innerText = 'Log out';
+            exit.href = '#';
+            exit.className = 'account-exit';
+            exit.innerText = 'Log out';
 
             (function(){
                 exit.addEventListener('click', function(event){
-                    console.log(event);
-                   ToolsAdmin.exit(function(){
-                       _exit();
-                   });
+                    ToolsAdmin.exit(function(){
+                        _exit();
+                    });
                 });
             })();
 

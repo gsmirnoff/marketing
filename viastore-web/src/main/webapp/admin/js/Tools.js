@@ -32,7 +32,7 @@ var ToolsAdmin = {
 
     changeAvatar:function(id, arrayAvatar, callback){
         delete workConfig.personalSettings.avatarUrl;
-        userSettings.setSettings(workConfig.personalSettings, function(){
+        userSettings.setProfile(workConfig.personalSettings, function(){
             ToolsAdmin.fetchAvatar(id, function(){
                 var url = workConfig.personalSettings.avatarUrl;
                 for(var i=0; i<arrayAvatar.length; i++){

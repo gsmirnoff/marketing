@@ -3,6 +3,8 @@
  */
 
 var PLATFORM = {};
+    PLATFORM.models = {};
+    PLATFORM.views = {};
 
 PLATFORM.getToken = function(){
   if(sessionStorage.token){

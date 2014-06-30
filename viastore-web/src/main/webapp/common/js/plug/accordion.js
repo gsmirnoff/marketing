@@ -7,6 +7,10 @@ function Accordion(){
 
         _render = function(){
            console.log('accordion load complete...');
+        },
+
+        _createAccordion = function(){
+
         };
 
     view.init = function(){

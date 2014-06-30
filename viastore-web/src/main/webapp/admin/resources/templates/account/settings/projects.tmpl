@@ -1,6 +1,9 @@
-<div class="projecs">
+<div class="projects">
     <div class="add-project">
         <span>+</span><a href="#">Add project</a>
+    </div>
+    <div class="search-projects">
+        <span class="search" contenteditable="true"></span>
     </div>
     <div id="projectsList" class="projects-list">
         {{#each tmpl.projects}}
@@ -19,7 +22,24 @@
              </div>
          </div>
          <div class="projects-details">
-
+             <div class="project-wrap-img init-avatar">
+                 {{#if avatarId}}
+                 <img src=""/>
+                 {{else}}
+                 <img src="{{../../tmpl.defaultProjectPhoto}}"/>
+                 {{/if}}
+             </div>
+             <div class="project-details-form">
+                 <h2><span class="write" data-type="text" data-id="title-{{title}}">{{title}}</span></h2>
+                 <p>
+                     Description:
+                     {{#if description}}
+                     <span class="write" data-type="text" data-id="description-{{title}}">{{description}}</span>
+                     {{else}}
+                     <span class="write">No description...</span>
+                     {{/if}}
+                 </p>
+             </div>
          </div>
         {{/each}}
     </div>

@@ -1,5 +1,6 @@
 @import "reset.css";
 @import "modal.css";
+@import "fileUpload.css";
 
 html, body{
     font-family: 'Open Sans', sans-serif;

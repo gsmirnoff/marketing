@@ -5,16 +5,18 @@
 PLATFORM.profile = (function(){
     var view = {},
         _el,
+        _editorContainer,
 
         _settings = {},
 
         _render = function(){
             var avatarProfile = document.getElementById('avatarProfile');
             var edit = $('.edit-profile > a');
+           _editorContainer = $('.data-profile');
 
             workConfig.avatarContainer.push(avatarProfile);
-            var wrapImg = document.getElementById('loadImg');
-            wrapImg.addEventListener('click', function(event){
+
+            window.fileUpload.initFileUpload(_el, function(){
                 window.modal.create(function(wrap){
                     _createModalAvatar(event, wrap);
                 });
@@ -22,7 +24,10 @@ PLATFORM.profile = (function(){
 
             edit.on('click', function(event){
                 event.preventDefault();
-               window.editorProfile.start();
+               window.editorProfile.start(_editorContainer, {
+                   saveButton:'profile',
+                   resetButton:'profile'
+               });
             });
         },
 
@@ -41,16 +46,32 @@ PLATFORM.profile = (function(){
                 type:'avatar',
                 attr:{
                     id:'avatar190'
-                }
+                },
+                save:_saveAvatar,
+                delete:_deleteAvatar
             });
             window.modal.setModal(wrap);
+        },
+
+        _saveAvatar = function(event){
+
+        },
+
+        _deleteAvatar = function(event){
+
         };
 
     view.init = function(route){
        _render();
-        window.editorProfile.check();
+        window.editorProfile.check(_editorContainer, {
+            saveButton:'profile',
+            resetButton:'profile'
+        });
         if(localStorage.newUser == 'true'){
-            window.editorProfile.start();
+            window.editorProfile.start(_editorContainer, {
+                saveButton:'profile',
+                resetButton:'profile'
+            });
             localStorage.newUser = false;
         }
 

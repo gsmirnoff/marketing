@@ -7,15 +7,18 @@ window.EDITOR = {};
 EDITOR.profile = (function(module){
     var view = {},
         formData = {},
+        settings = {
+            saveButton:'default',
+            resetButton:'default'
+        },
         fields,
         buttons = [],
 
-        _parseForm = function(callback){
-            var wrap = $('.data-profile');
-                fields = wrap.find('.write');
+        _parseForm = function(wrapper, callback){
+                fields = wrapper.find('.write');
             var row = fields.parent();
                 row.show();
-            callback(wrap);
+            callback(wrapper);
         },
 
         _edit = function(wrap){
@@ -27,21 +30,21 @@ EDITOR.profile = (function(module){
                 var currentObj = $(fields[i]).data('type');
                 EDITOR.profile[currentObj]().create(fields[i]);
             }
-            var save = document.getElementById('saveProfile');
-            var reset = document.getElementById('resetProfile');
+            var save = document.getElementById('save'+settings.saveButton);
+            var reset = document.getElementById('reset'+settings.resetButton);
 
             if(buttons.length === 0){
                 (function(){
                     var save = document.createElement('input');
                     save.type = 'button';
-                    save.id = 'saveProfile';
-                    save.value = 'Save profile';
+                    save.id = 'save'+settings.saveButton;
+                    save.value = 'Save '+ settings.saveButton;
                     save.className = 'button-default';
 
                     var reset = document.createElement('input');
                     reset.type = 'button';
-                    reset.id = 'resetProfile';
-                    reset.value = 'Reset profile';
+                    reset.id = 'reset'+settings.resetButton;
+                    reset.value = 'Reset '+settings.resetButton;
                     reset.className = 'button-default';
 
                     save.addEventListener('click', function(event){
@@ -56,7 +59,6 @@ EDITOR.profile = (function(module){
 
                     wrap.append(save);
                     wrap.append(reset);
-
                     buttons.push(save);
                     buttons.push(reset);
                 })();
@@ -65,7 +67,7 @@ EDITOR.profile = (function(module){
             }
         },
 
-        _check = function(){
+        _check = function(wrap){
              for(var i=0; i<fields.length; i++){
                  var val = fields[i].innerText;
                  if(val === ""){
@@ -84,7 +86,6 @@ EDITOR.profile = (function(module){
                     console.log(event);
                 });
                 field.addEventListener('focus', function(event){
-                    console.log(event);
                     $(field).attr('data-val', event.currentTarget.innerText);
                 });
                 field.addEventListener('blur', function(event){
@@ -139,12 +140,13 @@ EDITOR.profile = (function(module){
 
 
 
-        _startEdit = function(){
-            _parseForm(_edit);
+        _startEdit = function(wrap, options){
+            settings = options;
+            _parseForm(wrap, _edit);
         },
 
-        _checkForm = function(){
-          _parseForm(_check);
+        _checkForm = function(wrap){
+          _parseForm(wrap, _check);
         },
 
         _endEdit = function(){

@@ -1,14 +1,11 @@
 <div class="profile">
     <div class="avatar-wrapper">
-        <div class="avatar-upload">
+        <div class="avatar-upload init-avatar">
             {{#if tmpl.avatarId }}
             <img id="{{tmpl.avatarIdProfile}}" src="{{tmpl.avatarUrl}}"/>
             {{else}}
             <img id="{{tmpl.avatarIdProfile}}" src="{{tmpl.defaultProfilePhoto}}"/>
             {{/if}}
-        </div>
-        <div id="loadImg" class="tools-load">
-            <p><span class="icon-change"></span>Change profile photo</p>
         </div>
         <div class="edit-profile">
             <a href="#">Edit profile</a>

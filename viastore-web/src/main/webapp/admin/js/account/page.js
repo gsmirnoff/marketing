@@ -36,7 +36,7 @@ PLATFORM.page = (function(){
                    _currentLayout++;
                    _load(_currentLayout);
                }else{
-
+                  console.log('layout load complete...');
                }
            }, 'add');
         };

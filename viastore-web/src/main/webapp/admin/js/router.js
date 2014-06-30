@@ -8,18 +8,11 @@ PLATFORM.Route = (function(){
         _routes = {},
 
         _startHistory = function(){
-            var hash = Tools.hash();
-            if(!_routes[hash]){
-                hash = '';
-                location.hash = '';
-            }
+            var hash = _isUndefinedHash();
+
             window.addEventListener('hashchange', function(event){
                 localStorage.typeEventLoad = event.type;
-                var hash = Tools.hash();
-                if(!_routes[hash]){
-                    hash = '';
-                    location.hash = '';
-                }
+                var hash = _isUndefinedHash();
 
                 if(PLATFORM.content){
                     PLATFORM.content.changeContent(_routes[hash]);
@@ -33,6 +26,15 @@ PLATFORM.Route = (function(){
                 PLATFORM.page.init(_routes);
             }
 
+        },
+
+        _isUndefinedHash = function(){
+            var hash = Tools.hash();
+            if(!_routes[hash]){
+                hash = '';
+                location.hash = '';
+            }
+            return hash;
         };
 
     view.start = function(){

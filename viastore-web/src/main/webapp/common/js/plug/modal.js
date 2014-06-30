@@ -12,6 +12,7 @@ function Modal(){
 
         _newModal = {
             create:function(callback){
+                m = [];
                 $(document.body).append(_createModal(callback));
             },
 
