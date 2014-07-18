@@ -28,7 +28,9 @@
     border: 12px solid transparent;
     border-bottom: 12px solid #FFFFFF;
 }
-
+.prod-title.contacts-title {
+    color: #999999;
+}
 #map, #map2{
     width: 100%;
     height: 400px;
