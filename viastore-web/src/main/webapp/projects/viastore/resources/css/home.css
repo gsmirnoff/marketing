@@ -134,10 +134,10 @@
 .slide-arrow.prev {
 	background: url(../images/slider-arrow-prev.png) no-repeat center center;
 }
-.slide-arrow.next:hover {
+.slide-arrow.next:hover, .project-item .container:hover .slide-arrow.next {
     background: url(../images/slider-arrow-next-hover.png) no-repeat center center;
 }
-.slide-arrow.prev:hover {
+.slide-arrow.prev:hover, .project-item .container:hover .slide-arrow.prev {
     background: url(../images/slider-arrow-prev-hover.png) no-repeat center center;
 }
 .project-item:hover {
