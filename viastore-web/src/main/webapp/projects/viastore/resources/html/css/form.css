@@ -1,0 +1,40 @@
+.brand, .form-admin {
+    width: 353px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.brand {
+    padding-top: 150px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #818181;
+}
+
+.form-admin input {
+    display: block;
+    margin-bottom: 30px;
+    height: 45px;
+    border:0;
+}
+
+.form-admin input[type="text"],
+.form-admin input[type="password"]{
+    padding-left: 7px;
+    width: 346px;
+    box-shadow: 1px 1px 4px #A29E9E inset;
+    color: #6F6F6F;
+}
+
+.form-admin input[type="button"]{
+    color: #ffffff;
+    background-color: #830000;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 0 147px;
+    cursor: pointer;
+}
+
+.form-admin input[type="button"]:hover{
+    background-color: #5D0C0C;
+}

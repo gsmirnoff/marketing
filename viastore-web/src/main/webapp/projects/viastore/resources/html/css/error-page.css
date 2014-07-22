@@ -1,0 +1,26 @@
+.error-page-msg {
+    margin-top: -80px;
+}
+.error-page-msg .banner-inner-content {
+    text-align: center;
+}
+.error-page-msg .banner-layout {
+    padding-top: 54px;
+    padding-bottom: 80px;
+}
+.error-code {
+    font-size: 72px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+.error-page-msg .banner-inner-content .banner-title {
+    margin-bottom: 33px;
+}
+.error-page-text {
+    font-size: 20px;
+    color: #212121;
+    font-weight: 300;
+}
+.error-page-text p {
+    padding-bottom: 20px;
+}

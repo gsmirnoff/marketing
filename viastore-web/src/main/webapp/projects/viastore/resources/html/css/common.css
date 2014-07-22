@@ -1,86 +1,3 @@
-/* -------- RESET --------------------------------------------------------------------------------- */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	vertical-align: baseline;
-}
-section, header, footer, nav, article, aside, hgroup, figure, figcaption {
-	margin: 0;
-	padding: 0;
-	display: block;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-
-:focus {
-	outline: 0;
-}
-
-ins {
-	text-decoration: none;
-}
-del {
-	text-decoration: line-through;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-a {
-	color: #0054a6;
-	text-decoration: none;
-}
-a:hover {
-	color: #000000;
-}
-a img {
-	border:none;
-	border-width:0px;
-}
-h1, h2, h3, h4 { font-weight: 400; }
-/*------- END RESET ----------------- */
-
-
-
-/*------- COMMON STYLE ----------------- */
-
-input[type=text], input[type=email], input[type=password], textarea {
-	font-size:14px;
-	background:#FFF;
-	border: 1px solid #cccccc;
-	font-family: 'Open Sans', sans-serif;
-	color: #6e6e6e;
-	font-weight: 400;
-}
-
-input[type=text]::-ms-clear {
-    display: none;
-}
-
-label, select {
-	font-size:14px;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	color: #6e6e6e;
-}
-
 .clear {
 	clear:both;
 	height:0px;
@@ -102,27 +19,6 @@ label, select {
 }
 
 .mobilesOnly {display: none; }
-
-/*----- FONTS --------------------------*/
-
-
-/*----- END FONTS --------------------------*/
-
-html, body {
-	width: 100%;
-	height: 100%;
-	min-height: 100%;
-}
-body {
-	font-size: 14px;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	color: #6e6e6e;
-	background: #ffffff;
-	min-width: 1000px;
-	height: auto;
-	position: relative;
-}
 
 .btn {
 	height: 42px;
@@ -147,17 +43,64 @@ body {
 	border-bottom: 1px dashed #cccccc;
 	margin-bottom: 20px;
 }
+
+body {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #6e6e6e;
+    background: #ffffff;
+}
+a {
+    color: #ea8026;
+    text-decoration: none;
+}
+a:hover {
+    color: #000000;
+}
+
+/* FORM ELEMENTS -------------------------------- */
+input[type=text], input[type=email], input[type=password], textarea {
+    font-size:14px;
+    background:#FFF;
+    border: 1px solid #cccccc;
+    font-family: 'Open Sans', sans-serif;
+    color: #6e6e6e;
+    font-weight: 400;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+label, select {
+    font-size:14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #6e6e6e;
+}
+/* TITLES ----------------------------------------- */
 .title-f {
-	font-size: 42px;
-	line-height: 42px;
-	font-weight: 300;
-	margin: 0;
-	padding: 0 0 30px;
-	color: #6e6e6e;
-	text-align: center;
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0 0 30px;
+    color: #6e6e6e;
+    text-align: center;
 }
 .title-f .line {
-	width: 20px;
-	display:inline-block;
-	border-bottom: 2px solid #0054a6;
+    /*width: 20px;*/
+    /*display:inline-block;*/
+    /*border-bottom: 2px solid #0054a6;*/
+}
+/* BLOCKS ---------------------------------------- */
+.item {
+    font-size: 18px;
+    line-height: 24px;
+    color: #333333;
+}
+
+.last{
+    margin-right: 0 !important;
 }

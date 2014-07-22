@@ -20,4 +20,8 @@
         display: none;
     }
 
+    .intro-text.intro-text-wms {
+        padding: 0 60px;
+    }
+
 }
