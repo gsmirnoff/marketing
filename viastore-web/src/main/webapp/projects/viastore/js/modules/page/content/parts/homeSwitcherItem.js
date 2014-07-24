@@ -104,19 +104,22 @@ APP.SwitcherItem = (function(module){
                 });
                 infoBox.append(largeImage);
             }
-            var link = $('<a/>').text('Подробнее').addClass('slide-btn').attr({
-                href:config.docsFolder + data.linkDetails,
-                target:data.linkTarget
-            });
-            infoBox.append(link);
+            if(data.linkDetails){
+                var link = $('<a/>').text('Подробнее').addClass('slide-btn').attr({
+                    href:config.docsFolder + data.linkDetails,
+                    target:data.linkTarget
+                });
+                infoBox.append(link);
+                (function(){
+                    link.on('click', function(event){
+
+                        console.log(event);
+                    });
+                })();
+            }
+
             wrap.append(infoBox);
 
-            (function(){
-                link.on('click', function(event){
-
-                    console.log(event);
-                });
-            })();
         };
 
 //    view.createUpdateSection = function(){
