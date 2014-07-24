@@ -16,6 +16,8 @@ function ContentSwitcher(){
                 _addEventListener(linkSwitch, 'click', _animate, {
                     slideBox:slides
                 });
+
+
                 _addEventListener($(window), 'resize', _calculate, {
                     slides:slides,
                     links:linkSwitch
