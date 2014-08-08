@@ -5,7 +5,9 @@
     .product-pr.prod-part {
         width: 356px;
     }
-
+    .contacts-page .product-pr.product-single {
+        width: 477px;
+    }
     .banner-text-box {
         float: right;
         display: block !important;
@@ -16,6 +18,10 @@
 
     .info-box img.small {
         display: none;
+    }
+
+    .intro-text.intro-text-wms {
+        padding: 0 60px;
     }
 
 }

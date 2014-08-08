@@ -61,3 +61,10 @@
 	border-bottom: 2px solid #0054a6;
 	color: #0054a6;
 }
+
+.breadcrumbs {
+    padding-bottom: 30px;
+}
+.breadcrumbs .current {
+    color: #161616;
+}

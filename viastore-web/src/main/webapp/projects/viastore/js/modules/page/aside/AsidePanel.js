@@ -14,6 +14,10 @@ APP.Aside = (function(module){
         _config = {
             navigation:[
                 {
+                    classIcon:'item-industry',
+                    value:'Промышленность'
+                },
+                {
                     classIcon:'item-auto',
                     value:'Автомобильная техника и коммерческий транспорт'
                 },
@@ -23,6 +27,7 @@ APP.Aside = (function(module){
                 },
                 {
                     classIcon:'item-chemistry',
+
                     value:'Химия'
                 },
                 {
@@ -40,10 +45,6 @@ APP.Aside = (function(module){
                 {
                     classIcon:'item-health',
                     value:'Здравоохранение'
-                },
-                {
-                    classIcon:'item-industry',
-                    value:'Промышленность'
                 },
                 {
                     classIcon:'item-goods',
@@ -204,7 +205,7 @@ APP.Aside = (function(module){
                     }
                 }else if(dataArrow == 'bottom'){
                    var nextH = visible.last().next();
-                    if(nextH.length != 0){
+                    if(nextH.length !== 0){
                         nextH.slideDown();
                         visible.first().slideUp();
                     }

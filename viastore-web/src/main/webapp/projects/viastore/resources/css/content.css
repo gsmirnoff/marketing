@@ -4,6 +4,10 @@
 .left-img-box img {
     width: 100%;
 }
+.solutions-items .left-img-box img {
+    width: 250px;
+    height: auto;
+}
 .content-box p {
     padding: 0 0 15px;
 }

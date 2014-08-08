@@ -1,0 +1,52 @@
+@media (min-width: 1200px) {
+    .product-pr.product-single {
+        width: 340px;
+    }
+    .product-pr.prod-part {
+        width: 356px;
+    }
+    .contacts-page .product-pr.product-single {
+        width: 477px;
+    }
+    .banner-text-box {
+        float: right;
+        display: block !important;
+    }
+    .info-box img.large {
+        display: block;
+    }
+
+    .info-box img.small {
+        display: none;
+    }
+
+    .intro-text.intro-text-wms {
+        padding: 0 60px;
+    }
+    .func-list-points {
+        padding: 0 100px 0 250px;
+    }
+    .func-col {
+        float: left;
+        width: 45%;
+        margin-right: 0%;
+    }
+    .func-col:first-child {
+        width: 45%;
+        margin-right: 10%;
+    }
+
+    .func-list-blocks {
+        padding-left: 115px;
+    }
+    .func-text-col, .func-text-col.text-col-w-img {
+        width: 390px;
+    }
+    .func-text-col {
+        padding-top: 10px;
+    }
+    .func-text-col.text-col-w-img {
+        padding-top: 0;
+    }
+
+}
