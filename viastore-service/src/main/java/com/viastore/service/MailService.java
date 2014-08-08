@@ -24,7 +24,7 @@ public class MailService {
     @Autowired
     private VelocityEngine velocityEngine;
 
-    private static final String FEEDBACK_MAIL = "gregsm1988@gmail.com";
+    private static final String FEEDBACK_MAIL = "viastore@firstlinesoftware.ru";
     private static final String ENCODING = "UTF-8";
 
     public void send(final Feedback feedback) {
