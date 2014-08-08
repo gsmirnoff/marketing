@@ -24,20 +24,21 @@ public class MailService {
     @Autowired
     private VelocityEngine velocityEngine;
 
-    private static final String FEEDBACK_MAIL = "viastore@firstlinesoftware.ru";
+    private static final String FEEDBACK_MAIL = "gregsm1988@gmail.com";
+    private static final String ENCODING = "UTF-8";
 
     public void send(final Feedback feedback) {
         MimeMessagePreparator preparator = new MimeMessagePreparator() {
 
             public void prepare(MimeMessage mimeMessage) throws Exception {
 
-                MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true);
+                MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, ENCODING);
                 message.setTo(FEEDBACK_MAIL);
                 message.setFrom("viastore.feedback@gmail.com");
                 message.setSubject("Viastore feedback");
 
                 String body = VelocityEngineUtils.mergeTemplateIntoString(
-                        velocityEngine, "templates/feedback.vm", "UTF-8", feedback.toMap());
+                        velocityEngine, "templates/feedback.vm", ENCODING, feedback.toMap());
                 message.setText(body, true);
 
             }
