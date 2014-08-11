@@ -39,6 +39,9 @@
     .func-list-blocks {
         padding-left: 115px;
     }
+    .func-block-foot-text {
+        padding: 0 115px;
+    }
     .func-text-col, .func-text-col.text-col-w-img {
         width: 390px;
     }

@@ -151,10 +151,16 @@
     font-size: 16px;
 }
 
+.func-text {
+    background: url(../img/capability.png) no-repeat center center;
+}
 .func-text-col {
      float: left;
      width: 330px;
  }
+.func-text-col.func-text-col-sec {
+    float: right;
+}
 .func-text-col.text-col-w-img {
     width: 300px;
     text-align: center;
@@ -187,4 +193,26 @@
 .land-line-footer .btn-box {
     padding: 10px 0 30px;
     text-align: center;
+}
+
+/*---------- Landing logistics ------------------*/
+.func-it--ic.func-it-viadat {
+    background: #0054a6;
+    border-radius: 50%;
+    color: #ffffff;
+    font-style: normal;
+    white-space: normal;
+    text-align: center;
+    padding-top: 16px;
+    height: 48px;
+    line-height: 16px;
+    font-size: 14px;
+}
+/*---------- Landing robot ------------------*/
+.func-text.little-text {
+    padding-top: 5px;
+    background-position: center top;
+}
+.func-text.little-text .func-text-col {
+    min-height: 320px;
 }
