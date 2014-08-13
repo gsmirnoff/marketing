@@ -23,6 +23,7 @@ APP.Router = (function(){
             '#products':'products',
             '#products/logistics':'logistics',
             '#products/robot' : 'robot',
+            '#products/wms' : 'wms',
             '#service':'service',
             '#contacts':'contacts',
             '#admin':'admin',
