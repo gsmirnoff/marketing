@@ -23,5 +23,32 @@
     .intro-text.intro-text-wms {
         padding: 0 60px;
     }
+    .func-list-points {
+        padding: 0 100px 0 250px;
+    }
+    .func-col {
+        float: left;
+        width: 45%;
+        margin-right: 0%;
+    }
+    .func-col:first-child {
+        width: 45%;
+        margin-right: 10%;
+    }
 
+    .func-list-blocks {
+        padding-left: 115px;
+    }
+    .func-block-foot-text {
+        padding: 0 115px;
+    }
+    .func-text-col, .func-text-col.text-col-w-img {
+        width: 390px;
+    }
+    .func-text-col {
+        padding-top: 10px;
+    }
+    .func-text-col.text-col-w-img {
+        padding-top: 0;
+    }
 }

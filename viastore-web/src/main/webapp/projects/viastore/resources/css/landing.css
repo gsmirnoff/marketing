@@ -1,0 +1,218 @@
+.intro-info {
+    padding: 30px 0 60px;
+}
+.intro-img{
+    margin-right: 40px;
+    float: left;
+}
+.intro-text.intro-text-wms {
+    position: relative;
+    overflow: hidden;
+    height: 307px;
+}
+.intro-text-main {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 300;
+}
+.intro-text-main .market {
+    font-weight: 600;
+    color: #0054a6;
+}
+.intro-text-btn-block {
+    font-size: 18px;
+}
+.intro-text-btn-block p {
+    padding-bottom: 15px;
+    line-height: 30px;
+}
+.btn.btn-main-action {
+    background: #00ab6f;
+    border-bottom: 1px solid #006a45;
+    color: #ffffff;
+    text-transform: none;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.btn.btn-main-action:hover {
+    background: #006a45;
+}
+.intro-text-wms .intro-text-btn-block {
+    position: absolute;
+    bottom: 0;
+}
+
+
+.land-line {
+    padding: 30px 0;
+}
+.land-line-dark {
+    background: #e9e9e9;
+    margin-bottom: 30px;
+}
+.project-it-name.land-subtitle {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.func-col {
+    float: left;
+    width: 40%;
+    margin-right: 0%;
+}
+.func-col:first-child {
+    margin-right: 10%;
+}
+.func-list {
+    list-style-type: none;
+    list-style-position: outside;
+}
+.func-list li {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.func-list-w-icons li {
+    display: block;
+    min-height: 64px;
+    white-space: nowrap;
+}
+.func-it--ic {
+    background: url("../images/landing-ic.png") no-repeat;
+    margin-right: 10px;
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+    vertical-align: middle;
+}
+.func-it-manyfunc {
+    background-position: 0px 0px;
+}
+.func-it-lang {
+    background-position: 0px -84px;
+}
+.func-it-updates {
+    background-position: 0px -168px;
+}
+.func-it-money {
+    background-position: 0px -252px;
+}
+.func-it-start {
+    background-position: 0px -336px;
+}
+.func-it-tech {
+    background-position: 0px -420px;
+}
+.func-list-w-icons .func-it-text {
+    white-space: normal;
+    display: inline-block;
+    vertical-align: middle;
+}
+.func-list-points {
+    padding: 0 40px 0 60px;
+}
+.func-list-points li {
+    background: url("../images/list-point.png") no-repeat 0 5px;
+    padding-left: 35px;
+}
+.func-list-blocks li {
+    float: left;
+    display: block;
+    border: 1px solid #6195c8;
+    height: 55px;
+    width: 210px;
+    text-align: center;
+    margin-right: 18px;
+    line-height: 52px;
+}
+.func-list-blocks li.func-list-it-block-long {
+    width: 500px;
+    margin-right: 0;
+}
+.func-list-blocks li.func-list-it-block-mid {
+    width: 271px;
+    margin-right: 0;
+}
+.func-list-blocks li .func-it-text {
+    display: inline-block;
+    line-height: 1.2;
+    vertical-align: middle;
+}
+.land-line-marked {
+    background: #0054a6;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.land-line-marked .project-it-name {
+    color: #FFFFFF;
+    font-size: 30px;
+}
+.land-line-marked .func-list li {
+    font-size: 16px;
+}
+
+.func-text {
+    background: url(../images/capability.png) no-repeat center center;
+}
+.func-text-col {
+     float: left;
+     width: 330px;
+ }
+.func-text-col.func-text-col-sec {
+    float: right;
+}
+.func-text-col.text-col-w-img {
+    width: 300px;
+    text-align: center;
+    padding-top: 10px;
+}
+.func-text-col p {
+    padding-bottom: 25px;
+    font-size: 14px;
+    line-height: 24px;
+}
+.big-btn-box {
+    text-align: center;
+    padding-bottom: 10px;
+}
+.big-btn-box .btn {
+    height: 48px;
+    line-height: 48px;
+}
+.func-img {
+    text-align: center;
+}
+
+.land-line-footer {
+    background: #6e6e6e;
+}
+.land-line-footer .project-it-name {
+    color: #FFFFFF;
+    font-size: 30px;
+}
+.land-line-footer .btn-box {
+    padding: 10px 0 30px;
+    text-align: center;
+}
+
+/*---------- Landing logistics ------------------*/
+.func-it--ic.func-it-viadat {
+    background: #0054a6;
+    border-radius: 50%;
+    color: #ffffff;
+    font-style: normal;
+    white-space: normal;
+    text-align: center;
+    padding-top: 16px;
+    height: 48px;
+    line-height: 16px;
+    font-size: 14px;
+}
+/*---------- Landing robot ------------------*/
+.func-text.little-text {
+    padding-top: 5px;
+    background-position: center top;
+}
+.func-text.little-text .func-text-col {
+    min-height: 320px;
+}

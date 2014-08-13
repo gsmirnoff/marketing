@@ -12,6 +12,7 @@
 @import "contacts.css";
 @import "error-page.css";
 @import "media.css";
+@import "landing.css";
 
 /*admin*/
 @import "../../../../admin/resources/css/login/form.css";
