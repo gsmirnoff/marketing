@@ -216,3 +216,12 @@
 .func-text.little-text .func-text-col {
     min-height: 320px;
 }
+.func-it-magic {
+    background-position: 0px -504px;
+}
+.func-it-sys-modules {
+    background-position: 0px -588px;
+}
+.func-it-database {
+    background-position: 0px -672px;
+}
