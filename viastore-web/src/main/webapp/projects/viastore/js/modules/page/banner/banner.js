@@ -16,6 +16,8 @@ APP.Banner = (function(module){
 
         },
 
+        prohibitedPages = ['products/logistics', 'products/robot', 'products/wms'],
+
         _render = function(){
 
                 $('.banner-logo a').on('click', function(e){
@@ -36,16 +38,16 @@ APP.Banner = (function(module){
 
         _changeBanner = function(){
             var hash = Tools.hash();
-            if((hash === 'home') || (hash === '#') || hash === ''){
-               console.log('home');
-            }else if(hash === 'notfound'){
+            if ((hash === 'home') || (hash === '#') || hash === '') {
+                console.log('home');
+            } else if (hash === 'notfound') {
                 $(_el).addClass('not-found-banner');
-            }else if(hash === 'serverError'){
+            } else if (hash === 'serverError') {
                 $(_el).addClass('server-error-banner');
-            }else{
+            } else if (prohibitedPages.indexOf(hash) == -1) {
                 var ban = $(_el);
                 var img = $('<img/>').attr({
-                    src:'resources/images/solutions_bg.jpg'
+                    src: 'resources/images/solutions_bg.jpg'
                 });
                 ban.addClass('simple-page-banner');
                 ban.append(img).show();
