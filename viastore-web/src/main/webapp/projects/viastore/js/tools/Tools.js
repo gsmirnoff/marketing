@@ -18,7 +18,7 @@ var Tools = {
 
         for(var i=0; i<list.length; i++){
            var href = $(list[i]).find('a').attr('href');
-            if(href == location.hash){
+            if(href == location.hash.split('/')[0]){
                 var title = 'FLS | ' + $(list[i]).find('a').data('title');
                 $('title').text(title);
                 $(list[i]).find('a').addClass('active');
