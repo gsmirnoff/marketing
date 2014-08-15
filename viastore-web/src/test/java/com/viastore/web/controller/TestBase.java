@@ -20,6 +20,7 @@ public class TestBase extends JerseyTest {
                 .requestListenerClass(RequestContextListener.class)
                 .initParam("com.sun.jersey.api.json.POJOMappingFeature", "true")
                 .initParam("com.sun.jersey.config.property.packages", "com.viastore.web")
+                .initParam("com.sun.jersey.spi.container.ResourceFilters", "com.viastore.web.filter.ResourceFilterFactory")
                 .build();
     }
 

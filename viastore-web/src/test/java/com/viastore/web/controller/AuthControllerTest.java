@@ -2,6 +2,7 @@ package com.viastore.web.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.jersey.api.client.UniformInterfaceException;
 import com.viastore.db.entities.User;
 import com.viastore.db.repositories.UserRepository;
 import com.viastore.web.response.ResponseEntity;
@@ -39,7 +40,6 @@ public class AuthControllerTest extends TestBase {
 
     private ResponseEntity authorize(User user) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-
         return resource().path(PATH)
                 .header("project", "test_project")
                 .type(MediaType.APPLICATION_JSON)
@@ -64,6 +64,33 @@ public class AuthControllerTest extends TestBase {
 
     @Test
     public void testPingAuthored() throws Exception {
-        //todo
+        User user = new User("tst@tst.com", "tstpass");
+        ResponseEntity response = authorize(user);
+        assertThat(response.getStatus(), is(0));
+        boolean notAdminFailed = false;
+        try {
+            resource().path(PATH + "/check")
+                    .header("project", "test_project")
+                    .header("token", "abc")
+                    .type(MediaType.APPLICATION_JSON)
+                    .accept(MediaType.APPLICATION_JSON)
+                    .get(ResponseEntity.class);
+        } catch (UniformInterfaceException e) {
+            notAdminFailed = true;
+        }
+        assertThat(notAdminFailed, is(true));
+        user = new User("tst2@tst.com", "tstpass2");
+        user.setRole("admin");
+        response = authorize(user);
+        assertThat(response.getStatus(), is(0));
+        Map auth = (Map) response.getResponse();
+        String token = (String) ((Map) auth.get("token")).get("token");
+        response = resource().path(PATH + "/check")
+                .header("project", "test_project")
+                .header("token", token)
+                .type(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .get(ResponseEntity.class);
+        assertThat(response.getStatus(), is(0));
     }
 }
