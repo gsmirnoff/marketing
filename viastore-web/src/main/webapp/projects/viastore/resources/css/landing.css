@@ -37,6 +37,13 @@
 .btn.btn-main-action:hover {
     background: #006a45;
 }
+.btn.btn-main-action.btn-action-sec {
+    background: #FC5500;
+    border-bottom: 1px solid #9C3400;
+}
+.btn.btn-main-action.btn-action-sec:hover {
+    background: #CB4400;
+}
 .intro-text-wms .intro-text-btn-block {
     position: absolute;
     bottom: 0;
