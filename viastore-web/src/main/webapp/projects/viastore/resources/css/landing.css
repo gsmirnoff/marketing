@@ -106,6 +106,7 @@
     white-space: normal;
     display: inline-block;
     vertical-align: middle;
+    width: 90%;
 }
 .func-list-points {
     padding: 0 40px 0 60px;
