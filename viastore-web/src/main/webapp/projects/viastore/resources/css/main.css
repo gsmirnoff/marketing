@@ -11,8 +11,8 @@
 @import 'addnav.css';
 @import "contacts.css";
 @import "error-page.css";
-@import "media.css";
 @import "landing.css";
+@import "media.css";
 
 /*admin*/
 @import "../../../../admin/resources/css/login/form.css";
